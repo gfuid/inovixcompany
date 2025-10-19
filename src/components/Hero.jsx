@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-          We Help Businesses <br />
+          We Help Businesses sagar <br />
           <span className="text-blue-500">
             <ReactTyped
               strings={[
