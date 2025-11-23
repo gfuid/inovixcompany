@@ -2,88 +2,146 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote, MessageSquareHeart } from "lucide-react";
+import athish from "../assets/athish.png"
+import deepak from "../assets/deepak.png"
 
 export default function TestimonialsSection() {
   const testimonials = [
     {
       name: "Athish Ravikant",
-      role: "EXport Manager",
+      role: "Export Manager",
       feedback:
         "This agency completely transformed our online presence. From branding to ads, everything was handled with professionalism and creativity.",
-      img: "https://randomuser.me/api/portraits/men/32.jpg",
+      img: athish,
       rating: 5,
     },
     {
-      name: "Deepak Rai",
+      name: "Deepeka Rai",
       role: "Founder, Tech Startup",
       feedback:
-        "The reels and video ads boosted my sales like crazy. Their content ideas and execution are top-notch.",
-      img: "https://randomuser.me/api/portraits/women/44.jpg",
+        "The reels and video ads boosted my sales like crazy. Their content ideas and execution are top-notch. Highly recommended for scaling.",
+      img: deepak,
       rating: 5,
     },
     {
-      name: "Amit Verma",
-      role: "Restaurant Owner",
+      name: "Nirjan ",
+      role: "Bussiness Owner",
       feedback:
-        "Our business visibility increased with their social media marketing. They know how to target the right audience.",
+        "Our business visibility increased significantly with their social media marketing. They truly know how to target the right audience.",
       img: "https://randomuser.me/api/portraits/men/65.jpg",
       rating: 4,
     },
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-black text-white py-20 px-6 overflow-hidden">
-      {/* Glow Effect Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
+    <section className="relative w-full min-h-screen bg-black text-white py-24 px-6 overflow-hidden selection:bg-cyan-500/30">
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold mb-6"
-        >
-          What Our <span className="text-blue-500">Clients Say</span>
-        </motion.h2>
+      {/* --- Background Effects (Unified Theme) --- */}
 
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-gray-300 text-lg max-w-2xl mx-auto mb-12"
-        >
-          We’re proud to have worked with amazing clients. Here’s what they
-          think about our services.
-        </motion.p>
+      {/* 1. Technical Grid Pattern */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: "linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      ></div>
+
+      {/* 2. Glow Spotlights */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+
+
+      {/* --- Content --- */}
+      <div className="relative z-10 max-w-7xl mx-auto">
+
+        {/* Header */}
+        <div className="mb-20 text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm"
+          >
+            <MessageSquareHeart className="w-4 h-4" />
+            <span>Client Success Stories</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+          >
+            Trusted by <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+              Industry Leaders
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-gray-400 text-lg leading-relaxed"
+          >
+            Don't just take our word for it. Here is what founders and managers are saying about our impact on their growth.
+          </motion.p>
+        </div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-gray-900/50 hover:bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group relative flex flex-col h-full bg-white/[0.03] border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-500/30 hover:bg-white/[0.05] transition-all duration-500"
             >
-              <img
-                src={t.img}
-                alt={t.name}
-                className="w-20 h-20 rounded-full object-cover border-2 border-blue-500 mb-4"
-              />
-              <h3 className="text-xl font-semibold">{t.name}</h3>
-              <p className="text-sm text-gray-400">{t.role}</p>
-              <p className="text-gray-300 text-sm mt-4 mb-4 italic">
-                “{t.feedback}”
-              </p>
-              <div className="flex justify-center">
-                {[...Array(t.rating)].map((_, i) => (
+              {/* Giant Quote Icon Background */}
+              <div className="absolute top-6 right-6 text-white/5 group-hover:text-cyan-500/10 transition-colors duration-500">
+                <Quote className="w-16 h-16 fill-current" />
+              </div>
+
+              {/* Stars */}
+              <div className="flex gap-1 mb-6 relative z-10">
+                {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                    className={`w-4 h-4 ${i < t.rating
+                      ? "text-cyan-400 fill-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
+                      : "text-gray-700"
+                      }`}
                   />
                 ))}
+              </div>
+
+              {/* Feedback Text */}
+              <p className="text-lg text-gray-200 leading-relaxed mb-8 flex-grow relative z-10">
+                "{t.feedback}"
+              </p>
+
+              {/* User Info */}
+              <div className="flex items-center gap-4 pt-6 border-t border-white/10 relative z-10">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full blur-[2px] opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                  <img
+                    src={t.img}
+                    alt={t.name}
+                    className="relative w-12 h-12 rounded-full object-cover border-2 border-black"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    {t.name}
+                  </h4>
+                  <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+                    {t.role}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}

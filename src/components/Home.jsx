@@ -7,8 +7,8 @@ import Fourth from "./Fourth.jsx";
 import TestimonialsSection from "./TestimonialsSection.jsx";
 import PortfolioSection from "./PortfolioSection.jsx";
 import WhyChooseUsSection from "./WhyChooseUsSection.jsx";
-import ProcessSection from "./ProcessSection.jsx";
-import ContactSection   from "./ContactSection.jsx";
+
+import ContactSection from "./ContactSection.jsx";
 import PricingSection from "./PricingSection.jsx";
 import Footer from "./Footer.jsx";
 const Home = () => {
@@ -22,12 +22,12 @@ const Home = () => {
       <TestimonialsSection />
       <PortfolioSection />
       <WhyChooseUsSection />
-      <ProcessSection />
+
       <PricingSection />
       <ContactSection />
       <Footer />
-      
-    
+
+
 
     </div>
   );
