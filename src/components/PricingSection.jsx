@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, Zap } from "lucide-react";
-import { Button } from "../ui/button"; // Assuming standard button import, or we can inline style
 
 const plans = [
   {
@@ -113,8 +112,8 @@ export default function PricingSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               className={`relative group rounded-3xl p-8 border transition-all duration-500 ${plan.highlight
-                  ? "bg-neutral-900/80 border-cyan-500 shadow-[0_0_40px_rgba(34,211,238,0.15)] scale-105 z-10"
-                  : "bg-neutral-900/40 border-white/10 hover:border-white/20 hover:bg-neutral-900/60"
+                ? "bg-neutral-900/80 border-cyan-500 shadow-[0_0_40px_rgba(34,211,238,0.15)] scale-105 z-10"
+                : "bg-neutral-900/40 border-white/10 hover:border-white/20 hover:bg-neutral-900/60"
                 }`}
             >
               {/* Highlight Badge */}
@@ -150,8 +149,8 @@ export default function PricingSection() {
               {/* CTA Button */}
               <button
                 className={`w-full py-4 rounded-xl font-bold transition-all duration-300 ${plan.highlight
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-600 text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
-                    : "bg-white text-black hover:bg-gray-200"
+                  ? "bg-gradient-to-r from-cyan-400 to-blue-600 text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                  : "bg-white text-black hover:bg-gray-200"
                   }`}
               >
                 Book Now
