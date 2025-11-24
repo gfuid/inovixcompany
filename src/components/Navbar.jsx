@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";  // ✔ correct way
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,23 +18,51 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             {/* Optional: Add an icon here if you want it exactly like the image */}
             {/* <div className="text-white"><Atom /></div> */}
-            <div className="text-xl font-bold tracking-wide text-white drop-shadow-[0_0_10px_rgba(192,192,192,0.6)]">
-              Inovix
-            </div>
+            <Link to="/">
+              <div className="text-xl font-bold tracking-wide text-white drop-shadow-[0_0_10px_rgba(192,192,192,0.6)]">
+                Inovix
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Nav Links */}
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex space-x-8 text-sm font-medium">
-            {["Home", "Services", "About", "Contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-gray-300 hover:text-white transition duration-300"
-              >
-                {link}
-              </a>
-            ))}
+            <Link
+              to="/"
+              className="text-gray-300 hover:text-white transition duration-300"
+            >
+              Home
+            </Link>
+
+            <Link
+              to="/service"
+              className="text-gray-300 hover:text-white transition duration-300"
+            >
+              Services
+            </Link>
+
+            <Link
+              to="/about"
+              className="text-gray-300 hover:text-white transition duration-300"
+            >
+              About
+            </Link>
+
+            <Link
+              to="/contact"
+              className="text-gray-300 hover:text-white transition duration-300"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/tools"
+              className="text-gray-300 hover:text-white transition duration-300"
+            >
+              Tools
+            </Link>
           </div>
+
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">

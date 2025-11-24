@@ -103,7 +103,7 @@ export default function Footer() {
               className="mb-6"
             >
               <h2 className="text-3xl font-black tracking-tighter text-white mb-6 flex items-center gap-2">
-                AGENCY<span className="text-cyan-400">.IO</span>
+                INOVIX<span className="text-cyan-400">.CO</span>
                 <Sparkles className="w-4 h-4 text-purple-400 animate-pulse" />
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8 text-sm">
