@@ -6,6 +6,7 @@ import { ArrowRight, Globe } from "lucide-react";
 import b1 from "../assets/t.png"
 import b2 from "../assets/a.png"
 import b3 from "../assets/logo.png"
+import { Link } from "react-router-dom";
 
 
 export default function Hero() {
@@ -169,19 +170,23 @@ export default function Hero() {
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-            <WrapButton className="relative px-8 py-3 rounded-full font-semibold text-white bg-black border border-gray-800 hover:bg-gray-900 transition-all duration-300 flex items-center gap-2">
-              Get Started
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </WrapButton>
-          </div>
+            <Link to="/contact">
+              <WrapButton className="relative px-8 py-3 rounded-full font-semibold text-white bg-black border border-gray-800 hover:bg-gray-900 transition-all duration-300 flex items-center gap-2">
+                Get Started
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </WrapButton>
+            </Link>
 
-          <Button
-            size="lg"
-            variant="ghost"
-            className="text-gray-300 hover:text-white hover:bg-white/5 rounded-full px-8 py-3 transition-all border border-transparent hover:border-white/10"
-          >
-            Learn More
-          </Button>
+          </div>
+          <Link to="/about">
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-gray-300 hover:text-white hover:bg-white/5 rounded-full px-8 py-3 transition-all border border-transparent hover:border-white/10"
+            >
+              Learn More
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Social Proof */}
