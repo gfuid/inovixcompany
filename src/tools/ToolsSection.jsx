@@ -189,7 +189,7 @@ const ToolsSection = () => {
         {/* Section Header */}
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
-            All <span className="text-cyan-400">Services</span>
+            All <span className="text-cyan-400">Free Tools</span>
           </h2>
           <p className="text-gray-400 text-lg">
             Explore our complete suite of digital tools. Everything you need to create, convert, and optimize is right here.

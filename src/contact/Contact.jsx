@@ -75,7 +75,7 @@ const Contact = () => {
                                 <div>
                                     <h4 className="text-white font-bold text-lg mb-1">Chat to us</h4>
                                     <p className="text-gray-400 text-sm mb-2">Our friendly team is here to help.</p>
-                                    <a href="mailto:hello@inovix.co" className="text-cyan-400 font-mono hover:underline">hello@inovix.co</a>
+                                    <a href="mailto:hello@inovix.co" className="text-cyan-400 font-mono hover:underline">info@inovix.co.in</a>
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@ const Contact = () => {
                                 <div>
                                     <h4 className="text-white font-bold text-lg mb-1">Call us</h4>
                                     <p className="text-gray-400 text-sm mb-2">Mon-Fri from 8am to 5pm.</p>
-                                    <p className="text-gray-300 text-sm">+1 (555) 000-0000</p>
+                                    <p className="text-gray-300 text-sm">+91 83079 67782</p>
                                 </div>
                             </div>
 

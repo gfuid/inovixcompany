@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -145,16 +146,17 @@ export default function PricingSection() {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Button */}
-              <button
-                className={`w-full py-4 rounded-xl font-bold transition-all duration-300 ${plan.highlight
-                  ? "bg-gradient-to-r from-cyan-400 to-blue-600 text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
-                  : "bg-white text-black hover:bg-gray-200"
-                  }`}
-              >
-                Book Now
-              </button>
+              <Link to="/contact">
+                {/* CTA Button */}
+                <button
+                  className={` cursor-pointer w-full py-4 rounded-xl font-bold transition-all duration-300 ${plan.highlight
+                    ? "bg-gradient-to-r from-cyan-400 to-blue-600 text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                    : "bg-white text-black hover:bg-gray-200"
+                    }`}
+                >
+                  Book Now
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>

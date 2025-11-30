@@ -96,8 +96,8 @@ export default function ContactSection() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      value: "hello@agency.com",
-      link: "mailto:hello@agency.com",
+      value: "info@inovix.com",
+      link: "mailto:info@inovix.co.in",
       color: "text-cyan-400",
       bg: "bg-cyan-500/10",
       border: "border-cyan-500/20",
@@ -106,8 +106,8 @@ export default function ContactSection() {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210",
+      value: "+91 83079 67782",
+      link: "tel:+918307967782",
       color: "text-green-400",
       bg: "bg-green-500/10",
       border: "border-green-500/20",
@@ -116,7 +116,7 @@ export default function ContactSection() {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      value: "Cyber City, Gurugram",
+      value: "Cyber City, Panipat",
       link: "#",
       color: "text-purple-400",
       bg: "bg-purple-500/10",
@@ -241,7 +241,7 @@ export default function ContactSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="mailto:contact@youragency.com"
+            href="mailto:info@inovix.co.in"
             className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-neutral-900 font-lg rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
           >
             <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-75 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
@@ -255,7 +255,7 @@ export default function ContactSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/918307967782"
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 bg-transparent border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/[0.05] hover:border-white/30 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
