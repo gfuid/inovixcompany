@@ -11,6 +11,7 @@ import WhyChooseUsSection from "./WhyChooseUsSection.jsx";
 import ContactSection from "./ContactSection.jsx";
 import PricingSection from "./PricingSection.jsx";
 import Footer from "./Footer.jsx";
+import ToolsSection from "../tools/ToolsSection.jsx";
 import { Helmet } from "react-helmet-async";
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Secondsection />
+      <ToolsSection />
       <Third />
       <Fourth />
       <TestimonialsSection />
