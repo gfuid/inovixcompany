@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://inovix.co.in/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://inovix.co.in/service</loc>
+  </url>
+
+  <url>
+    <loc>https://inovix.co.in/about</loc>
+  </url>
+
+  <url>
+    <loc>https://inovix.co.in/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://inovix.co.in/tools</loc>
+  </url>
+
+  <!-- AUTO TOOL ROUTES -->
+  <url><loc>https://inovix.co.in/tools/smart-compressor</loc></url>
+  <url><loc>https://inovix.co.in/tools/brand-watermark</loc></url>
+  <url><loc>https://inovix.co.in/tools/precision-resizer</loc></url>
+  <url><loc>https://inovix.co.in/tools/text-extractor</loc></url>
+  <url><loc>https://inovix.co.in/tools/qr-studio</loc></url>
+  <url><loc>https://inovix.co.in/tools/background-remover</loc></url>
+  <url><loc>https://inovix.co.in/tools/color-key-remover</loc></url>
+  <url><loc>https://inovix.co.in/tools/image-enhancer</loc></url>
+  <url><loc>https://inovix.co.in/tools/file-converter</loc></url>
+  <url><loc>https://inovix.co.in/tools/pdf-compressor</loc></url>
+  <url><loc>https://inovix.co.in/tools/pdf-to-image</loc></url>
+  <url><loc>https://inovix.co.in/tools/image-to-pdf</loc></url>
+  <url><loc>https://inovix.co.in/tools/video-compressor</loc></url>
+  <url><loc>https://inovix.co.in/tools/video-to-audio</loc></url>
+  <url><loc>https://inovix.co.in/tools/audio-noise-remover</loc></url>
+
+</urlset>
+
