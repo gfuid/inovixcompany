@@ -179,7 +179,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-xs">
-            © 2025 Agency.io Inc. All rights reserved.
+            © 2025 inovix.co.io Inc. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-gray-500">
             <FooterLink text="Privacy Policy" />

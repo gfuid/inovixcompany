@@ -11,9 +11,14 @@ import WhyChooseUsSection from "./WhyChooseUsSection.jsx";
 import ContactSection from "./ContactSection.jsx";
 import PricingSection from "./PricingSection.jsx";
 import Footer from "./Footer.jsx";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Best Digital Marketing Agency in Panipat | Inovix</title>
+        <meta name="description" content="Inovix helps Panipat businesses grow with SEO and Web Design." />
+      </Helmet>
       <Navbar />
       <Hero />
       <Secondsection />
