@@ -1,10 +1,12 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link for internal navigation
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, Sparkles } from "lucide-react";
+import {
+  Facebook, Twitter, Instagram, Linkedin, ArrowRight, Sparkles, Youtube,
+  MapPin, Phone, Mail
+} from "lucide-react";
 
-// --- 1. Scramble Text Component ---
+// --- 1. Scramble Text Component (Kept Original) ---
 const ScrambleText = ({ text, className, trigger }) => {
   const [displayText, setDisplayText] = useState(text);
   const chars = "XY01_<>[]{}—+*";
@@ -40,34 +42,44 @@ const ScrambleText = ({ text, className, trigger }) => {
   return <span className={className}>{displayText}</span>;
 };
 
-// --- 2. Interactive Link Component ---
-const FooterLink = ({ text }) => {
+// --- 2. Interactive Link Component (Updated for React Router) ---
+const FooterLink = ({ text, to }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <a
-      href="#"
+    <Link
+      to={to}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="text-gray-400 hover:text-cyan-400 transition-colors text-sm block hover:translate-x-1 duration-200"
     >
       <ScrambleText text={text} trigger={isHovered} />
-    </a>
+    </Link>
   );
 };
 
 export default function Footer() {
+  // --- SEO FIX: Real Internal Links ---
   const links = {
-    company: ["About Us", "Careers", "Our Team", "News"],
-    services: ["Web Development", "Social Media", "Video Production", "SEO"],
-    resources: ["Blog", "Case Studies", "Whitepapers", "Support"],
+    company: [
+      { name: "About Us", path: "/about" },
+      { name: "Services", path: "/services" },
+      { name: "Our Team", path: "/team" },
+    ],
+    services: [
+      { name: "SEO Optimization", path: "/seo" },
+      { name: "Web Design", path: "/web-design" },
+      { name: "Social Media", path: "/smm" },
+    ],
   };
 
+  // --- SEO FIX: Real Social Links added here ---
   const socialIcons = [
-    { icon: <Instagram className="w-5 h-5" />, href: "#", color: "hover:text-pink-500", glow: "hover:shadow-pink-500/50" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", color: "hover:text-cyan-400", glow: "hover:shadow-cyan-500/50" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", color: "hover:text-blue-500", glow: "hover:shadow-blue-500/50" },
-    { icon: <Facebook className="w-5 h-5" />, href: "#", color: "hover:text-blue-600", glow: "hover:shadow-blue-600/50" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com/inovix_official", color: "hover:text-pink-500", glow: "hover:shadow-pink-500/50" },
+    { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com/inovix", color: "hover:text-cyan-400", glow: "hover:shadow-cyan-500/50" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/company/inovix", color: "hover:text-blue-500", glow: "hover:shadow-blue-500/50" },
+    { icon: <Facebook className="w-5 h-5" />, href: "https://facebook.com/inovix", color: "hover:text-blue-600", glow: "hover:shadow-blue-600/50" },
+    { icon: <Youtube className="w-5 h-5" />, href: "https://youtube.com/@inovix", color: "hover:text-red-600", glow: "hover:shadow-red-600/50" },
   ];
 
   return (
@@ -94,7 +106,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-12 mb-20">
 
-          {/* Brand Column */}
+          {/* 1. Brand Column */}
           <div className="md:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -103,19 +115,21 @@ export default function Footer() {
               className="mb-6"
             >
               <h2 className="text-3xl font-black tracking-tighter text-white mb-6 flex items-center gap-2">
-                INOVIX<span className="text-cyan-400">.CO</span>
+                INOVIX<span className="text-cyan-400">.CO.IN</span>
                 <Sparkles className="w-4 h-4 text-purple-400 animate-pulse" />
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8 text-sm">
-                Crafting digital experiences that merge creativity with future-tech. We build brands that don't just survive—they dominate.
+                Haryana's leading digital agency. We build brands that don't just survive—they dominate the digital landscape.
               </p>
 
-              {/* Magnetic Social Icons */}
+              {/* Magnetic Social Icons (With Real Links) */}
               <div className="flex gap-4">
                 {socialIcons.map((social, idx) => (
                   <motion.a
                     key={idx}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white/10 ${social.color} hover:shadow-lg ${social.glow}`}
@@ -127,8 +141,8 @@ export default function Footer() {
             </motion.div>
           </div>
 
-          {/* Links Columns */}
-          <div className="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {/* 2. Links Columns */}
+          <div className="md:col-span-5 grid grid-cols-2 gap-8">
             {Object.entries(links).map(([category, items], idx) => (
               <motion.div
                 key={category}
@@ -140,16 +154,40 @@ export default function Footer() {
                 <h3 className="text-white font-bold uppercase tracking-wider text-xs mb-6 text-cyan-500/80">{category}</h3>
                 <ul className="space-y-3">
                   {items.map((item) => (
-                    <li key={item}>
-                      <FooterLink text={item} />
+                    <li key={item.name}>
+                      <FooterLink text={item.name} to={item.path} />
                     </li>
                   ))}
                 </ul>
               </motion.div>
             ))}
+
+            {/* --- NEW: Contact Column (Crucial for Local SEO) --- */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-white font-bold uppercase tracking-wider text-xs mb-6 text-cyan-500/80">Contact</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-sm text-gray-400">
+                  <MapPin className="w-4 h-4 text-cyan-500 shrink-0 mt-1" />
+                  <span>Panipat, Haryana<br />132103, India</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 text-cyan-500 shrink-0" />
+                  <a href="tel:+918307967782">+91 83079 67782</a>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                  <Mail className="w-4 h-4 text-cyan-500 shrink-0" />
+                  <a href="mailto:contact@inovix.co.in">contact@inovix.co.in</a>
+                </li>
+              </ul>
+            </motion.div>
           </div>
 
-          {/* Newsletter Column */}
+          {/* 3. Newsletter Column */}
           <div className="md:col-span-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -179,11 +217,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-xs">
-            © 2025 inovix.co.io Inc. All rights reserved.
+            © 2025 Inovix Digital Agency. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-gray-500">
-            <FooterLink text="Privacy Policy" />
-            <FooterLink text="Terms of Service" />
+            <Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

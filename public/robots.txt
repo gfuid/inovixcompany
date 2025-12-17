@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://inovix.co.in/sitemap.xml
+# Sitemap bata raha hai ki saare pages kahan hain
+Sitemap: https://www.inovix.co.in/sitemap.xml
+
+# Admin ya private pages ko block karein
+Disallow: /admin/
+Disallow: /private/

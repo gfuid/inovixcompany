@@ -8,7 +8,6 @@ import b2 from "../assets/a.png"
 import b3 from "../assets/logo.png"
 import { Link } from "react-router-dom";
 
-
 export default function Hero() {
   // ---------------------------
   // Dynamic Rotating Text (ASOS Fade)
@@ -87,6 +86,13 @@ export default function Hero() {
   return (
     <section className="relative flex items-center justify-center min-h-screen bg-black text-white overflow-hidden selection:bg-cyan-500/30">
 
+      {/* SEO FIX: Hidden H1 for Google Bots 
+          Yeh screen par nahi dikhega, lekin Google isse padh lega.
+      */}
+      <h1 className="sr-only">
+        Inovix - Best Digital Marketing Agency in Panipat & Haryana | SEO, Web Design & SMM Services
+      </h1>
+
       {/* Background Grid */}
       <div
         className="absolute inset-0 z-0 opacity-20"
@@ -111,15 +117,18 @@ export default function Hero() {
         {/* Dynamic Pill Badge */}
         <motion.div
           variants={fadeScale}
-          key={dynamicText} // makes it fade like ASOS
+          key={dynamicText}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm mt-12"
         >
           <Globe className="w-4 h-4" />
           <span className="transition-opacity duration-500">{dynamicText}</span>
         </motion.div>
 
-        {/* Main Heading */}
-        <motion.h1
+        {/* CHANGED: motion.h1 -> motion.h2 
+            Since we added a hidden H1 above, this visual title becomes H2 
+            to maintain hierarchy.
+        */}
+        <motion.h2
           variants={fadeUp}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
         >
@@ -153,7 +162,7 @@ export default function Hero() {
               />
             </svg>
           </motion.span>
-        </motion.h1>
+        </motion.h2>
 
         {/* Subheading */}
         <motion.p
@@ -190,7 +199,6 @@ export default function Hero() {
         </motion.div>
 
         {/* Social Proof */}
-        {/* Social Proof */}
         <motion.div
           variants={fadeUp}
           className="mt-16 pt-8 border-t border-white/10"
@@ -201,12 +209,12 @@ export default function Hero() {
 
             {/* Logo 1 */}
             <div className="h-8 w-24 flex items-center justify-center">
-              <img src={b1} alt="Brand 1" className="h-full object-contain" />
+              <img src={b1} alt="Client Brand 1" className="h-full object-contain" />
             </div>
 
             {/* Logo 2 */}
             <div className="h-8 w-24 flex items-center justify-center">
-              <img src={b2} alt="Brand 2" className="h-full object-contain" />
+              <img src={b2} alt="Client Brand 2" className="h-full object-contain" />
             </div>
 
             {/* Placeholder Logos */}
@@ -215,7 +223,7 @@ export default function Hero() {
             </div>
 
             <div className="h-8 w-24 flex items-center justify-center">
-              <img src={b3} alt="Brand 2" className="h-full object-contain" />
+              <img src={b3} alt="Inovix Logo" className="h-full object-contain" />
             </div>
 
           </div>
