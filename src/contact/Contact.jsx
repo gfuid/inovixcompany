@@ -85,8 +85,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-bold text-lg mb-1">Visit us</h4>
-                                    <p className="text-gray-400 text-sm mb-2">Come say hello at our office HQ.</p>
-                                    <p className="text-gray-300 text-sm">100 Innovation Blvd, Tech City, TC 90210</p>
+                                    <p className="text-gray-400 text-sm mb-2">Our studio base.</p>
+                                    <p className="text-gray-300 text-sm">Panipat, Haryana, 132103, India</p>
                                 </div>
                             </div>
 

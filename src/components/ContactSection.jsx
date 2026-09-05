@@ -1,311 +1,246 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
-import { Mail, MessageCircle, MapPin, Phone, ArrowRight, Sparkles, Clock } from "lucide-react";
-
-// --- 1. Scramble Text Component ---
-const ScrambleText = ({ text, className, trigger }) => {
-  const [displayText, setDisplayText] = useState(text);
-  const chars = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
-
-  useEffect(() => {
-    let interval;
-    if (trigger) {
-      let iteration = 0;
-      interval = setInterval(() => {
-        setDisplayText((prev) =>
-          text
-            .split("")
-            .map((letter, index) => {
-              if (index < iteration) {
-                return text[index];
-              }
-              return chars[Math.floor(Math.random() * chars.length)];
-            })
-            .join("")
-        );
-
-        if (iteration >= text.length) {
-          clearInterval(interval);
-        }
-        iteration += 1 / 3;
-      }, 30);
-    } else {
-      setDisplayText(text);
-    }
-    return () => clearInterval(interval);
-  }, [trigger, text]);
-
-  return <span className={className}>{displayText}</span>;
-};
-
-// --- 2. 3D Tilt Card Component (Enhanced) ---
-const TiltCard = ({ children, className }) => {
-  const ref = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  // Smooth springs for rotation
-  const xRotation = useSpring(0, { stiffness: 300, damping: 30 });
-  const yRotation = useSpring(0, { stiffness: 300, damping: 30 });
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={(e) => {
-        const rect = ref.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const xPct = (mouseX / width - 0.5) * 20;
-        const yPct = (mouseY / height - 0.5) * -20;
-
-        xRotation.set(yPct);
-        yRotation.set(xPct);
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        xRotation.set(0);
-        yRotation.set(0);
-      }}
-      style={{
-        rotateX: xRotation,
-        rotateY: yRotation,
-        transformStyle: "preserve-3d",
-      }}
-      className={`relative perspective-1000 ${className}`}
-    >
-      {/* Pass hover state to children via render prop or cloneElement if needed, 
-          but here we just pass simple children for layout, so we handle logic inside specific wrappers if needed.
-          Actually, let's wrap the child in a div that receives the hover state logic if we want to trigger ScrambleText from here. 
-      */}
-      {React.Children.map(children, child =>
-        React.isValidElement(child) ? React.cloneElement(child, { isHovered }) : child
-      )}
-    </motion.div>
-  );
-};
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  MessageCircle,
+  MapPin,
+  Phone,
+  ArrowRight,
+  Sparkles,
+  Clock,
+  Send,
+  ShieldCheck,
+} from "lucide-react";
+import contactAvatar from "../assets/assets/brand/contact_avatar.png";
 
 export default function ContactSection() {
-  const contactDetails = [
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    business: "",
+    service: "Launchpad Website (₹4,999)",
+    notes: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // Open WhatsApp with pre-filled details
+    const text = `Hi Inovix! My name is ${formData.name} from ${formData.business || "my business"}. I am interested in ${formData.service}. Additional note: ${formData.notes || "None"}. Phone: ${formData.phone}`;
+    const url = `https://wa.me/918307967782?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  };
+
+  const contactCards = [
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      value: "info@inovix.com",
-      link: "mailto:info@inovix.co.in",
-      color: "text-cyan-400",
-      bg: "bg-cyan-500/10",
-      border: "border-cyan-500/20",
-      glow: "group-hover:shadow-[0_0_50px_-10px_rgba(34,211,238,0.3)]"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Call Us",
+      icon: Phone,
+      title: "Direct Founder Phone",
       value: "+91 83079 67782",
       link: "tel:+918307967782",
-      color: "text-green-400",
-      bg: "bg-green-500/10",
-      border: "border-green-500/20",
-      glow: "group-hover:shadow-[0_0_50px_-10px_rgba(74,222,128,0.3)]"
+      label: "Call Anytime (9am - 9pm)",
+      color: "text-emerald-400",
+      border: "border-emerald-500/20",
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Us",
-      value: "Cyber City, Panipat",
+      icon: MessageCircle,
+      title: "WhatsApp Priority Chat",
+      value: "Chat on WhatsApp",
+      link: "https://wa.me/918307967782?text=Hi%20Inovix%2C%20I%20want%20a%20quote%20for%20my%20business",
+      label: "Instant response < 15 mins",
+      color: "text-cyan-400",
+      border: "border-cyan-500/20",
+    },
+    {
+      icon: Mail,
+      title: "Official Email",
+      value: "info@inovix.co.in",
+      link: "mailto:info@inovix.co.in",
+      label: "Send RFQs & RFP docs",
+      color: "text-blue-400",
+      border: "border-blue-500/20",
+    },
+    {
+      icon: MapPin,
+      title: "Engineering Studio",
+      value: "Panipat, Haryana, India",
       link: "#",
+      label: "Serving Clients Globally",
       color: "text-purple-400",
-      bg: "bg-purple-500/10",
       border: "border-purple-500/20",
-      glow: "group-hover:shadow-[0_0_50px_-10px_rgba(192,132,252,0.3)]"
     },
   ];
 
   return (
-    <section className="relative w-full py-32 px-6 bg-black text-white overflow-hidden selection:bg-cyan-500/30">
+    <section id="contact" className="relative w-full py-24 px-4 sm:px-6 bg-[#040408] text-white overflow-hidden border-b border-white/5 selection:bg-cyan-500/30">
+      {/* Background Ambience */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-cyan-900/15 blur-[160px] rounded-full pointer-events-none" />
 
-      {/* --- 1. Background Effects --- */}
-
-      {/* Moving Grid Scanner */}
-      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none perspective-500">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-        <motion.div
-          animate={{ top: ["0%", "100%", "0%"] }}
-          transition={{ duration: 15, ease: "linear", repeat: Infinity }}
-          className="absolute left-0 w-full h-[2px] bg-cyan-500/50 shadow-[0_0_20px_rgba(34,211,238,0.5)]"
-        />
-      </div>
-
-      {/* Floating Particles */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            y: [0, -40, 0],
-            opacity: [0.2, 0.5, 0.2],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 5 + i * 2,
-            repeat: Infinity,
-            delay: i,
-            ease: "easeInOut"
-          }}
-          className="absolute w-1 h-1 bg-cyan-500 rounded-full blur-[1px]"
-          style={{
-            top: `${20 + Math.random() * 60}%`,
-            left: `${10 + Math.random() * 80}%`,
-          }}
-        />
-      ))}
-
-      {/* Central Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-900/20 to-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
-
-
-      {/* --- 2. Content --- */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center">
-
-        {/* Interactive Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative inline-flex flex-col items-center group mb-10 cursor-pointer"
-        >
-          <div className="flex items-center gap-3 px-5 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl group-hover:border-green-500/30 transition-all duration-300">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-            </span>
-            <span className="text-sm font-medium text-gray-400 group-hover:text-green-400 transition-colors">
-              Accepting New Projects
-            </span>
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Fast Execution • Direct Founder Attention</span>
           </div>
 
-          {/* Tooltip on Hover */}
-          <div className="absolute top-full mt-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-900/80 border border-green-500/30 rounded-lg text-xs text-green-300 backdrop-blur-md">
-              <Clock className="w-3 h-3" />
-              <span>Avg. Response: 2 Hours</span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Main Heading */}
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-5xl md:text-8xl font-black mb-10 tracking-tighter"
-        >
-          Ready to <br />
-          <span className="relative inline-block">
-            <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 blur-2xl opacity-20 animate-pulse"></span>
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-              Ignite Growth?
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight">
+            Let’s Build Something <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+              Unstoppable Together.
             </span>
-          </span>
-        </motion.h2>
+          </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-xl md:text-2xl text-gray-400 mb-16 max-w-2xl mx-auto leading-relaxed font-light"
-        >
-          Let's engineer a digital presence that dominates your market.
-        </motion.p>
-
-        {/* Primary CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row justify-center gap-8 mb-24"
-        >
-          {/* Shimmer Button Effect */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="mailto:info@inovix.co.in"
-            className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-neutral-900 font-lg rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-          >
-            <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-75 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-            <div className="relative flex items-center gap-3 bg-black rounded-full px-8 py-4 leading-none transition-all group-hover:bg-neutral-900">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
-              <span>Get a Free Quote</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-gray-400 group-hover:text-white" />
-            </div>
-          </motion.a>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://wa.me/918307967782"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group px-8 py-4 bg-transparent border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/[0.05] hover:border-white/30 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
-          >
-            <MessageCircle className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform" />
-            <span>WhatsApp Us</span>
-          </motion.a>
-        </motion.div>
-
-        {/* Divider */}
-        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-20"></div>
-
-        {/* 3D Contact Info Grid */}
-        <div className="grid md:grid-cols-3 gap-8 perspective-1000">
-          {contactDetails.map((item, index) => (
-            <TiltCard key={index} className="h-full">
-              {/* We clone the child to pass hover state for ScrambleText trigger */}
-              <ContactCardContent item={item} />
-            </TiltCard>
-          ))}
+          <p className="mt-4 text-sm sm:text-base text-slate-400">
+            Tell us about your brand or shop. We will send you a fixed, transparent quote and live concept in under 24 hours.
+          </p>
         </div>
 
+        {/* 2-Column Section: Quick Quote Form + Direct Channels */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Form Side */}
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-[#080812] border border-white/10 shadow-2xl">
+            <h3 className="text-xl font-bold text-white mb-1">Get an Instant Quote</h3>
+            <p className="text-xs text-slate-400 mb-6">
+              Takes 60 seconds. Zero sales harassment, guaranteed.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Rahul Sharma"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    WhatsApp / Phone *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+91 98765 43210"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Business / Shop Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.business}
+                    onChange={(e) => setFormData({ ...formData, business: e.target.value })}
+                    placeholder="e.g. Panipat Handlooms / My Cafe"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Select Required Package
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#0e0e1a] border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                  >
+                    <option value="Launchpad Website (₹4,999)">Launchpad Website (₹4,999)</option>
+                    <option value="Growth Engine & SEO (₹19,999)">Growth Engine & SEO (₹19,999)</option>
+                    <option value="Custom CRM & Software (₹49,999+)">Custom CRM & Software (₹49,999+)</option>
+                    <option value="Web Care & Hosting (₹500/mo)">Web Care & Hosting (₹500/mo)</option>
+                    <option value="Export & Business Consulting">Export & Business Consulting</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  Brief Requirements / Goal (Optional)
+                </label>
+                <textarea
+                  rows={3}
+                  value={formData.notes}
+                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                  placeholder="e.g. I need a modern restaurant website with menu & Google Maps ranking..."
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn-press w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-600 hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] flex items-center justify-center gap-2 transition-all cursor-pointer"
+              >
+                <span>Send via WhatsApp & Get Instant Quote</span>
+                <Send className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>100% Privacy • Direct response from the founder in 15 mins</span>
+              </div>
+            </form>
+          </div>
+
+          {/* Direct Channels Side */}
+          <div className="lg:col-span-5 space-y-4">
+            {/* Founder Direct Card */}
+            <div className="p-5 rounded-2xl bg-[#080814] border border-cyan-500/30 flex items-center gap-4 shadow-[0_4px_25px_rgba(0,212,255,0.1)]">
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-cyan-400/60 shrink-0">
+                <img src={contactAvatar} alt="Sagar Punia" className="w-full h-full object-cover" />
+                <span className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-400 border-2 border-[#080814] rounded-full" />
+              </div>
+              <div>
+                <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider">Direct Founder Line</div>
+                <div className="text-sm font-bold text-white">Sagar Punia — Lead Architect</div>
+                <div className="text-[11px] text-emerald-400 flex items-center gap-1.5 mt-0.5 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
+                  <span>Available on WhatsApp & Call (&lt;15m reply)</span>
+                </div>
+              </div>
+            </div>
+
+            {contactCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <a
+                  key={idx}
+                  href={card.link}
+                  className={`block p-5 rounded-2xl bg-[#080812] border ${card.border} hover:border-cyan-500/40 hover:bg-[#0c0c1c] transition-all duration-200 group`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl bg-white/5 ${card.color} group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-400">{card.title}</div>
+                      <div className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                        {card.value}
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">{card.label}</div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-// Sub-component to handle the card content and hover state logic cleanly
-const ContactCardContent = ({ item, isHovered }) => {
-  return (
-    <a
-      href={item.link}
-      className={`group flex flex-col items-center justify-center p-10 h-full rounded-3xl bg-neutral-900/40 border border-white/5 backdrop-blur-xl transition-all duration-500 ${item.border} hover:bg-neutral-900/80 ${item.glow}`}
-      style={{ transform: "translateZ(0)" }}
-    >
-      {/* Floating Icon */}
-      <div
-        className={`w-16 h-16 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-6 shadow-lg transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
-        style={{ transform: "translateZ(30px)" }}
-      >
-        {item.icon}
-      </div>
-
-      {/* Text Content */}
-      <div style={{ transform: "translateZ(20px)" }} className="text-center">
-        <h3 className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] mb-3 min-h-[1.5em]">
-          <ScrambleText text={item.title} trigger={isHovered} />
-        </h3>
-        <p className="text-white font-bold text-xl tracking-tight">{item.value}</p>
-      </div>
-    </a>
-  );
-};

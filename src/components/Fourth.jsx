@@ -3,88 +3,96 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  MonitorPlay,
-  Camera,
-  PenTool,
-  Megaphone,
-  BarChart3,
-  Users,
+  Code2,
+  Smartphone,
+  Database,
+  Ship,
+  TrendingUp,
+  Search,
+  Video,
+  Palette,
   ArrowUpRight,
   Layers,
+  Sparkles,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import SpotlightCard from "../ui/SpotlightCard.jsx";
 
 export default function Fourth() {
   const services = [
     {
       id: "01",
-      icon: <PenTool className="w-6 h-6" />,
-      title: "Creative Design",
-      desc: "Logos, branding, infographics, reels & presentation design.",
+      badge: "High Demand",
+      icon: <Code2 className="w-6 h-6 text-cyan-400" />,
+      title: "Web Engineering & Apps",
+      desc: "Blazing fast web apps built with React, Vite & Next.js. Sub-second load speeds, modern animations, and lead capture systems.",
+      features: ["Custom React/Next.js", "Lead Generation Funnels", "Mobile Responsive", "₹500/mo Hosting Option"],
+      accent: "cyan",
     },
     {
       id: "02",
-      icon: <Camera className="w-6 h-6" />,
-      title: "Video Production",
-      desc: "Editing, dubbing, podcasts, background music, hosting.",
+      badge: "Scale",
+      icon: <Smartphone className="w-6 h-6 text-indigo-400" />,
+      title: "Cross-Platform Mobile Apps",
+      desc: "iOS & Android mobile apps engineered for speed, clean UX, offline sync, and real-time push notifications for customer retention.",
+      features: ["iOS & Android", "Payment Gateway Integration", "Push Notifications", "App Store Publishing"],
+      accent: "indigo",
     },
     {
       id: "03",
-      icon: <Megaphone className="w-6 h-6" />,
-      title: "Social Marketing",
-      desc: "Content calendars, paid ads, influencer collaborations.",
+      badge: "Enterprise",
+      icon: <Database className="w-6 h-6 text-emerald-400" />,
+      title: "Custom CRM & Software",
+      desc: "Automate your daily business operations. Custom billing, inventory systems, lead management CRMs, and staff tracking.",
+      features: ["Custom Business Workflows", "Automated Invoicing", "WhatsApp API Bots", "Role-Based Access"],
+      accent: "emerald",
     },
     {
       id: "04",
-      icon: <BarChart3 className="w-6 h-6" />,
-      title: "Ads & Promotion",
-      desc: "Google Ads, retargeting campaigns, banner ads.",
+      badge: "Strategic",
+      icon: <Ship className="w-6 h-6 text-blue-400" />,
+      title: "Business & Export Consulting",
+      desc: "Specialized consulting for Panipat manufacturers, exporters, and local businesses looking to tap domestic and international buyers.",
+      features: ["Export Catalog Setup", "Buyer Outreach", "B2B Positioning", "Process Automation"],
+      accent: "blue",
     },
     {
       id: "05",
-      icon: <MonitorPlay className="w-6 h-6" />,
-      title: "Specialized Coverage",
-      desc: "Event coverage, industrial shoots & drone services.",
+      badge: "ROI Driven",
+      icon: <Search className="w-6 h-6 text-amber-400" />,
+      title: "Page-1 Google SEO & Local Maps",
+      desc: "Dominate Google search results for your high-intent local and national keywords. Real organic traffic that converts into calls.",
+      features: ["Google Maps Local Ranking", "Technical SEO Audit", "Long-Tail Keywords", "Monthly Progress Reports"],
+      accent: "amber",
     },
     {
       id: "06",
-      icon: <Users className="w-6 h-6" />,
-      title: "Business Skills",
-      desc: "Quotations, negotiation, finance, communication & psychology.",
+      badge: "Creative",
+      icon: <Video className="w-6 h-6 text-purple-400" />,
+      title: "Social Media & Video Production",
+      desc: "High-retention viral reels, industrial shoots, product videos, and complete social media management that builds brand fame.",
+      features: ["Short-form Viral Reels", "Ad Creatives", "Brand Identity & Logos", "Ad Spend Optimization"],
+      accent: "purple",
     },
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-black text-white py-24 px-6 overflow-hidden selection:bg-cyan-500/30">
+    <section id="services" className="relative w-full py-24 px-4 sm:px-6 bg-[#040407] text-white overflow-hidden border-b border-white/5 selection:bg-cyan-500/30">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-grid-subtle opacity-25 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[140px] rounded-full pointer-events-none" />
 
-      {/* --- Background Effects (Matched to Hero) --- */}
-
-      {/* 1. Technical Grid Pattern */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: "linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      ></div>
-
-      {/* 2. Glow Spotlights (Cyan/Blue) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
-
-
-      {/* --- Content --- */}
       <div className="relative z-10 max-w-7xl mx-auto">
-
         {/* Header */}
-        <div className="mb-20 text-center max-w-3xl mx-auto">
-          {/* Badge */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4"
           >
-            <Layers className="w-4 h-4" />
-            <span>Comprehensive Solutions</span>
+            <Layers className="w-3.5 h-3.5" />
+            <span>Full-Spectrum Digital Capabilities</span>
           </motion.div>
 
           <motion.h2
@@ -92,11 +100,11 @@ export default function Fourth() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight"
           >
-            Capabilities for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-              Global Scale
+            Engineered to Scale. <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+              Priced to Win.
             </span>
           </motion.h2>
 
@@ -105,52 +113,96 @@ export default function Fourth() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-lg leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-400"
           >
-            We don't just offer services; we provide a complete ecosystem designed to optimize and expand your business reach.
+            From ₹500/month basic storefronts to enterprise-grade custom CRMs and export consulting — we build everything in-house with zero agency bloat.
           </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
               viewport={{ once: true }}
-              className="group relative h-full bg-black/40 border border-white/10 rounded-3xl p-8 overflow-hidden hover:border-cyan-500/50 hover:bg-white/[0.02] transition-all duration-500"
+              className="h-full"
             >
-              {/* Hover Glow Effect inside card */}
-              <div className="absolute -inset-2 bg-gradient-to-b from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
+              <SpotlightCard
+                spotlightColor="rgba(0, 212, 255, 0.12)"
+                borderSpotlightColor="rgba(0, 212, 255, 0.4)"
+                className="group relative flex flex-col justify-between p-7 rounded-3xl bg-[#090912]/85 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 shadow-lg h-full"
+              >
+                <div>
+                  {/* Top Row: Icon + Badge + Number */}
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-colors">
+                      {service.icon}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                        {service.badge}
+                      </span>
+                      <span className="text-xl font-bold font-mono text-slate-700 group-hover:text-cyan-500/40 transition-colors">
+                        {service.id}
+                      </span>
+                    </div>
+                  </div>
 
-              {/* Top Row: Icon & Number */}
-              <div className="relative flex justify-between items-start mb-8 z-10">
-                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-cyan-400 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/30 transition-colors duration-300">
-                  {service.icon}
+                  {/* Service Details */}
+                  <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-cyan-200 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                    {service.desc}
+                  </p>
+
+                  {/* Features List */}
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <span className="text-5xl font-bold text-white/5 group-hover:text-cyan-500/10 transition-colors duration-500 font-mono">
-                  {service.id}
-                </span>
-              </div>
 
-              {/* Bottom Row: Text */}
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-100 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-                  {service.desc}
-                </p>
-              </div>
-
-              {/* Arrow Icon that appears on hover */}
-              <div className="absolute bottom-8 right-8 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-cyan-400">
-                <ArrowUpRight className="w-6 h-6" />
-              </div>
+                {/* Card Footer CTA */}
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <Link
+                    to="/contact"
+                    className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 group/link"
+                  >
+                    <span>Request Proposal</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                  </Link>
+                  <span className="text-[11px] text-slate-500 font-mono">100% In-House</span>
+                </div>
+              </SpotlightCard>
             </motion.div>
           ))}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl glass-panel border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h4 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <span>Need a custom software or business tool not listed here?</span>
+              <Sparkles className="w-4 h-4 text-cyan-400" />
+            </h4>
+            <p className="text-sm text-slate-400 mt-1">
+              We design custom billing systems, WhatsApp automations, and proprietary tools tailored specifically for your workflow.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="btn-press px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-md whitespace-nowrap shrink-0"
+          >
+            Discuss Custom Build →
+          </Link>
         </div>
       </div>
     </section>

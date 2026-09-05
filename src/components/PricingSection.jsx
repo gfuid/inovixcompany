@@ -1,82 +1,99 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, Zap } from "lucide-react";
+import { Check, Sparkles, Zap, ShieldCheck, ArrowRight, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import BorderBeam from "../ui/BorderBeam.jsx";
+import SpotlightCard from "../ui/SpotlightCard.jsx";
 
 const plans = [
   {
-    name: "Starter",
-    price: "₹10,000",
-    description: "Perfect for small businesses starting their digital journey.",
+    name: "Web Care & Hosting",
+    badge: "Lowest in India",
+    price: "₹500",
+    period: "/month",
+    description: "Zero headache website hosting, security, and technical maintenance for local businesses.",
     features: [
-      "Basic Graphic Design",
-      "Social Media Posts (5/mo)",
-      "1 Marketing Campaign",
-      "Email Support",
+      "Ultra-Fast Cloud Hosting",
+      "Free SSL Certificate",
+      "99.9% Uptime Guarantee",
+      "Monthly Content / Menu Updates",
+      "Direct WhatsApp Tech Support",
     ],
     highlight: false,
-    color: "text-white",
+    cta: "Start for ₹500/mo",
   },
   {
-    name: "Growth",
-    price: "₹25,000",
-    description: "Accelerate your brand with comprehensive tools.",
+    name: "Launchpad Website",
+    badge: "Best for Local Businesses",
+    price: "₹4,999",
+    period: "one-time",
+    description: "Modern, professional website built to convert visitors into phone calls and visits.",
     features: [
-      "All Starter Features",
-      "Website / Landing Page",
-      "5 Marketing Campaigns",
-      "Video Reels / Shorts",
-      "Priority Support",
-    ],
-    highlight: true, // This one gets the glow
-    color: "text-cyan-400",
-  },
-  {
-    name: "Premium",
-    price: "₹50,000",
-    description: "The ultimate package for market domination.",
-    features: [
-      "All Growth Features",
-      "Full Digital Marketing",
-      "Custom Video Production",
-      "SEO Optimization",
-      "Dedicated Manager",
+      "High-Converting Modern Web Design",
+      "Google Maps & Local SEO Setup",
+      "Direct 1-Click WhatsApp Lead Button",
+      "100% Mobile & Tablet Optimized",
+      "Delivered in 3 to 5 Days",
+      "1 Month Free Maintenance Included",
     ],
     highlight: false,
-    color: "text-blue-400",
+    cta: "Launch My Website",
+  },
+  {
+    name: "Growth Engine",
+    badge: "Most Popular",
+    price: "₹19,999",
+    period: "one-time",
+    description: "Complete digital dominance package to rank on Google and capture maximum leads.",
+    features: [
+      "Full Multi-Page React/Vite Web App",
+      "Targeted Google Page-1 SEO Campaign",
+      "Automated Lead Capture & Email/SMS Alerts",
+      "Sub-Second Page Load Speeds (< 0.8s)",
+      "High-Converting Sales Copy & Visuals",
+      "Founder-Level Priority Consultation",
+    ],
+    highlight: true,
+    cta: "Scale With Growth Plan",
+  },
+  {
+    name: "Custom Software & CRM",
+    badge: "Enterprise & Exporters",
+    price: "₹49,999+",
+    period: "custom scope",
+    description: "Custom internal software, billing, staff dashboards, and export consulting for scaling companies.",
+    features: [
+      "Bespoke Internal Business Software",
+      "Inventory, Billing & Staff Tracking CRM",
+      "WhatsApp Business API Bots",
+      "Export/Import Digital Consulting",
+      "Role-Based Multi-User Access",
+      "Full Source Code & Architecture Handoff",
+    ],
+    highlight: false,
+    cta: "Discuss Enterprise Build",
   },
 ];
 
 export default function PricingSection() {
   return (
-    <section className="relative w-full min-h-screen bg-black text-white py-24 px-6 overflow-hidden selection:bg-cyan-500/30">
+    <section id="pricing" className="relative w-full py-24 px-4 sm:px-6 bg-[#06060e] text-white overflow-hidden border-b border-white/5 selection:bg-cyan-500/30">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-cyan-900/15 blur-[160px] rounded-full pointer-events-none" />
 
-      {/* --- Background Effects --- */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: "linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      ></div>
-
-      {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
-
-      {/* --- Content --- */}
       <div className="relative z-10 max-w-7xl mx-auto">
-
         {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4"
           >
-            <Sparkles className="w-4 h-4" />
-            <span>Flexible Investment</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Radical Transparency • Zero Hidden Fees</span>
           </motion.div>
 
           <motion.h2
@@ -84,11 +101,11 @@ export default function PricingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight"
           >
-            Pricing Built for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-              Every Stage
+            India’s Most Affordable <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+              Agency Pricing
             </span>
           </motion.h2>
 
@@ -97,68 +114,107 @@ export default function PricingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-gray-400 text-lg leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-400"
           >
-            Transparent pricing with no hidden fees. Choose the plan that aligns with your current growth velocity.
+            Whether you are a local shopkeeper starting with ₹500/month or an exporter building custom enterprise software — we have a predictable, high-ROI tier for you.
           </motion.p>
         </div>
 
-        {/* Pricing Grid */}
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              className={`relative group rounded-3xl p-8 border transition-all duration-500 ${plan.highlight
-                ? "bg-neutral-900/80 border-cyan-500 shadow-[0_0_40px_rgba(34,211,238,0.15)] scale-105 z-10"
-                : "bg-neutral-900/40 border-white/10 hover:border-white/20 hover:bg-neutral-900/60"
-                }`}
+              transition={{ delay: index * 0.08, duration: 0.4 }}
+              className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
+                plan.highlight
+                  ? "bg-[#0c1020] border-2 border-cyan-400 shadow-[0_0_40px_rgba(0,212,255,0.2)] lg:-translate-y-2"
+                  : "bg-[#090914] border border-white/10 hover:border-white/20 hover:bg-[#0d0d1c]"
+              }`}
             >
-              {/* Highlight Badge */}
+              {/* Highlight Badge & Animated Border Beam */}
               {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-blue-600 text-black px-4 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
-                  <Zap className="w-3 h-3 fill-black" /> Most Popular
-                </div>
+                <>
+                  <BorderBeam size={220} duration={6} colorFrom="#00D4FF" colorTo="#6366F1" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-3.5 py-0.5 rounded-full text-xs font-black tracking-wide uppercase shadow-lg flex items-center gap-1 z-20">
+                    <Zap className="w-3 h-3 fill-black" />
+                    <span>{plan.badge}</span>
+                  </div>
+                </>
               )}
 
-              {/* Card Header */}
-              <div className="mb-8 pb-8 border-b border-white/10">
-                <h3 className={`text-xl font-bold mb-2 ${plan.color}`}>{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-500 font-medium">/month</span>
+              <div>
+                {!plan.highlight && (
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400/90 mb-2 inline-block">
+                    {plan.badge}
+                  </span>
+                )}
+
+                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+
+                <div className="flex items-baseline gap-1 mb-3">
+                  <span className="text-3xl sm:text-4xl font-black text-white">{plan.price}</span>
+                  <span className="text-xs text-slate-400 font-medium">{plan.period}</span>
                 </div>
-                <p className="text-sm text-gray-400">{plan.description}</p>
+
+                <p className="text-xs text-slate-400 leading-relaxed mb-6">
+                  {plan.description}
+                </p>
+
+                {/* Divider */}
+                <div className="w-full h-px bg-white/10 mb-6" />
+
+                {/* Features List */}
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300">
+                      <div
+                        className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${
+                          plan.highlight ? "bg-cyan-400/20 text-cyan-400" : "bg-white/10 text-white"
+                        }`}
+                      >
+                        <Check className="w-2.5 h-2.5" />
+                      </div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Features List */}
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-                    <div className={`mt-0.5 min-w-[18px] h-[18px] rounded-full flex items-center justify-center ${plan.highlight ? "bg-cyan-500/20 text-cyan-400" : "bg-white/10 text-white"
-                      }`}>
-                      <Check className="w-3 h-3" />
-                    </div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {/* Action Button */}
               <Link to="/contact">
-                {/* CTA Button */}
                 <button
-                  className={` cursor-pointer w-full py-4 rounded-xl font-bold transition-all duration-300 ${plan.highlight
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-600 text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
-                    : "bg-white text-black hover:bg-gray-200"
-                    }`}
+                  className={`btn-press w-full py-3 rounded-full text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer ${
+                    plan.highlight
+                      ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-black shadow-[0_0_20px_rgba(0,212,255,0.4)] hover:brightness-110"
+                      : "bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                  }`}
                 >
-                  Book Now
+                  <span>{plan.cta}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </Link>
             </motion.div>
           ))}
+        </div>
+
+        {/* Security & Guarantee Note */}
+        <div className="mt-12 text-center flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>No Long-Term Contracts • Cancel Anytime</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>100% Transparent Estimates Before Coding Starts</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>Free Migration from Slow Hosting</span>
+          </div>
         </div>
       </div>
     </section>

@@ -2,137 +2,183 @@
 
 import React from "react";
 import {
-    Globe2, Code2, Rocket, Users,
-    ArrowUpRight, CheckCircle2, Target
+  Code2,
+  Rocket,
+  Users,
+  ArrowUpRight,
+  CheckCircle2,
+  Target,
+  Award,
+  ShieldCheck,
+  Zap,
+  Sparkles,
+  Layers,
+  Cpu,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import devAvatar from "../assets/assets/brand/dev_avatar.png";
 
 const About = () => {
-    return (
-        <section className="bg-black py-24 relative overflow-hidden" id="about">
+  const milestones = [
+    { number: "22+", label: "Live Platforms Built", sub: "Web apps, SaaS, and B2B portals" },
+    { number: "150+", label: "Gyms on GymFlow", sub: "Powering 7,500+ active members" },
+    { number: "₹50L+", label: "Volume Processed", sub: "Via automated payment & lead pipelines" },
+    { number: "50ms", label: "Sub-Second Latency", sub: "90% speed optimization engineered" },
+  ];
 
-            {/* --- Background Ambient Effects --- */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
+  const certifications = [
+    "n8n Workflow Automation Certified (Simplilearn)",
+    "Full-Stack Web Development (React, Next.js, Node.js)",
+    "Search Engine Optimization (SEO) Certified",
+    "Google Ads & Paid Lead Generation Certified",
+    "Digital Marketing & Conversion Strategy",
+    "BCA (Computer Science) — Kurukshetra University",
+  ];
 
-            {/* Grid Pattern */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none"
-                style={{ backgroundImage: "linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
+  return (
+    <section className="bg-[#040407] py-28 text-white relative overflow-hidden selection:bg-cyan-500/30" id="about">
+      {/* Background Ambience */}
+      <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-cyan-900/15 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-subtle opacity-25 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        {/* Top Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-20 gap-8">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Founder Story & Agency Mission</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+              World-Class Engineering. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                Radically Honest Pricing.
+              </span>
+            </h1>
+          </div>
+          <p className="text-slate-400 max-w-md text-sm sm:text-base leading-relaxed border-l-2 border-cyan-500/40 pl-6">
+            Inovix was founded in Panipat, Haryana by full-stack engineer <span className="text-white font-medium">Sagar Punia</span> with a singular vision: eliminate the inflated ₹1,00,000+ agency markup and give businesses enterprise-grade software starting at just ₹500/month.
+          </p>
+        </div>
+
+        {/* Founder Story & Vision Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-20">
+          {/* Left Column: Founder Persona & Core Tech */}
+          <div className="lg:col-span-5 p-8 rounded-3xl bg-[#080814] border border-white/10 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
+
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-cyan-400/60 shadow-[0_0_20px_rgba(0,212,255,0.4)] shrink-0">
+                  <img src={devAvatar} alt="Sagar Punia" className="w-full h-full object-cover" />
+                  <span className="absolute bottom-1 right-1 w-3 h-3 bg-emerald-400 border-2 border-[#080814] rounded-full shadow-sm" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">Sagar Punia</h3>
+                  <p className="text-xs text-cyan-400 font-medium">Founder & Lead Full-Stack Architect</p>
+                  <p className="text-[11px] text-slate-500">Panipat, Haryana • Remote / Global</p>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                "I started Inovix after seeing local business owners, restaurant founders, and manufacturers pay lakhs of rupees for slow, generic WordPress templates that took 5 months to deliver and generated zero leads.
+                <br /><br />
+                We write clean, high-performance code in React, Next.js, and Node.js with automated WhatsApp pipelines and SEO built right into the foundation."
+              </p>
+
+              {/* Tech Badges */}
+              <div className="pt-4 border-t border-white/10">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                  Core Engineering Stack
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {["React.js", "Next.js", "Node.js", "MongoDB", "Redis", "n8n Automation", "WhatsApp API", "AI Agents", "REST APIs", "Tailwind CSS"].map((tech, idx) => (
+                    <span key={idx} className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-
-                {/* --- Top Header --- */}
-                <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-                    <div className="max-w-2xl">
-                        <span className="text-cyan-400 font-bold tracking-widest uppercase text-xs mb-4 block">
-                            Who We Are
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
-                            We Bridge the Gap Between <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-                                Code & Cargo.
-                            </span>
-                        </h2>
-                    </div>
-                    <p className="text-gray-400 max-w-md text-sm md:text-base leading-relaxed border-l border-white/20 pl-6">
-                        We are a hybrid agency. We build software that scales businesses digitally, and we provide the consulting to expand them physically across borders.
-                    </p>
-                </div>
-
-                {/* --- Main Content Grid --- */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-                    {/* Left Column: The Image/Visual Block */}
-                    <div className="lg:col-span-5 relative h-[500px] lg:h-auto">
-                        <div className="absolute inset-0 bg-zinc-900 rounded-[2.5rem] overflow-hidden border border-white/10 group">
-                            {/* Abstract Visual Representation */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-black z-10" />
-                            <img
-                                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"
-                                alt="Team collaboration"
-                                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
-                            />
-
-                            {/* Floating Badge */}
-                            <div className="absolute bottom-8 left-8 right-8 z-20 bg-black/80 backdrop-blur-md p-6 rounded-3xl border border-white/10">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-black">
-                                        <Rocket size={24} />
-                                    </div>
-                                    <div>
-                                        <p className="text-white font-bold text-lg">Global Impact</p>
-                                        <p className="text-gray-400 text-xs">Empowering businesses worldwide</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column: The Details & Stats */}
-                    <div className="lg:col-span-7 flex flex-col gap-8">
-
-                        {/* Story Card */}
-                        <div className="bg-zinc-900/50 border border-white/10 p-8 md:p-10 rounded-[2.5rem] backdrop-blur-sm hover:border-white/20 transition-colors">
-                            <h3 className="text-2xl font-bold text-white mb-4">Our Philosophy</h3>
-                            <p className="text-gray-400 leading-relaxed mb-6">
-                                In today's economy, you cannot rely on just one channel. You need a digital fortress (App/Web) and a global footprint (Import/Export).
-                                We don't just act as a service provider; we act as your growth architect.
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {[
-                                    "Digital Transformation Experts",
-                                    "Licensed Export Consultants",
-                                    "Business Process Automation",
-                                    "Global Trade Education"
-                                ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3 text-sm text-gray-300">
-                                        <CheckCircle2 size={16} className="text-cyan-400" />
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-6 flex-1">
-                            <div className="bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 border border-white/10 p-8 rounded-[2.5rem] flex flex-col justify-center items-center text-center group hover:border-cyan-500/30 transition-colors">
-                                <Code2 size={32} className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform" />
-                                <h4 className="text-4xl font-black text-white mb-1">15+</h4>
-                                <p className="text-xs text-gray-500 uppercase tracking-wider">Projects Delivered</p>
-                            </div>
-
-                            <div className="bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 border border-white/10 p-8 rounded-[2.5rem] flex flex-col justify-center items-center text-center group hover:border-cyan-500/30 transition-colors">
-                                <Globe2 size={32} className="text-blue-400 mb-4 group-hover:scale-110 transition-transform" />
-                                <h4 className="text-4xl font-black text-white mb-1">12+</h4>
-                                <p className="text-xs text-gray-500 uppercase tracking-wider">Countries Reached</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* --- Bottom Vision Bar --- */}
-                <div className="mt-8 bg-cyan-900/20 border border-cyan-500/20 p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-cyan-500/20 rounded-xl text-cyan-400">
-                            <Target size={24} />
-                        </div>
-                        <div>
-                            <h4 className="text-white font-bold text-lg">Our Vision</h4>
-                            <p className="text-cyan-200/60 text-sm max-w-xl">
-                                To create a seamless ecosystem where a local business can digitize their operations and start exporting their products within 90 days.
-                            </p>
-                        </div>
-                    </div>
-                    <button className="whitespace-nowrap px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl flex items-center gap-2 transition-transform hover:scale-105">
-                        Meet The Team <ArrowUpRight size={18} />
-                    </button>
-                </div>
-
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+              <span className="text-xs text-slate-400 font-medium">Direct Founder Access</span>
+              <a
+                href="https://wa.me/918307967782"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-cyan-400 hover:underline flex items-center gap-1"
+              >
+                <span>Chat with Sagar</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
-        </section>
-    );
+          </div>
+
+          {/* Right Column: Proven Experience & Certifications */}
+          <div className="lg:col-span-7 flex flex-col gap-6 justify-between">
+            {/* Philosophy Card */}
+            <div className="p-8 rounded-3xl bg-[#080814] border border-white/10">
+              <h3 className="text-2xl font-bold text-white mb-3">Our Core Philosophy</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Most agencies make money by dragging projects out and billing you for project managers who don't write code. At Inovix, we operate with founder-speed: automated workflows, sub-second load times, and direct engineering.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {certifications.map((item, i) => (
+                  <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
+                    <CheckCircle2 size={15} className="text-cyan-400 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {milestones.map((m, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-[#080814] border border-white/10 flex flex-col justify-between"
+                >
+                  <div className="text-2xl sm:text-3xl font-black text-white mb-1">
+                    {m.number}
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-200">{m.label}</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">{m.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Vision CTA */}
+        <div className="p-8 rounded-3xl bg-gradient-to-r from-cyan-950/40 via-[#080814] to-blue-950/30 border border-cyan-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-cyan-500/20 rounded-2xl text-cyan-400 shrink-0">
+              <Target size={28} />
+            </div>
+            <div>
+              <h4 className="text-lg sm:text-xl font-bold text-white">The North Star Vision</h4>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-0.5">
+                Scaling to a 50–100 person elite engineering team, building India's most affordable digital agency while serving ambition-driven brands nationally and globally.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/contact"
+            className="btn-press px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs sm:text-sm rounded-full flex items-center gap-2 shrink-0 shadow-lg"
+          >
+            <span>Start Your Project</span>
+            <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

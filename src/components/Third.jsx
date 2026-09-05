@@ -1,27 +1,15 @@
 import React from "react";
-import { TextScroll } from "../ui/TextScroll"; // Adjust the path as needed
+import { TextScroll } from "../ui/TextScroll";
 
 const Third = () => {
   return (
-    <section className="relative w-full bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16 overflow-hidden">
-      {/* Scrolling Text */}
+    <section className="relative w-full bg-[#040407] py-14 overflow-hidden border-b border-white/5">
+      {/* Infinite Scrolling Text Banner */}
       <TextScroll
-        className="font-display text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white opacity-90 gap-6 sm:gap-9"
-        text="Innovix • Digital Agency • Innovix • Creative Solutions •"
+        className="font-display text-center text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white/90 gap-6 sm:gap-10"
+        text="Inovix • India's Most Affordable Agency • Sub-Second Web Apps • Custom CRMs • Zero Hidden Markups •"
         default_velocity={1}
       />
-
-      {/* Sub tagline */}
-      <div className="text-center mt-10 px-4 sm:px-6 lg:px-8">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
-          We blend <span className="text-purple-400">Creativity</span> with{" "}
-          <span className="text-blue-400">Technology</span>.
-        </h3>
-        <p className="text-gray-400 max-w-2xl mx-auto mt-4 text-base sm:text-lg">
-          Our mission is to craft stunning digital experiences that help
-          businesses grow, connect, and inspire.
-        </p>
-      </div>
     </section>
   );
 };
