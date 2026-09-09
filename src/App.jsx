@@ -10,6 +10,8 @@ import Service from "./pages/ServicesSection.jsx";
 import ToolsSection from "./tools/ToolsSection.jsx";
 import About from "./about/About.jsx";
 import Contact from "./contact/Contact.jsx";
+import BlogPost from "./pages/BlogPost.jsx";
+import BlogIndex from "./pages/BlogIndex.jsx";
 
 // --- TOOL IMPORTS ---
 import SmartCompressor from "./tools/SmartCompressor.jsx";
@@ -94,6 +96,18 @@ const App = () => {
                 description="Get a free quote for digital marketing services in Panipat. Call Inovix."
                 element={<Contact />}
               />
+            } />
+
+            <Route path="/blog" element={
+              <PageSEO
+                title="Web Engineering & Business Growth Blog"
+                description="Expert articles and guides on modern web development, SEO, and lead generation in Panipat & Haryana."
+                element={<BlogIndex />}
+              />
+            } />
+
+            <Route path="/blog/best-web-development-company-panipat" element={
+              <BlogPost />
             } />
 
             <Route path="/tools" element={

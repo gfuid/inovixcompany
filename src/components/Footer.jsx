@@ -33,6 +33,7 @@ export default function Footer() {
     ],
     Company: [
       { name: "About Inovix", path: "/about" },
+      { name: "Blog & Guides", path: "/blog" },
       { name: "Pricing & Plans", path: "/#pricing" },
       { name: "Contact & Quotes", path: "/contact" },
       { name: "WhatsApp Support", path: "https://wa.me/918307967782" },
