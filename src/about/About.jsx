@@ -21,7 +21,7 @@ import devAvatar from "../assets/assets/brand/dev_avatar.png";
 const About = () => {
   const milestones = [
     { number: "22+", label: "Live Platforms Built", sub: "Web apps, SaaS, and B2B portals" },
-    { number: "150+", label: "Gyms on GymFlow", sub: "Powering 7,500+ active members" },
+    { number: "99%", label: "Client Satisfaction", sub: "Production-grade reliability & support" },
     { number: "₹50L+", label: "Volume Processed", sub: "Via automated payment & lead pipelines" },
     { number: "50ms", label: "Sub-Second Latency", sub: "90% speed optimization engineered" },
   ];

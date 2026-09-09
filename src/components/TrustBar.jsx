@@ -1,17 +1,17 @@
 import React from "react";
-import { ShieldCheck, Dumbbell, Stethoscope, Factory, Rocket, UtensilsCrossed, Building2 } from "lucide-react";
+import { ShieldCheck, Globe, Stethoscope, Factory, Rocket, UtensilsCrossed, Building2 } from "lucide-react";
 
-// Real client brand logos from src/assets/assets/brand
-import logoTrireme from "../assets/assets/brand/trireme.png";
-import logoAppleveda from "../assets/assets/brand/appleveda.png";
-import logoDigitalPharma from "../assets/assets/brand/digitalpharmapreneur.png";
-import logoAgileExports from "../assets/assets/brand/agileexports.png";
-import logoDesignHouzz from "../assets/assets/brand/designHouzz.png";
-import logoHolistic from "../assets/assets/brand/holiestic.png";
-import logoVisaWebs from "../assets/assets/brand/visawebs.png";
-import logoTravelTrade from "../assets/assets/brand/traveltrade.png";
-import logoCQST from "../assets/assets/brand/cqst.png";
-import logoInnovationSoch from "../assets/assets/brand/innovationsoch.png";
+// Real client brand logos from public/brand (zero bundling latency, rock-solid HTTP delivery)
+const logoTrireme = "/brand/trireme.png";
+const logoAppleveda = "/brand/appleveda.png";
+const logoDigitalPharma = "/brand/digitalpharmapreneur.png";
+const logoAgileExports = "/brand/agileexports.png";
+const logoDesignHouzz = "/brand/designHouzz.png";
+const logoHolistic = "/brand/holiestic.png";
+const logoVisaWebs = "/brand/visawebs.png";
+const logoTravelTrade = "/brand/traveltrade.png";
+const logoCQST = "/brand/cqst.png";
+const logoInnovationSoch = "/brand/innovationsoch.png";
 
 export default function TrustBar() {
   const clientLogos = [
@@ -28,7 +28,7 @@ export default function TrustBar() {
   ];
 
   const categories = [
-    { icon: Dumbbell, label: "Gyms & Fitness (150+ GymFlow)" },
+    { icon: Globe, label: "E-Commerce & Digital Brands" },
     { icon: Stethoscope, label: "Pharma & Lifesciences" },
     { icon: Factory, label: "Textiles & Global Exporters" },
     { icon: Rocket, label: "SaaS & AI Platforms" },
@@ -64,6 +64,10 @@ export default function TrustBar() {
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.opacity = "0";
+                    }}
                     className="max-h-full max-w-full object-contain filter brightness-95 contrast-105 group-hover:brightness-110 group-hover:scale-105 transition-all duration-200"
                   />
                 </div>

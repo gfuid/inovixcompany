@@ -17,18 +17,18 @@ import { Link } from "react-router-dom";
 import BorderBeam from "../ui/BorderBeam.jsx";
 import CountUp from "../ui/CountUp.jsx";
 
-// Real project screenshots
-import bannerTrireme from "../assets/assets/bannerimg/trireme.png";
-import bannerSaksham from "../assets/assets/bannerimg/saksham.png";
-import bannerVedaGroup from "../assets/assets/bannerimg/vedagroup.png";
-import bannerDigitalPharma from "../assets/assets/bannerimg/digitalpharma.png";
-import bannerVedomin from "../assets/assets/bannerimg/vedomin.png";
+// Real project screenshots (direct static public paths for rock-solid HTTP delivery)
+const bannerTrireme = "/bannerimg/trireme.png";
+const bannerSaksham = "/bannerimg/saksham.png";
+const bannerVedaGroup = "/bannerimg/vedagroup.png";
+const bannerDigitalPharma = "/bannerimg/digitalpharma.png";
+const bannerVedomin = "/bannerimg/vedomin.png";
 
 // Real client brand logos
-import logoTrireme from "../assets/assets/brand/trireme.png";
-import logoAppleveda from "../assets/assets/brand/appleveda.png";
-import logoDigitalPharma from "../assets/assets/brand/digitalpharmapreneur.png";
-import devAvatar from "../assets/assets/brand/dev_avatar.png";
+const logoTrireme = "/brand/trireme.png";
+const logoAppleveda = "/brand/appleveda.png";
+const logoDigitalPharma = "/brand/digitalpharmapreneur.png";
+const devAvatar = "/brand/dev_avatar.png";
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState(0);
@@ -274,7 +274,11 @@ export default function Hero() {
                 {/* Real Live Screenshot */}
                 <img
                   src={showcaseProjects[activeTab].img}
-                  alt={showcaseProjects[activeTab].title}
+                  alt=""
+                  loading="eager"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
                   className="w-full h-full object-cover object-top group-hover/preview:scale-[1.02] transition-transform duration-500"
                 />
 
@@ -301,6 +305,9 @@ export default function Hero() {
                     <img
                       src={showcaseProjects[activeTab].logo}
                       alt="Client logo"
+                      onError={(e) => {
+                        e.currentTarget.parentElement.style.display = "none";
+                      }}
                       className="h-6 w-auto max-w-[110px] object-contain brightness-95"
                     />
                   </div>
@@ -361,9 +368,9 @@ export default function Hero() {
             </div>
             <div className="p-2">
               <div className="text-2xl sm:text-3xl font-black text-cyan-400">
-                <CountUp to={150} suffix="+" />
+                <CountUp to={99} suffix="%" />
               </div>
-              <div className="text-[11px] text-slate-400 mt-0.5">Gyms on GymFlow SaaS</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Client Satisfaction</div>
             </div>
             <div className="p-2">
               <div className="text-2xl sm:text-3xl font-black text-white">

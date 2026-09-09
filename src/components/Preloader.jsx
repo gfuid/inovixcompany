@@ -150,7 +150,7 @@ export default function Preloader({ onComplete }) {
             {/* Bottom Proof Strip */}
             <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 pt-1">
               <span>22+ Live Platforms Built</span>
-              <span>150+ Gyms on GymFlow</span>
+              <span>99% Client Satisfaction</span>
               <span className="text-emerald-400 font-semibold">Founder-Led Engineering</span>
             </div>
           </div>

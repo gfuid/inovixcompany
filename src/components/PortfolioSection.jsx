@@ -6,22 +6,22 @@ import { ArrowUpRight, FolderOpen, ExternalLink, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import BorderBeam from "../ui/BorderBeam.jsx";
 
-// Banner project images from src/assets/assets/bannerimg
-import bannerTrireme from "../assets/assets/bannerimg/trireme.png";
-import bannerSaksham from "../assets/assets/bannerimg/saksham.png";
-import bannerVedomin from "../assets/assets/bannerimg/vedomin.png";
-import bannerDigitalPharma from "../assets/assets/bannerimg/digitalpharma.png";
-import bannerVedaGroup from "../assets/assets/bannerimg/vedagroup.png";
-import bannerHolistic from "../assets/assets/bannerimg/holistic.png";
-import bannerMultiAgent from "../assets/assets/bannerimg/multiagent.png";
-import bannerDesinBuzz from "../assets/assets/bannerimg/desinbuzz.png";
+// Direct static paths from public/bannerimg & public/brand
+// Guaranteed instant HTTP delivery with zero module-resolution or bundling failures
+const bannerTrireme = "/bannerimg/trireme.png";
+const bannerSaksham = "/bannerimg/saksham.png";
+const bannerVedomin = "/bannerimg/vedomin.png";
+const bannerDigitalPharma = "/bannerimg/digitalpharma.png";
+const bannerVedaGroup = "/bannerimg/vedagroup.png";
+const bannerHolistic = "/bannerimg/holistic.png";
+const bannerMultiAgent = "/bannerimg/multiagent.png";
+const bannerDesinBuzz = "/bannerimg/desinbuzz.png";
 
-// Real client brand logos from src/assets/assets/brand
-import logoTrireme from "../assets/assets/brand/trireme.png";
-import logoAppleveda from "../assets/assets/brand/appleveda.png";
-import logoDigitalPharma from "../assets/assets/brand/digitalpharmapreneur.png";
-import logoHolistic from "../assets/assets/brand/holiestic.png";
-import logoDesignHouzz from "../assets/assets/brand/designHouzz.png";
+const logoTrireme = "/brand/trireme.png";
+const logoAppleveda = "/brand/appleveda.png";
+const logoDigitalPharma = "/brand/digitalpharmapreneur.png";
+const logoHolistic = "/brand/holiestic.png";
+const logoDesignHouzz = "/brand/designHouzz.png";
 
 export default function PortfolioSection() {
   const [activeTab, setActiveTab] = useState("all");
@@ -220,10 +220,14 @@ export default function PortfolioSection() {
               )}
 
               {/* Background Cover Screenshot with Crisp Overlay */}
-              <div className="absolute inset-0 z-0 overflow-hidden">
+              <div className="absolute inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#0b0c16] to-[#040408]">
                 <img
                   src={project.img}
-                  alt={project.title}
+                  alt=""
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
                   className="w-full h-full object-cover object-top opacity-35 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040408] via-[#040408]/85 to-black/30" />
@@ -242,6 +246,10 @@ export default function PortfolioSection() {
                       <img
                         src={project.logo}
                         alt={`${project.title} logo`}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.parentElement.style.display = "none";
+                        }}
                         className="h-5 sm:h-6 w-auto max-w-[100px] object-contain brightness-95 group-hover:brightness-110 transition-all"
                       />
                     </div>

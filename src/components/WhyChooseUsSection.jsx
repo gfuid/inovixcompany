@@ -170,7 +170,7 @@ export default function WhyChooseUsSection() {
               Direct Senior Engineering. Zero Junior Middlemen.
             </h4>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Certified AI Full-Stack & Automation Developer with a track record building GymFlow (150+ Gyms, ₹50L+ volume), B2B pharmaceutical portals (Trireme Group, 90% latency reduction), and 22+ production websites. You get personal founder accountability on every commit.
+              Certified AI Full-Stack & Automation Developer with a track record building high-performance SaaS platforms (₹50L+ volume), B2B pharmaceutical portals (Trireme Group, 90% latency reduction), and 22+ production websites. You get personal founder accountability on every commit.
             </p>
           </div>
         </div>

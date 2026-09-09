@@ -14,11 +14,11 @@ export default function StatsCounter() {
       icon: Layers,
     },
     {
-      value: 150,
-      suffix: "+",
-      label: "Gyms on GymFlow",
-      desc: "Powering 7,500+ active members with automated WhatsApp billing",
-      icon: Users,
+      value: 99,
+      suffix: "%",
+      label: "Client Satisfaction",
+      desc: "High-standard engineering delivered on time with direct founder communication",
+      icon: Award,
     },
     {
       prefix: "₹",
