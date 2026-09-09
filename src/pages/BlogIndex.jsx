@@ -10,20 +10,36 @@ import {
   Zap,
   CheckCircle2,
   BookOpen,
+  AlertTriangle,
 } from "lucide-react";
 import devAvatar from "../assets/assets/brand/dev_avatar.png";
 
 export default function BlogIndex() {
   const posts = [
     {
+      slug: "500-rs-website-design-truth",
+      title: "The Truth About '₹500 Website Design' in India (2026): Scam, Hidden Traps & Real Costs",
+      excerpt:
+        "Can you really get a legitimate business website for ₹500 in India? Uncover the hidden renewal traps, malware risks, zero Google ranking, and what real lead-generating websites actually cost.",
+      category: "Pricing & Consumer Alert",
+      badge: "Trending Reality Check",
+      badgeClass: "bg-amber-400 text-black font-extrabold",
+      image: "/blog/500-rupees-website-truth-vs-reality.jpg",
+      date: "September 9, 2026",
+      readTime: "6 min read",
+      stats: "Domain Reality • Zero SEO Trap • Realistic Pricing",
+    },
+    {
       slug: "best-web-development-company-panipat",
       title: "Best Web Development Company in Panipat (2026 Guide): Cost, Speed & Real Lead Generation",
       excerpt:
         "Why modern businesses in Panipat and Haryana are switching from slow ₹5,000 WordPress sites to high-speed custom web platforms that rank #1 on Google and drive real B2B inquiries.",
       category: "Web Engineering & ROI",
+      badge: "Featured Guide",
+      badgeClass: "bg-cyan-400 text-black font-extrabold",
+      image: null,
       date: "September 9, 2026",
       readTime: "7 min read",
-      featured: true,
       stats: "95+ PageSpeed • Sub-Second Latency • WhatsApp CRM",
     },
   ];
@@ -52,20 +68,30 @@ export default function BlogIndex() {
           Insights on Web Engineering, SEO & Business Growth
         </h1>
         <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Honest, technical breakdowns for business owners on building modern websites, automating sales pipelines, and ranking #1 on Google.
+          Honest, technical breakdowns for business owners on building modern websites, avoiding cheap traps, and ranking #1 on Google.
         </p>
       </section>
 
-      {/* Featured Post Card */}
-      <section className="px-4 sm:px-6 max-w-5xl mx-auto">
+      {/* Post Listing */}
+      <section className="px-4 sm:px-6 max-w-5xl mx-auto space-y-8">
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="group relative rounded-3xl bg-gradient-to-br from-[#090e1c] via-[#05060d] to-[#0a1122] border border-cyan-500/30 p-6 sm:p-10 shadow-[0_10px_40px_-10px_rgba(0,212,255,0.15)] hover:border-cyan-400/60 transition-all"
+            className="group relative rounded-3xl bg-gradient-to-br from-[#090e1c] via-[#05060d] to-[#0a1122] border border-cyan-500/30 p-6 sm:p-10 shadow-[0_10px_40px_-10px_rgba(0,212,255,0.15)] hover:border-cyan-400/60 transition-all overflow-hidden"
           >
+            {post.image && (
+              <div className="mb-6 rounded-2xl overflow-hidden border border-white/10 max-h-72">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              </div>
+            )}
+
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4 text-xs">
-              <span className="px-3 py-1 rounded-full bg-cyan-400 text-black font-extrabold uppercase tracking-wider">
-                Featured Guide
+              <span className={`px-3 py-1 rounded-full uppercase tracking-wider text-[11px] ${post.badgeClass}`}>
+                {post.badge}
               </span>
               <div className="flex items-center gap-4 text-slate-400 font-mono">
                 <span className="flex items-center gap-1.5">
@@ -106,7 +132,7 @@ export default function BlogIndex() {
                 to={`/blog/${post.slug}`}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs border border-cyan-500/30 transition-all group-hover:gap-3"
               >
-                <span>Read Full 7-Min Guide</span>
+                <span>Read Full Article</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

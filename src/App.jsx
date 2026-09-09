@@ -11,6 +11,7 @@ import ToolsSection from "./tools/ToolsSection.jsx";
 import About from "./about/About.jsx";
 import Contact from "./contact/Contact.jsx";
 import BlogPost from "./pages/BlogPost.jsx";
+import CheapWebsiteBlog from "./pages/CheapWebsiteBlog.jsx";
 import BlogIndex from "./pages/BlogIndex.jsx";
 
 // --- TOOL IMPORTS ---
@@ -113,6 +114,10 @@ const App = () => {
 
             <Route path="/blog/best-web-development-company-panipat" element={
               <BlogPost />
+            } />
+
+            <Route path="/blog/500-rs-website-design-truth" element={
+              <CheapWebsiteBlog />
             } />
 
             <Route path="/tools" element={
