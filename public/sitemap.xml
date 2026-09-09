@@ -2,42 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://inovix.co.in/</loc>
+    <loc>https://www.inovix.co.in/</loc>
+    <lastmod>2026-09-09</lastmod>
     <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://inovix.co.in/service</loc>
+    <loc>https://www.inovix.co.in/services</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://inovix.co.in/about</loc>
+    <loc>https://www.inovix.co.in/about</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://inovix.co.in/contact</loc>
+    <loc>https://www.inovix.co.in/contact</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- BLOG ROUTES -->
+  <url>
+    <loc>https://www.inovix.co.in/blog</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://inovix.co.in/tools</loc>
+    <loc>https://www.inovix.co.in/blog/best-web-development-company-panipat</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://www.inovix.co.in/tools</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.85</priority>
   </url>
 
   <!-- AUTO TOOL ROUTES -->
-  <url><loc>https://inovix.co.in/tools/smart-compressor</loc></url>
-  <url><loc>https://inovix.co.in/tools/brand-watermark</loc></url>
-  <url><loc>https://inovix.co.in/tools/precision-resizer</loc></url>
-  <url><loc>https://inovix.co.in/tools/text-extractor</loc></url>
-  <url><loc>https://inovix.co.in/tools/qr-studio</loc></url>
-  <url><loc>https://inovix.co.in/tools/background-remover</loc></url>
-  <url><loc>https://inovix.co.in/tools/color-key-remover</loc></url>
-  <url><loc>https://inovix.co.in/tools/image-enhancer</loc></url>
-  <url><loc>https://inovix.co.in/tools/file-converter</loc></url>
-  <url><loc>https://inovix.co.in/tools/pdf-compressor</loc></url>
-  <url><loc>https://inovix.co.in/tools/pdf-to-image</loc></url>
-  <url><loc>https://inovix.co.in/tools/image-to-pdf</loc></url>
-  <url><loc>https://inovix.co.in/tools/video-compressor</loc></url>
-  <url><loc>https://inovix.co.in/tools/video-to-audio</loc></url>
-  <url><loc>https://inovix.co.in/tools/audio-noise-remover</loc></url>
+  <url><loc>https://www.inovix.co.in/tools/smart-compressor</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/brand-watermark</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/precision-resizer</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/text-extractor</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/qr-studio</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/background-remover</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/color-key-remover</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/image-enhancer</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/file-converter</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/pdf-compressor</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/pdf-to-image</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/image-to-pdf</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/video-compressor</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/video-to-audio</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
+  <url><loc>https://www.inovix.co.in/tools/audio-noise-remover</loc><lastmod>2026-09-09</lastmod><priority>0.70</priority></url>
 
 </urlset>
-

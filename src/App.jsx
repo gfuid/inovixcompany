@@ -31,34 +31,34 @@ import VideoToAudio from "./tools/VideoToAudio.jsx";
 import AudioNoiseRemover from "./tools/AudioNoiseRemover.jsx";
 
 // --- SEO WRAPPER COMPONENT ---
-const PageSEO = ({ title, description, element }) => (
+const PageSEO = ({ title, description, canonical, element }) => (
   <>
     <Helmet>
       <title>{title} | Inovix</title>
       <meta name="description" content={description} />
       <meta name="keywords" content="Digital Marketing Panipat, Web Design Haryana, SEO Services, Inovix Tools" />
+      {canonical && <link rel="canonical" href={canonical} />}
     </Helmet>
     {element}
   </>
 );
 
 const App = () => {
-  // State to track if the preloader has finished
-  const [isLoaded, setIsLoaded] = useState(false);
+  // Check if crawler/bot to render content immediately for SEO & fast indexing
+  const isBot = typeof navigator !== "undefined" && /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+  const [isLoaded, setIsLoaded] = useState(isBot);
 
   return (
     <>
-      {/* 1. The Preloader */}
-      {/* It sits on top (z-index 9999). When it finishes, it calls setIsLoaded(true) */}
-      <Preloader onComplete={() => setIsLoaded(true)} />
+      {/* 1. The Preloader (Bypassed for search engine bots) */}
+      {!isBot && <Preloader onComplete={() => setIsLoaded(true)} />}
 
       {/* 2. The Main App Content */}
-      {/* We apply a subtle fade-in effect when the loader finishes */}
       <div
         style={{
-          opacity: isLoaded ? 1 : 0,
+          opacity: isLoaded || isBot ? 1 : 0,
           transition: "opacity 1s ease-in-out",
-          filter: isLoaded ? "none" : "blur(10px)" // Optional: Blur effect while loading
+          filter: isLoaded || isBot ? "none" : "blur(10px)"
         }}
       >
         <Router>
@@ -70,6 +70,7 @@ const App = () => {
               <PageSEO
                 title="Best Digital Marketing Agency in Panipat"
                 description="Inovix is Panipat's top Digital Marketing & SEO Agency. We provide Web Design, Social Media Marketing, and AI Tools."
+                canonical="https://www.inovix.co.in/"
                 element={<Home />}
               />
             } />
@@ -78,6 +79,7 @@ const App = () => {
               <PageSEO
                 title="SEO & Web Development Services in Panipat"
                 description="Looking for Web Design or SEO in Panipat? Inovix offers affordable digital marketing services."
+                canonical="https://www.inovix.co.in/services"
                 element={<Service />}
               />
             } />
@@ -86,6 +88,7 @@ const App = () => {
               <PageSEO
                 title="About Inovix - Digital Agency Haryana"
                 description="We are a team of developers and marketers in Panipat helping brands go global."
+                canonical="https://www.inovix.co.in/about"
                 element={<About />}
               />
             } />
@@ -94,6 +97,7 @@ const App = () => {
               <PageSEO
                 title="Contact Us - Web Design Company Panipat"
                 description="Get a free quote for digital marketing services in Panipat. Call Inovix."
+                canonical="https://www.inovix.co.in/contact"
                 element={<Contact />}
               />
             } />
@@ -102,6 +106,7 @@ const App = () => {
               <PageSEO
                 title="Web Engineering & Business Growth Blog"
                 description="Expert articles and guides on modern web development, SEO, and lead generation in Panipat & Haryana."
+                canonical="https://www.inovix.co.in/blog"
                 element={<BlogIndex />}
               />
             } />
@@ -114,6 +119,7 @@ const App = () => {
               <PageSEO
                 title="Free Online AI Tools for Creators"
                 description="Use our free AI tools: Background Remover, PDF Compressor, Video Converter and more."
+                canonical="https://www.inovix.co.in/tools"
                 element={<ToolsSection />}
               />
             } />
