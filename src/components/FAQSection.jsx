@@ -38,18 +38,18 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 px-4 sm:px-6 bg-[#040408] text-white border-b border-white/5 overflow-hidden">
+    <section id="faq" className="relative py-24 px-4 sm:px-6 bg-white text-slate-900 border-b border-slate-200 overflow-hidden selection:bg-blue-600/20">
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Got Questions? We Have Honest Answers</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400">
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
             Everything you need to know about our pricing, timelines, and execution process.
           </p>
         </div>
@@ -63,8 +63,8 @@ export default function FAQSection() {
                 key={idx}
                 className={`rounded-2xl transition-all duration-200 border ${
                   isOpen
-                    ? "bg-[#0c0c18] border-cyan-500/40 shadow-[0_4px_20px_rgba(0,212,255,0.08)]"
-                    : "bg-[#070710] border-white/5 hover:border-white/15"
+                    ? "bg-blue-50/40 border-blue-300 shadow-sm"
+                    : "bg-slate-50 border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <button
@@ -72,12 +72,12 @@ export default function FAQSection() {
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-100">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     {faq.q}
                   </span>
                   <div
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? "bg-cyan-500/20 text-cyan-300 rotate-180" : "bg-white/5 text-slate-400"
+                      isOpen ? "bg-blue-100 text-blue-700 rotate-180" : "bg-slate-200 text-slate-600"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -93,7 +93,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+                      <div className="px-5 sm:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-4">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -105,21 +105,21 @@ export default function FAQSection() {
         </div>
 
         {/* Support Box */}
-        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-cyan-950/30 to-blue-950/20 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+            <div className="w-10 h-10 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0">
               <MessageCircle className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-sm font-bold text-white">Have a specific question not covered here?</div>
-              <div className="text-xs text-slate-400">Ask the founder directly on WhatsApp. No sales bot.</div>
+              <div className="text-sm font-bold text-slate-900">Have a specific question not covered here?</div>
+              <div className="text-xs text-slate-600">Ask the founder directly on WhatsApp. No sales bot.</div>
             </div>
           </div>
           <a
-            href="https://wa.me/918059000100?text=Hi%20Inovix%2C%20I%20have%20a%20question%20about%20your%20services"
+            href="https://wa.me/918307967782?text=Hi%20Sagar%2C%20I%20have%20a%20question%20about%20Inovix%20services"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-press px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5"
+            className="btn-press px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5"
           >
             <span>Chat on WhatsApp</span>
             <ArrowRight className="w-3.5 h-3.5" />

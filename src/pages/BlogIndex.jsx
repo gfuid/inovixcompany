@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -10,24 +10,40 @@ import {
   Zap,
   CheckCircle2,
   BookOpen,
-  AlertTriangle,
+  Layers,
+  Search,
 } from "lucide-react";
 import devAvatar from "../assets/assets/brand/dev_avatar.png";
 
 export default function BlogIndex() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const posts = [
     {
       slug: "500-rs-website-design-truth",
-      title: "The Truth About '₹500 Website Design' in India (2026): Scam, Hidden Traps & Real Costs",
+      title: "Kya ₹500 Me Professional Website Ban Sakti Hai? The Truth, Market Scams & Inovix ₹500 Plan",
       excerpt:
-        "Can you really get a legitimate business website for ₹500 in India? Uncover the hidden renewal traps, malware risks, zero Google ranking, and what real lead-generating websites actually cost.",
-      category: "Pricing & Consumer Alert",
-      badge: "Trending Reality Check",
-      badgeClass: "bg-amber-400 text-black font-extrabold",
-      image: "/blog/500-rupees-website-truth-vs-reality.jpg",
-      date: "September 9, 2026",
-      readTime: "6 min read",
-      stats: "Domain Reality • Zero SEO Trap • Realistic Pricing",
+        "Market ke ₹10,000 hidden renewal traps se bachiye aur dekhiye kaise Inovix ne chhote dukaandaaron, clinics aur freelancers ke liye 1-Click WhatsApp lead micro-site launch ki hai.",
+      category: "Micro-Business & Pricing",
+      badge: "Trending Starter Plan",
+      badgeClass: "bg-blue-600 text-white font-bold",
+      image: "/blog/inovix-500-rs-website-plan.jpg",
+      date: "September 11, 2026",
+      readTime: "5 min read",
+      stats: "Sub-Second Load • 1-Click WhatsApp Lead • ₹0 Hidden Fees",
+    },
+    {
+      slug: "textile-exporter-website-design-panipat",
+      title: "Textile & Handloom Exporter Website Design in Panipat: B2B Digital Catalogs & Global Buyers",
+      excerpt:
+        "Why Panipat mink blanket, rug, and yarn manufacturers lose foreign buyers with clumsy PDF catalogs — and how a custom sub-second B2B platform generates overseas export inquiries.",
+      category: "Export & B2B Manufacturing",
+      badge: "Textile Hub Spotlight",
+      badgeClass: "bg-emerald-600 text-white font-bold",
+      image: "/blog/inovix-500-rs-website-plan.jpg",
+      date: "September 11, 2026",
+      readTime: "7 min read",
+      stats: "Interactive Swatches • RFQ Quotes • Global Edge CDN",
     },
     {
       slug: "best-web-development-company-panipat",
@@ -35,65 +51,151 @@ export default function BlogIndex() {
       excerpt:
         "Why modern businesses in Panipat and Haryana are switching from slow ₹5,000 WordPress sites to high-speed custom web platforms that rank #1 on Google and drive real B2B inquiries.",
       category: "Web Engineering & ROI",
-      badge: "Featured Guide",
-      badgeClass: "bg-cyan-400 text-black font-extrabold",
+      badge: "Founder Guide",
+      badgeClass: "bg-indigo-600 text-white font-bold",
       image: null,
       date: "September 9, 2026",
       readTime: "7 min read",
-      stats: "95+ PageSpeed • Sub-Second Latency • WhatsApp CRM",
+      stats: "99 PageSpeed • React/Next.js • Zero Bloatware",
+    },
+    {
+      slug: "mobile-app-development-company-panipat",
+      title: "Mobile App Development Company in Panipat (2026): Custom Android & iOS Apps for Local Businesses",
+      excerpt:
+        "Stop spending ₹3 to 5 Lakhs on Delhi agencies. How local Panipat businesses, delivery startups, and retail chains are building ultra-fast mobile apps with Inovix.",
+      category: "Mobile Apps",
+      badge: "App Development",
+      badgeClass: "bg-purple-600 text-white font-bold",
+      image: null,
+      date: "September 11, 2026",
+      readTime: "6 min read",
+      stats: "Cross-Platform • 60 FPS Native • Play Store Launch",
+    },
+    {
+      slug: "google-my-business-seo-services-panipat",
+      title: "Google My Business (GMB) SEO in Panipat: Local Map Ranking Se Rozana 50+ Inquiries Kaise Payen",
+      excerpt:
+        "Panipat ke local dukaandar aur clinics Google Maps ke top-3 rankings me kaise aate hain. The proven local citation and review optimization blueprint for 2026.",
+      category: "Local SEO & Leads",
+      badge: "Local SEO",
+      badgeClass: "bg-amber-600 text-white font-bold",
+      image: null,
+      date: "September 11, 2026",
+      readTime: "5 min read",
+      stats: "Google 3-Pack • Local Schema • 50+ Phone Calls/Wk",
+    },
+    {
+      slug: "ecommerce-website-development-panipat",
+      title: "E-Commerce Website Development in Panipat: Apni Dukan Ko D2C Online Store Me Kaise Badlen",
+      excerpt:
+        "Why Panipat clothing brands, home decor creators, and blanket manufacturers are shifting from wholesale middlemen to direct-to-consumer (D2C) online stores with 40-60% margins.",
+      category: "E-Commerce",
+      badge: "D2C Growth",
+      badgeClass: "bg-teal-600 text-white font-bold",
+      image: null,
+      date: "September 11, 2026",
+      readTime: "7 min read",
+      stats: "UPI/Razorpay • Shiprocket Tracking • WhatsApp CRM",
+    },
+    {
+      slug: "digital-marketing-agency-panipat-roi",
+      title: "Digital Marketing Agency in Panipat: Stop Wasting Money on Fake Likes & Get Real B2B Leads",
+      excerpt:
+        "Why spending ₹10,000/month on generic Instagram posters fails — and how performance Meta & Google lead funnels generate high-ticket clients in Haryana.",
+      category: "Performance Marketing",
+      badge: "High ROI Leads",
+      badgeClass: "bg-rose-600 text-white font-bold",
+      image: null,
+      date: "September 11, 2026",
+      readTime: "6 min read",
+      stats: "Google Search Ads • Meta WhatsApp Funnels • Qualified B2B",
+    },
+    {
+      slug: "doctor-clinic-hospital-website-panipat",
+      title: "Doctor & Hospital Website Design in Panipat: Patient Appointment Booking & Google Authority",
+      excerpt:
+        "How clinics on GT Road and Model Town are modernizing patient scheduling, building medical trust, and winning high-intent local patient appointments with 1-click booking.",
+      category: "Healthcare & Clinics",
+      badge: "Healthcare Tech",
+      badgeClass: "bg-cyan-700 text-white font-bold",
+      image: null,
+      date: "September 11, 2026",
+      readTime: "5 min read",
+      stats: "WhatsApp OPD Booking • Google Maps Sync • Doctor Profiles",
     },
   ];
 
+  const categories = ["All", "Micro-Business & Pricing", "Export & B2B Manufacturing", "Mobile Apps", "Local SEO & Leads", "E-Commerce", "Performance Marketing", "Healthcare & Clinics"];
+
+  const filteredPosts = selectedCategory === "All"
+    ? posts
+    : posts.filter((p) => p.category === selectedCategory);
+
   return (
-    <div className="bg-[#040407] text-slate-200 min-h-screen pt-28 pb-20 selection:bg-cyan-500/30">
+    <div className="bg-slate-50 text-slate-800 min-h-screen pt-28 pb-20 selection:bg-blue-600/20">
       <Helmet>
-        <title>Tech Insights & Web Development Blog | Inovix Panipat</title>
+        <title>Business Growth, Web Engineering & SEO Guides | Inovix Panipat</title>
         <meta
           name="description"
-          content="Actionable web development, SEO, and digital growth guides for business owners in Panipat, Haryana, and across India by Inovix."
+          content="In-depth actionable guides for business owners in Panipat & Haryana on web design, export catalogs, mobile apps, local SEO, and digital lead generation."
         />
         <link rel="canonical" href="https://www.inovix.co.in/blog" />
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative px-4 sm:px-6 max-w-5xl mx-auto mb-16 text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-cyan-600/10 blur-[130px] rounded-full pointer-events-none" />
-
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+      {/* Hero Header */}
+      <section className="px-4 sm:px-6 max-w-5xl mx-auto mb-12 text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>Inovix Engineering Blog</span>
+          <span>Inovix Business Growth & Engineering Blog</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
-          Insights on Web Engineering, SEO & Business Growth
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          Actionable Guides For Panipat & Haryana Businesses
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Honest, technical breakdowns for business owners on building modern websites, avoiding cheap traps, and ranking #1 on Google.
+        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          Pura sach, realistic pricing, aur live formulas jo aapke business ko Google par #1 rank karwayen aur daily WhatsApp leads lekar aayein.
         </p>
+
+        {/* Category Filters */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                selectedCategory === cat
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                  : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </section>
 
-      {/* Post Listing */}
-      <section className="px-4 sm:px-6 max-w-5xl mx-auto space-y-8">
-        {posts.map((post) => (
+      {/* Post Grid */}
+      <section className="px-4 sm:px-6 max-w-5xl mx-auto space-y-6">
+        {filteredPosts.map((post) => (
           <article
             key={post.slug}
-            className="group relative rounded-3xl bg-gradient-to-br from-[#090e1c] via-[#05060d] to-[#0a1122] border border-cyan-500/30 p-6 sm:p-10 shadow-[0_10px_40px_-10px_rgba(0,212,255,0.15)] hover:border-cyan-400/60 transition-all overflow-hidden"
+            className="group relative rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-blue-300 transition-all overflow-hidden"
           >
             {post.image && (
-              <div className="mb-6 rounded-2xl overflow-hidden border border-white/10 max-h-72">
+              <div className="mb-6 rounded-2xl overflow-hidden border border-slate-100 max-h-72">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
                 />
               </div>
             )}
 
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-4 text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-3 text-xs">
               <span className={`px-3 py-1 rounded-full uppercase tracking-wider text-[11px] ${post.badgeClass}`}>
                 {post.badge}
               </span>
-              <div className="flex items-center gap-4 text-slate-400 font-mono">
+              <div className="flex items-center gap-4 text-slate-500 font-mono">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" /> {post.date}
                 </span>
@@ -103,34 +205,34 @@ export default function BlogIndex() {
               </div>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-black text-white group-hover:text-cyan-400 transition-colors mb-4 leading-snug">
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-blue-600 transition-colors mb-3 leading-snug">
               <Link to={`/blog/${post.slug}`}>{post.title}</Link>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+            <p className="text-sm text-slate-600 leading-relaxed mb-4">
               {post.excerpt}
             </p>
 
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/10 text-xs font-mono text-cyan-400 mb-8 inline-block">
+            <div className="p-2.5 px-3 rounded-lg bg-slate-50 border border-slate-200/80 text-xs font-mono text-blue-700 mb-6 inline-block font-medium">
               {post.stats}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-slate-100">
               <div className="flex items-center gap-3">
                 <img
                   src={devAvatar}
                   alt="Sagar Punia"
-                  className="w-9 h-9 rounded-full object-cover border border-cyan-400/50"
+                  className="w-9 h-9 rounded-full object-cover border border-blue-600/30"
                 />
                 <div>
-                  <div className="text-xs font-semibold text-white">Sagar Punia</div>
-                  <div className="text-[11px] text-slate-400">Founder & Lead Engineer</div>
+                  <div className="text-xs font-bold text-slate-900">Sagar Punia</div>
+                  <div className="text-[11px] text-slate-500">Founder & Lead Full-Stack Engineer</div>
                 </div>
               </div>
 
               <Link
                 to={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs border border-cyan-500/30 transition-all group-hover:gap-3"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 font-bold text-xs border border-blue-200 transition-all group-hover:gap-3"
               >
                 <span>Read Full Article</span>
                 <ArrowRight className="w-4 h-4" />

@@ -18,14 +18,14 @@ const ContactSection = React.lazy(() => import("./ContactSection.jsx")); // Form
 const Footer = React.lazy(() => import("./Footer.jsx"));
 
 const SectionLoader = () => (
-  <div className="flex justify-center items-center py-16 bg-[#040407] text-cyan-400">
-    <div className="animate-spin rounded-full h-8 w-8 border-2 border-cyan-500 border-t-transparent"></div>
+  <div className="flex justify-center items-center py-16 bg-slate-50 text-blue-600">
+    <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-600 border-t-transparent"></div>
   </div>
 );
 
 const Home = () => {
   return (
-    <div className="bg-[#040407] min-h-screen text-slate-100 selection:bg-cyan-500/30">
+    <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-blue-600/20">
       <Helmet>
         <title>Inovix: India's Most Affordable Agency | Web Apps, CRMs & Growth</title>
         <meta

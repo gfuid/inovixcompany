@@ -85,23 +85,20 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-black py-24 relative overflow-hidden">
+    <section className="bg-slate-50 py-28 relative overflow-hidden text-slate-900 border-b border-slate-200 selection:bg-blue-600/20">
 
       {/* Background Ambience */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{ backgroundImage: "linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px)", backgroundSize: "40px 40px" }}>
-      </div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Section Header */}
         <div className="mb-20 md:text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
-            Building Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Digital & Global</span> Future
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+            Building Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600">Digital & Global</span> Future
           </h2>
-          <p className="text-gray-400 text-lg">
-            From coding scalable apps to navigating international waters, we provide the tools and expertise to build a borderless business.
+          <p className="text-slate-600 text-base sm:text-lg">
+            From coding high-speed web apps to navigating international export trade, we provide the tools and expertise to build a borderless business.
           </p>
         </div>
 
@@ -113,44 +110,41 @@ const ServicesSection = () => {
             <div
               key={service.id}
               className={`
-                group relative p-8 rounded-[2rem] border bg-zinc-900/60 backdrop-blur-md 
-                border-white/10 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50
-                transition-all duration-300 ${service.border}
-                ${index === 6 ? "md:col-span-2 lg:col-span-1" : ""} /* Makes the last item centered on tablet if needed */
+                group relative p-8 rounded-[2rem] border bg-white shadow-sm hover:shadow-xl
+                border-slate-200 hover:border-blue-400 hover:-translate-y-1.5
+                transition-all duration-300
+                ${index === 6 ? "md:col-span-2 lg:col-span-1" : ""}
               `}
             >
-              {/* Hover Glow Effect */}
-              <div className={`absolute top-0 right-0 w-32 h-32 ${service.bg} rounded-bl-[4rem] rounded-tr-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
               {/* Header: Icon & Category */}
               <div className="flex justify-between items-start mb-6 relative">
                 <div className={`
-                  w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/5
+                  w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-slate-200/80
                   ${service.bg} ${service.color}
                 `}>
-                  <service.icon size={32} strokeWidth={1.5} />
+                  <service.icon size={28} strokeWidth={1.75} />
                 </div>
-                <span className={`text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full bg-white/5 ${service.color}`}>
+                <span className={`text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full bg-slate-100 ${service.color}`}>
                   {service.category}
                 </span>
               </div>
 
               {/* Content */}
               <div className="relative">
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-cyan-50 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-slate-900 group-hover:text-blue-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed mb-8 text-sm min-h-[60px]">
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm min-h-[50px]">
                   {service.desc}
                 </p>
 
                 {/* Footer Action */}
-                <button className="flex items-center gap-3 text-sm font-bold text-white group/btn">
-                  <span className="group-hover:text-cyan-400 transition-colors">Explore Solution</span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-white/10 group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300 group-hover:scale-110`}>
-                    <ArrowUpRight size={16} />
+                <a href="/contact" className="inline-flex items-center gap-2.5 text-sm font-bold text-blue-600 group/btn">
+                  <span>Explore Solution</span>
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-blue-50 group-hover:bg-blue-600 group-hover:text-white transition-all duration-200">
+                    <ArrowUpRight size={14} />
                   </div>
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -158,14 +152,19 @@ const ServicesSection = () => {
         </div>
 
         {/* Bottom CTA Bar */}
-        <div className="mt-20 p-8 rounded-[2rem] bg-gradient-to-r from-zinc-900 to-black border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-white border border-blue-200/80 shadow-md flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div>
-            <h3 className="text-2xl font-bold text-white mb-2">Ready to expand?</h3>
-            <p className="text-gray-400 text-sm">Whether you need code or cargo solutions, we are ready.</p>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Ready to expand your business?</h3>
+            <p className="text-slate-600 text-sm">Whether you need custom code or global trade solutions, our senior engineers are ready.</p>
           </div>
-          <button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 px-8 rounded-xl transition-all hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-            Book a Free Consultation
-          </button>
+          <a
+            href="https://wa.me/918307967782?text=Hi%20Sagar%2C%20I%20want%20to%20discuss%20a%20project%20for%20my%20business"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-press bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-md shadow-blue-500/20 whitespace-nowrap"
+          >
+            Book Free Consultation
+          </a>
         </div>
 
       </div>

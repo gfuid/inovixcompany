@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
     Mail, Phone, MapPin, Send,
-    ArrowRight, CheckCircle2, Globe2
+    ArrowRight, CheckCircle2, Globe2, AlertCircle
 } from "lucide-react";
 
 const Contact = () => {
@@ -13,24 +14,48 @@ const Contact = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSent, setIsSent] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setErrorMessage("");
 
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitting(false);
+        const serviceLabels = {
+            digital: "App / Web Dev",
+            trade: "Export / Trade",
+            consulting: "Consulting"
+        };
+
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            service: serviceLabels[formData.service] || formData.service,
+            message: formData.message,
+            from_name: formData.name,
+            from_email: formData.email,
+            reply_to: formData.email
+        };
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_iqshmc2",
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_re1lme9",
+                templateParams,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "IDBDCu2O5cW6nI1pm"
+            );
             setIsSent(true);
             setFormData({ name: "", email: "", service: "digital", message: "" });
-
-            // Reset success message after 3 seconds
-            setTimeout(() => setIsSent(false), 5000);
-        }, 1500);
+        } catch (error) {
+            console.error("EmailJS submission error:", error);
+            setErrorMessage(error?.text || "Failed to send message. Please try again or contact us directly.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -201,6 +226,13 @@ const Contact = () => {
                                         className="w-full bg-black/50 border border-white/10 rounded-xl px-6 py-4 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all resize-none"
                                     />
                                 </div>
+
+                                {errorMessage && (
+                                    <div className="flex items-center gap-2 text-rose-400 bg-rose-500/10 border border-rose-500/20 px-4 py-3 rounded-xl text-sm">
+                                        <AlertCircle size={18} className="shrink-0" />
+                                        <span>{errorMessage}</span>
+                                    </div>
+                                )}
 
                                 <button
                                     type="submit"

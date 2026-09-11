@@ -77,10 +77,10 @@ export default function Fourth() {
   ];
 
   return (
-    <section id="services" className="relative w-full py-24 px-4 sm:px-6 bg-[#040407] text-white overflow-hidden border-b border-white/5 selection:bg-cyan-500/30">
+    <section id="services" className="relative w-full py-24 px-4 sm:px-6 bg-slate-50 text-slate-900 overflow-hidden border-b border-slate-200 selection:bg-blue-600/20">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-grid-subtle opacity-25 pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-subtle opacity-40 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-500/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
@@ -89,7 +89,7 @@ export default function Fourth() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
           >
             <Layers className="w-3.5 h-3.5" />
             <span>Full-Spectrum Digital Capabilities</span>
@@ -100,10 +100,10 @@ export default function Fourth() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900"
           >
             Engineered to Scale. <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600">
               Priced to Win.
             </span>
           </motion.h2>
@@ -113,7 +113,7 @@ export default function Fourth() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-4 text-base sm:text-lg text-slate-400"
+            className="mt-4 text-base sm:text-lg text-slate-600"
           >
             From ₹500/month basic storefronts to enterprise-grade custom CRMs and export consulting — we build everything in-house with zero agency bloat.
           </motion.p>
@@ -131,39 +131,39 @@ export default function Fourth() {
               className="h-full"
             >
               <SpotlightCard
-                spotlightColor="rgba(0, 212, 255, 0.12)"
-                borderSpotlightColor="rgba(0, 212, 255, 0.4)"
-                className="group relative flex flex-col justify-between p-7 rounded-3xl bg-[#090912]/85 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 shadow-lg h-full"
+                spotlightColor="rgba(37, 99, 235, 0.08)"
+                borderSpotlightColor="rgba(37, 99, 235, 0.3)"
+                className="group relative flex flex-col justify-between p-7 rounded-3xl bg-white border border-slate-200 hover:border-blue-400 transition-all duration-300 shadow-sm hover:shadow-xl h-full"
               >
                 <div>
                   {/* Top Row: Icon + Badge + Number */}
                   <div className="flex justify-between items-center mb-6">
-                    <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-colors">
+                    <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 group-hover:border-blue-200 group-hover:bg-blue-50/50 transition-colors">
                       {service.icon}
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                         {service.badge}
                       </span>
-                      <span className="text-xl font-bold font-mono text-slate-700 group-hover:text-cyan-500/40 transition-colors">
+                      <span className="text-xl font-bold font-mono text-slate-300 group-hover:text-blue-500/40 transition-colors">
                         {service.id}
                       </span>
                     </div>
                   </div>
 
                   {/* Service Details */}
-                  <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-cyan-200 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2.5 group-hover:text-blue-600 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
                     {service.desc}
                   </p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 shrink-0" />
+                      <li key={fIdx} className="flex items-center gap-2 text-xs text-slate-600">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -171,15 +171,15 @@ export default function Fourth() {
                 </div>
 
                 {/* Card Footer CTA */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     to="/contact"
-                    className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 group/link"
+                    className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 group/link"
                   >
                     <span>Request Proposal</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                   </Link>
-                  <span className="text-[11px] text-slate-500 font-mono">100% In-House</span>
+                  <span className="text-[11px] text-slate-400 font-mono">100% In-House</span>
                 </div>
               </SpotlightCard>
             </motion.div>
@@ -187,19 +187,19 @@ export default function Fourth() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl glass-panel border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-white border border-blue-200/80 shadow-md flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+            <h4 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
               <span>Need a custom software or business tool not listed here?</span>
-              <Sparkles className="w-4 h-4 text-cyan-400" />
+              <Sparkles className="w-4 h-4 text-blue-600" />
             </h4>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               We design custom billing systems, WhatsApp automations, and proprietary tools tailored specifically for your workflow.
             </p>
           </div>
           <Link
             to="/contact"
-            className="btn-press px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-md whitespace-nowrap shrink-0"
+            className="btn-press px-6 py-3 rounded-full text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 whitespace-nowrap shrink-0 transition-all"
           >
             Discuss Custom Build →
           </Link>

@@ -12,6 +12,8 @@ export default function StatsCounter() {
       label: "Live Platforms Built",
       desc: "Delivered across SaaS, B2B Pharma, Education, and Export/Import",
       icon: Layers,
+      color: "text-blue-600",
+      bg: "bg-blue-50",
     },
     {
       value: 99,
@@ -19,6 +21,8 @@ export default function StatsCounter() {
       label: "Client Satisfaction",
       desc: "High-standard engineering delivered on time with direct founder communication",
       icon: Award,
+      color: "text-emerald-600",
+      bg: "bg-emerald-50",
     },
     {
       prefix: "₹",
@@ -27,6 +31,8 @@ export default function StatsCounter() {
       label: "Volume Processed",
       desc: "Automated payment and lead pipelines built with n8n and REST APIs",
       icon: TrendingUp,
+      color: "text-violet-600",
+      bg: "bg-violet-50",
     },
     {
       value: 50,
@@ -34,24 +40,27 @@ export default function StatsCounter() {
       label: "Sub-Second Latency",
       desc: "90% API latency reduction engineered via Redis & modern Next/React code",
       icon: Zap,
+      color: "text-amber-600",
+      bg: "bg-amber-50",
     },
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 bg-[#06060e] text-white border-b border-white/5 overflow-hidden">
-      {/* Background Subtle Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-indigo-600/10 blur-[150px] rounded-full pointer-events-none" />
+    <section className="relative py-24 px-4 sm:px-6 bg-white overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-indigo-100/40 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-subtle opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Proven Engineering Milestones</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-100">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
             Real Software Metrics. Zero Vanity.
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-400">
+          <p className="mt-3 text-sm sm:text-base text-slate-500">
             Every number below is backed by real deployed code, active database transactions, and live users.
           </p>
         </div>
@@ -66,35 +75,30 @@ export default function StatsCounter() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.23, 1, 0.32, 1] }}
                 viewport={{ once: true }}
+                className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between shadow-sm"
               >
-                <SpotlightCard
-                  spotlightColor="rgba(0, 212, 255, 0.12)"
-                  borderSpotlightColor="rgba(0, 212, 255, 0.45)"
-                  className="p-7 rounded-3xl bg-[#090914] border border-white/10 hover:border-cyan-500/40 transition-all duration-300 h-full flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-5">
-                      <Icon className="w-6 h-6" />
-                    </div>
-
-                    <div className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-2">
-                      <CountUp
-                        to={stat.value}
-                        prefix={stat.prefix || ""}
-                        suffix={stat.suffix || ""}
-                        duration={2}
-                      />
-                    </div>
-
-                    <div className="text-base font-bold text-slate-200 mb-2">
-                      {stat.label}
-                    </div>
+                <div>
+                  <div className={`w-12 h-12 rounded-2xl ${stat.bg} border border-slate-100 flex items-center justify-center ${stat.color} mb-5`}>
+                    <Icon className="w-6 h-6" />
                   </div>
 
-                  <p className="text-xs text-slate-400 leading-relaxed pt-4 border-t border-white/5">
-                    {stat.desc}
-                  </p>
-                </SpotlightCard>
+                  <div className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 mb-2">
+                    <CountUp
+                      to={stat.value}
+                      prefix={stat.prefix || ""}
+                      suffix={stat.suffix || ""}
+                      duration={2}
+                    />
+                  </div>
+
+                  <div className="text-base font-bold text-slate-700 mb-2">
+                    {stat.label}
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-400 leading-relaxed pt-4 border-t border-slate-100">
+                  {stat.desc}
+                </p>
               </motion.div>
             );
           })}

@@ -38,18 +38,18 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="relative w-full py-24 px-4 sm:px-6 bg-[#040408] text-white overflow-hidden border-b border-white/5 selection:bg-cyan-500/30">
-      {/* Background Lights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-cyan-900/10 blur-[150px] rounded-full pointer-events-none" />
+    <section id="testimonials" className="relative w-full py-24 px-4 sm:px-6 bg-slate-50 overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-blue-100/40 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
           >
             <MessageSquareHeart className="w-3.5 h-3.5" />
             <span>Real Founder & Client Stories</span>
@@ -60,10 +60,10 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900"
           >
             Proof from Businesses <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600">
               Just Like Yours
             </span>
           </motion.h2>
@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-4 text-base sm:text-lg text-slate-400"
+            className="mt-4 text-base sm:text-lg text-slate-500"
           >
             Real results delivered for real business owners across Haryana, Delhi-NCR, and beyond.
           </motion.p>
@@ -88,17 +88,17 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
               viewport={{ once: true }}
-              className="group relative flex flex-col justify-between bg-[#090914] border border-white/10 rounded-3xl p-7 hover:border-cyan-500/40 hover:bg-[#0e0e1e] transition-all duration-300 shadow-xl"
+              className="group relative flex flex-col justify-between bg-white border border-slate-200 rounded-3xl p-7 hover:border-blue-300 hover:shadow-lg transition-all duration-300 shadow-sm"
             >
-              {/* Giant Background Quote Icon */}
-              <div className="absolute top-6 right-6 text-white/5 group-hover:text-cyan-500/10 transition-colors duration-300 pointer-events-none">
+              {/* Quote Icon */}
+              <div className="absolute top-6 right-6 text-slate-100 group-hover:text-blue-100 transition-colors duration-300 pointer-events-none">
                 <Quote className="w-12 h-12 fill-current" />
               </div>
 
               <div>
                 {/* Metric Badge */}
-                <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-bold">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
+                <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                   <span>{t.metric}</span>
                 </div>
 
@@ -112,24 +112,24 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
 
-                {/* Feedback Quote */}
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
+                {/* Feedback */}
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 font-normal">
                   "{t.feedback}"
                 </p>
               </div>
 
-              {/* User Bio Footer */}
-              <div className="flex items-center gap-3.5 pt-5 border-t border-white/10">
+              {/* User Bio */}
+              <div className="flex items-center gap-3.5 pt-5 border-t border-slate-200">
                 <img
                   src={t.img}
                   alt={t.name}
-                  className="w-11 h-11 rounded-full object-cover border border-cyan-500/30"
+                  className="w-11 h-11 rounded-full object-cover border border-blue-200"
                 />
                 <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                     {t.name}
                   </h4>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     {t.role}
                   </p>
                 </div>

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 // --- COMPONENTS ---
 import Preloader from "./components/Preloader"; // Import the Preloader we made
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import Home from "./components/Home.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Service from "./pages/ServicesSection.jsx";
@@ -13,6 +14,7 @@ import Contact from "./contact/Contact.jsx";
 import BlogPost from "./pages/BlogPost.jsx";
 import CheapWebsiteBlog from "./pages/CheapWebsiteBlog.jsx";
 import BlogIndex from "./pages/BlogIndex.jsx";
+import DynamicBlogPost from "./pages/DynamicBlogPost.jsx";
 
 // --- TOOL IMPORTS ---
 import SmartCompressor from "./tools/SmartCompressor.jsx";
@@ -63,6 +65,7 @@ const App = () => {
         }}
       >
         <Router>
+          <ScrollToTop />
           <Navbar />
 
           <Routes>
@@ -118,6 +121,10 @@ const App = () => {
 
             <Route path="/blog/500-rs-website-design-truth" element={
               <CheapWebsiteBlog />
+            } />
+
+            <Route path="/blog/:slug" element={
+              <DynamicBlogPost />
             } />
 
             <Route path="/tools" element={
