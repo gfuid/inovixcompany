@@ -1,91 +1,3041 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Inovix: Top Digital Marketing Agency in Panipat, Haryana</title>
-
-  <meta name="description"
-    content="Grow your business with Inovix. We are Haryana's leading digital marketing agency offering SEO, Web Design, and Social Media services." />
-
-  <meta name="keywords"
-    content="digital marketing agency Haryana, SEO services Panipat, website design Haryana, social media marketing, Inovix, online branding" />
-
-  <meta name="author" content="Inovix" />
-  <meta name="robots" content="index, follow" />
-  <meta name="language" content="English" />
-  <meta name="revisit-after" content="7 days" />
-
-  <link rel="canonical" data-rh="true" href="https://www.inovix.co.in/" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Inovix Technologies | India's High-Impact Tech, Web & Growth Agency</title>
+  <meta name="description" content="Why pay ₹2 Lakhs for a website that doesn't bring you leads? Inovix builds high-performance web applications, custom factory CRMs, and ROI-driven marketing starting at just ₹4,999." />
   <link rel="icon" type="image/png" href="/ino.png" />
 
-  <meta property="og:title" content="Inovix: Top Digital Marketing Agency in Panipat, Haryana" />
-  <meta property="og:description"
-    content="Grow your business online with Inovix — experts in SEO, social media, and web design in Panipat." />
-  <meta property="og:image" content="https://www.inovix.co.in/ino.png" />
-  <meta property="og:url" content="https://www.inovix.co.in/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Inovix" />
+  <!-- Google Fonts: Manrope (variable 200..800) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Inovix: Digital Marketing Experts in Haryana" />
-  <meta name="twitter:description" content="Expert SEO, SMM, and Web Design services in Panipat." />
-  <meta name="twitter:image" content="https://www.inovix.co.in/ino.png" />
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Inovix",
-      "url": "https://www.inovix.co.in/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.inovix.co.in/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+  <style>
+    /* Lenis Smooth Scroll Recommended Styles */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       DESIGN TOKENS & CANVAS
+       ========================================================================== */
+    :root {
+      --ink: #fafafa;
+      --muted: #a7a6a6;
+      --nav: #b6b5b5;
+      --strip: #8b8a8a;
+      --pill: #ffffff;
+      --pill-ink: #050505;
+      --bg: #050505;
+      --surface: #0c0c0c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-hover: rgba(255, 255, 255, 0.04);
+      --accent-glow: rgba(255, 255, 255, 0.15);
+
+      --u: calc(100vh / 1058);
+      --uw: calc(100vw / 1487);
+      --h: clamp(var(--u), calc(var(--u) * 0.65 + var(--uw) * 0.35), calc(var(--u) * 1.16));
+    }
+
+    @supports (height: 100dvh) {
+      :root {
+        --u: calc(100dvh / 1058);
       }
     }
-  </script>
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Inovix Digital Agency",
-      "image": "https://www.inovix.co.in/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Panipat",
-        "addressLocality": "Panipat",
-        "addressRegion": "Haryana",
-        "postalCode": "132103",
-        "addressCountry": "IN"
-      },
-      "url": "https://www.inovix.co.in/",
-      "telephone": "+91-8307967782",
-      "priceRange": "₹₹",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .topbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: calc(20 * var(--u)) calc(50 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+      pointer-events: none;
+    }
+
+    .topbar-wrap.scrolled {
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 40px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      pointer-events: auto;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .brand-group:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .brand-mark {
+      width: calc(34 * var(--u));
+      height: calc(34 * var(--u));
+      min-width: 32px;
+      min-height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ffffff 0%, #a6a6a6 50%, #414141 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.12);
+    }
+    .brand-mark span {
+      font-size: 14px;
+      font-weight: 800;
+      color: #050505;
+      letter-spacing: -0.05em;
+    }
+
+    .brand-text {
+      font-size: calc(20 * var(--u));
+      min-font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .brand-text .dot {
+      color: #ffffff;
+      opacity: 0.6;
+    }
+
+    /* Centered Desktop Nav */
+    .nav-links {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: calc(22 * var(--u));
+      pointer-events: auto;
+    }
+    .nav-links a {
+      font-size: calc(14.5 * var(--u));
+      font-weight: 500;
+      color: var(--nav);
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+    .badge-nav {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-left: 3px;
+      font-weight: 600;
+    }
+
+    /* Pill Buttons */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pill);
+      color: var(--pill-ink);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pill:hover {
+      opacity: 0.94;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    }
+
+    .pill-header {
+      padding: calc(10 * var(--u)) calc(22 * var(--u));
+      font-size: calc(15 * var(--u));
+      letter-spacing: -0.01em;
+    }
+
+    /* Mobile Burger */
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 120;
+    }
+    .burger i {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: #fff;
+      border-radius: 1px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .is-open .burger i:first-child {
+      transform: translateY(3.75px) rotate(45deg);
+    }
+    .is-open .burger i:last-child {
+      transform: translateY(-3.75px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      background: rgba(5, 5, 5, 0.96);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      padding: 100px 32px 40px;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .is-open .mobile-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .mobile-nav-list a {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-nav-list a::after {
+      content: "→";
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .mobile-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .mobile-foot .pill {
+      height: 52px;
+      font-size: 17px;
+    }
+    .mobile-ghost {
+      text-align: center;
+      font-size: 15px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 0;
+    }
+
+    /* ==========================================================================
+       HERO STAGE (Fixed First Viewport with Looping CloudFront Video)
+       ========================================================================== */
+    .hero-stage {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: var(--bg);
+      display: flex;
+      align-items: center;
+    }
+
+    .plate {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .plate-video {
+      position: absolute;
+      left: 50%;
+      top: calc(1 * var(--u));
+      width: calc(1492 * var(--u));
+      height: calc(1054 * var(--u));
+      transform: translateX(calc(-50% - (0.5 * var(--u))));
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .plate::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        /* Cinematic left text scrim: keeps all headline, subcopy, and CTA text 100% readable without washing out from the door's white light */
+        linear-gradient(90deg,
+          rgba(5, 5, 5, 0.92) 0%,
+          rgba(5, 5, 5, 0.82) 32%,
+          rgba(5, 5, 5, 0.45) 54%,
+          transparent 75%
+        ),
+        /* Bottom fade to page bg */
+        linear-gradient(to bottom,
+          rgba(5, 5, 5, 0) 65%,
+          rgba(5, 5, 5, 0.35) 75%,
+          rgba(5, 5, 5, 0.75) 84%,
+          rgba(5, 5, 5, 0.95) 94%,
+          #050505 100%),
+        /* Left/Right framing */
+        linear-gradient(to right,
+          #050505 calc(50% - 746 * var(--u)),
+          transparent calc(50% - 676 * var(--u)),
+          transparent calc(50% + 676 * var(--u)),
+          #050505 calc(50% + 746 * var(--u)));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: calc(75 * var(--u));
+      padding-right: 24px;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: calc(13 * var(--h));
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      margin-bottom: calc(20 * var(--h));
+      pointer-events: auto;
+    }
+    .hero-badge .pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .headline {
+      font-size: clamp(34px, calc(52 * var(--h)), 58px);
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      white-space: normal;
+      max-width: min(860px, 60vw);
+      pointer-events: auto;
+      margin-bottom: calc(22 * var(--h));
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 4px 28px rgba(0, 0, 0, 0.9));
+    }
+    .headline span {
+      display: block;
+    }
+    .headline .gradient-accent {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 55%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      padding-bottom: 0.12em; /* Ensures descenders like 'g', 'y', 'p' are never clipped */
+    }
+
+    .subcopy {
+      font-size: calc(18 * var(--h));
+      line-height: calc(26 * var(--h));
+      font-weight: 450;
+      color: #d1d5db;
+      max-width: min(640px, 55vw);
+      pointer-events: auto;
+      margin-bottom: calc(34 * var(--h));
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+    .subcopy span {
+      display: block;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: calc(24 * var(--h));
+      pointer-events: auto;
+    }
+
+    .pill-hero {
+      padding: calc(15 * var(--h)) calc(34 * var(--h));
+      font-size: calc(17 * var(--h));
+    }
+
+    .ghost-hero {
+      font-size: calc(17 * var(--h));
+      font-weight: 500;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .ghost-hero:hover {
+      opacity: 0.8;
+      transform: translateX(3px);
+    }
+
+    /* Continuous Infinite Marquee Slider for Trusted By */
+    .client-strip-wrapper {
+      position: absolute;
+      bottom: calc(28 * var(--u));
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 100%;
+      max-width: 1120px;
+      padding: 0 24px;
+      pointer-events: auto;
+    }
+    .client-strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      color: var(--strip);
+    }
+    .client-strip-label {
+      font-size: calc(12 * var(--u));
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      opacity: 0.75;
+      color: var(--strip);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .client-marquee-container {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    }
+    .client-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: clientMarqueeScroll 28s linear infinite;
+      will-change: transform;
+    }
+    .client-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    .client-marquee-group {
+      display: flex;
+      align-items: center;
+      gap: calc(32 * var(--u));
+      padding-right: calc(32 * var(--u));
+      flex-shrink: 0;
+    }
+    .client-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--strip);
+      font-size: calc(14.5 * var(--u));
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+    .client-item:hover {
+      color: #ffffff;
+      opacity: 1;
+    }
+    .client-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+
+    @keyframes clientMarqueeScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
       }
     }
-  </script>
+
+    /* ==========================================================================
+       SECTIONS LAYOUT
+       ========================================================================== */
+    .section-wrap {
+      position: relative;
+      z-index: 20;
+      background-color: var(--bg);
+      padding: 110px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .badge-tag-problem {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(30px, 4.2vw, 52px);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: clamp(15.5px, 1.7vw, 18px);
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       1. PROBLEM VS SOLUTION COMPARISON GRID
+       ========================================================================== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .compare-card {
+      border-radius: 24px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card {
+      background: rgba(20, 8, 8, 0.7);
+      border: 1px solid rgba(239, 68, 68, 0.22);
+      backdrop-filter: blur(16px);
+    }
+    .compare-card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .compare-icon-problem {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #ef4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .compare-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .compare-subtitle {
+      font-size: 13px;
+      color: #a7a6a6;
+    }
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #d1d1d1;
+    }
+    .icon-x {
+      color: #ef4444;
+      font-weight: 800;
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .compare-footer-problem {
+      padding-top: 20px;
+      border-top: 1px solid rgba(239, 68, 68, 0.18);
+      font-size: 13.5px;
+      color: #f87171;
+      font-family: monospace;
+    }
+
+    .solution-card {
+      background: rgba(14, 18, 26, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(255, 255, 255, 0.02);
+    }
+    .solution-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #ffffff;
+      color: #050505;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-bottom-left-radius: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .compare-icon-solution {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .solution-sub {
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+    .icon-check {
+      color: #10b981;
+      font-weight: 800;
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .compare-footer-solution {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .solution-result-text {
+      font-size: 13.5px;
+      color: #ffffff;
+      font-family: monospace;
+      flex: 1;
+      min-width: 200px;
+    }
+    .pill-switch {
+      padding: 10px 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       2. PROVEN ENGINEERING MILESTONES
+       ========================================================================== */
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .milestone-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .milestone-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+    .milestone-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+    .milestone-val {
+      font-size: 46px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .milestone-label {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .milestone-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ==========================================================================
+       3. REAL LIVE PRODUCTION BUILDS (WITH BANNER IMAGES & FILTER TABS)
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .filter-btn.active {
+      background: #ffffff;
+      color: #050505;
+      border-color: #ffffff;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+    .project-card.span-7 { grid-column: span 6; }
+    .project-card.span-5 { grid-column: span 6; }
+    .project-card.span-6 { grid-column: span 6; }
+    .project-card.span-12 { grid-column: span 12; }
+
+    .project-thumb-wrap {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+      background: #0f1117;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .project-card.span-12 .project-thumb-wrap { height: 320px; }
+    .project-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+      display: block;
+    }
+    .project-card:hover .project-thumb {
+      transform: scale(1.03);
+    }
+    .project-thumb-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .tech-tag {
+      font-size: 11.5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #d1d5db;
+    }
+    .project-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .project-footer {
+      padding: 14px 24px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13.5px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .project-live-btn {
+      color: #fff;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover .project-live-btn {
+      color: #60a5fa;
+      transform: translateX(2px);
+    }
+
+    .portfolio-callout-card {
+      grid-column: span 12;
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    /* ==========================================================================
+       4. THE INOVIX COMPETITIVE ADVANTAGE & FOUNDER SPOTLIGHT
+       ========================================================================== */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .advantage-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 32px 24px;
+    }
+    .advantage-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .advantage-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .advantage-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Founder Card */
+    .founder-card {
+      background: linear-gradient(135deg, rgba(16, 16, 16, 0.9) 0%, rgba(8, 8, 8, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+    .founder-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .founder-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .founder-info h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .founder-info .role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .founder-info p {
+      font-size: 15px;
+      color: #d1d1d1;
+      line-height: 1.65;
+      max-width: 800px;
+    }
+
+    /* 4-Step Process */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 30px 24px;
+    }
+    .step-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       5. RADICAL TRANSPARENCY PRICING
+       ========================================================================== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 24px;
+      padding: 36px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .pricing-card.featured {
+      background: rgba(14, 18, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      color: #050505;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .plan-tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .plan-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .plan-price {
+      font-size: 38px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .plan-price span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .plan-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .plan-features li {
+      font-size: 13.5px;
+      color: #cfcfcf;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .plan-features li::before {
+      content: "✓";
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .plan-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    .guarantees-strip {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ==========================================================================
+       6. INOVIX LABS TOOLS GRID
+       ========================================================================== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .tool-item {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tool-item:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: var(--surface-hover);
+      transform: translateY(-3px);
+    }
+    .tool-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .tool-name {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .tool-meta {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .tool-cta {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==========================================================================
+       7. TESTIMONIALS / STORIES
+       ========================================================================== */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .story-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .story-highlight {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .story-quote {
+      font-size: 14.5px;
+      color: #cfcfcf;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .story-author {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .story-role {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       8. FAQ ACCORDION (#faq)
+       ========================================================================== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 960px;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .faq-q {
+      padding: 22px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-icon {
+      font-size: 20px;
+      color: var(--muted);
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      display: none;
+      padding: 0 28px 24px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .faq-item.active .faq-a {
+      display: block;
+    }
+
+    /* ==========================================================================
+       9. CONTACT & INSTANT QUOTE SECTION (#contact)
+       ========================================================================== */
+    .contact-card-main {
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      padding: clamp(36px, 6vw, 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .contact-info-col h3 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .contact-info-col p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .direct-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .action-row:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateX(4px);
+    }
+    .action-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .action-text .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .action-text .val {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: #ffffff;
+    }
+    .form-input::placeholder {
+      color: #6e6e6e;
+    }
+    .form-btn {
+      width: 100%;
+      height: 52px;
+      border: none;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #030303;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 56px 24px 36px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: var(--ink);
+    }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1100px) {
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .advantage-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .stories-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .mobile-menu { display: flex; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .milestones-grid { grid-template-columns: 1fr 1fr; }
+      .contact-card-main { grid-template-columns: 1fr; gap: 36px; }
+      .project-card.span-7, .project-card.span-5, .project-card.span-6 { grid-column: span 12; }
+      .footer-inner { grid-template-columns: 1fr; gap: 30px; }
+
+      .headline {
+        font-size: clamp(30px, 6vw, 38px);
+        line-height: 1.16;
+        white-space: normal;
+        max-width: 100%;
+      }
+      .subcopy {
+        font-size: 16px;
+        line-height: 1.5;
+        white-space: normal;
+        max-width: 100%;
+      }
+      .client-strip-wrapper {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 36px;
+        padding: 0 16px;
+      }
+      .client-strip-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .client-marquee-container {
+        width: 100%;
+        max-width: 100vw;
+      }
+      .hero-content {
+        padding-left: 24px;
+      }
+      .hero-stage {
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 0 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .milestones-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .advantage-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .founder-card { padding: 24px; }
+    }
+  </style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
 
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="topbar-wrap" id="topbar">
+    <a href="/" class="brand-group" aria-label="Inovix Home">
+      <div class="brand-mark">
+        <span>IX</span>
+      </div>
+      <span class="brand-text">Inovix<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="/why-inovix">Why Inovix</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools">Tools <span class="badge-nav">Free</span></a>
+      <a href="/blog">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <a href="/contact" class="pill pill-header">
+      <span>Start a Project</span>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Toggle Navigation" aria-expanded="false">
+      <i></i>
+      <i></i>
+    </button>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul class="mobile-nav-list">
+      <li><a href="/why-inovix" class="mobile-link">Why Inovix</a></li>
+      <li><a href="/work" class="mobile-link">Work (Live Builds)</a></li>
+      <li><a href="/pricing" class="mobile-link">Transparent Pricing</a></li>
+      <li><a href="/process" class="mobile-link">Our Process</a></li>
+      <li><a href="/tools" class="mobile-link">Free Utility Tools</a></li>
+      <li><a href="/blog" class="mobile-link">Engineering Blog</a></li>
+      <li><a href="/faq" class="mobile-link">FAQ</a></li>
+      <li><a href="/contact" class="mobile-link">Contact &amp; Quote</a></li>
+    </ul>
+
+    <div class="mobile-foot">
+      <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="pill">
+        <span>Start a Project on WhatsApp</span>
+      </a>
+      <a href="tel:+918307967782" class="mobile-ghost">Call Founder: +91 83079 67782</a>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO FOLD: Dark Cinematic Background Video & Inovix Value Proposition
+       ========================================================================== -->
+  <section class="hero-stage">
+    <div class="plate">
+      <video class="plate-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_112712_da9d53df-6d27-4b12-bdf6-aa9dc2622bdf.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse"></span>
+        <span>India's Most Affordable High-Impact Tech Agency</span>
+      </div>
+
+      <h1 class="headline">
+        <span>We Build, Ship &amp; Scale</span>
+        <span class="gradient-accent">High-Impact Digital Systems.</span>
+      </h1>
+
+      <p class="subcopy">
+        <span>Engineering sub-50ms web platforms, custom factory CRMs, and high-ROI conversion</span>
+        <span>funnels from Panipat to international markets — without traditional agency markup.</span>
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="pill pill-hero">
+          <span>Start a Project ↗</span>
+        </a>
+        <a href="#comparison" class="ghost-hero">
+          <span>Why Switch to Inovix? ↓</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="client-strip-wrapper">
+      <div class="client-strip-inner">
+        <span class="client-strip-label">Trusted By:</span>
+        <div class="client-marquee-container">
+          <div class="client-marquee-track">
+            <!-- Set 1 -->
+            <div class="client-marquee-group">
+              <a href="https://triremegroup.in" target="_blank" rel="noopener noreferrer" class="client-item">Trireme Group</a>
+              <span class="client-dot"></span>
+              <a href="https://sakshamappleveda.com" target="_blank" rel="noopener noreferrer" class="client-item">Saksham Appleveda</a>
+              <span class="client-dot"></span>
+              <a href="https://www.zkbrother.com/" target="_blank" rel="noopener noreferrer" class="client-item">ZK Brothers</a>
+              <span class="client-dot"></span>
+              <a href="https://ambavi.in/" target="_blank" rel="noopener noreferrer" class="client-item">Ambavi Pvt Ltd</a>
+              <span class="client-dot"></span>
+              <a href="https://agilexports.com/" target="_blank" rel="noopener noreferrer" class="client-item">AgileXports India</a>
+              <span class="client-dot"></span>
+              <a href="https://vedagroup.co.in" target="_blank" rel="noopener noreferrer" class="client-item">Veda Group</a>
+              <span class="client-dot"></span>
+              <a href="https://creatorhq.com/" target="_blank" rel="noopener noreferrer" class="client-item">Creator HQ</a>
+              <span class="client-dot"></span>
+              <a href="https://digitalpharmapreneur.com" target="_blank" rel="noopener noreferrer" class="client-item">Digital Pharmapreneur</a>
+              <span class="client-dot"></span>
+              <a href="https://vedominelifesciences.com" target="_blank" rel="noopener noreferrer" class="client-item">Vedomine Lifesciences</a>
+              <span class="client-dot"></span>
+              <a href="https://holisticjeevandhara.org" target="_blank" rel="noopener noreferrer" class="client-item">Holistic Foundation</a>
+              <span class="client-dot"></span>
+            </div>
+            <!-- Set 2 (Exact duplicate for seamless 0 to -50% infinite loop) -->
+            <div class="client-marquee-group" aria-hidden="true">
+              <a href="https://triremegroup.in" target="_blank" rel="noopener noreferrer" class="client-item">Trireme Group</a>
+              <span class="client-dot"></span>
+              <a href="https://sakshamappleveda.com" target="_blank" rel="noopener noreferrer" class="client-item">Saksham Appleveda</a>
+              <span class="client-dot"></span>
+              <a href="https://www.zkbrother.com/" target="_blank" rel="noopener noreferrer" class="client-item">ZK Brothers</a>
+              <span class="client-dot"></span>
+              <a href="https://ambavi.in/" target="_blank" rel="noopener noreferrer" class="client-item">Ambavi Pvt Ltd</a>
+              <span class="client-dot"></span>
+              <a href="https://agilexports.com/" target="_blank" rel="noopener noreferrer" class="client-item">AgileXports India</a>
+              <span class="client-dot"></span>
+              <a href="https://vedagroup.co.in" target="_blank" rel="noopener noreferrer" class="client-item">Veda Group</a>
+              <span class="client-dot"></span>
+              <a href="https://creatorhq.com/" target="_blank" rel="noopener noreferrer" class="client-item">Creator HQ</a>
+              <span class="client-dot"></span>
+              <a href="https://digitalpharmapreneur.com" target="_blank" rel="noopener noreferrer" class="client-item">Digital Pharmapreneur</a>
+              <span class="client-dot"></span>
+              <a href="https://vedominelifesciences.com" target="_blank" rel="noopener noreferrer" class="client-item">Vedomine Lifesciences</a>
+              <span class="client-dot"></span>
+              <a href="https://holisticjeevandhara.org" target="_blank" rel="noopener noreferrer" class="client-item">Holistic Foundation</a>
+              <span class="client-dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 1: WHY PAY ₹2 LAKHS? (THE EXPENSIVE AGENCY WAY VS INOVIX)
+       ========================================================================== -->
+  <section class="section-wrap" id="comparison">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 840px; margin: 0 auto 64px;">
+        <span class="badge-tag-problem">The Traditional Agency Problem</span>
+        <h2 class="section-title">Why pay ₹2 Lakhs for a website that doesn't bring you leads?</h2>
+        <p class="section-desc" style="margin: 0 auto;">Big agencies charge you for their AC office and 10 layers of management. At Inovix, you pay for pure engineering and direct results.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- The Expensive Agency Way -->
+        <div class="compare-card problem-card">
+          <div>
+            <div class="compare-card-head">
+              <div class="compare-icon-problem">✕</div>
+              <div>
+                <h3 class="compare-title">The Expensive Agency Way</h3>
+                <p class="compare-subtitle">Slow, overpriced, and bloated</p>
+              </div>
+            </div>
+
+            <ul class="compare-list">
+              <li>
+                <span class="icon-x">✕</span>
+                <span>Quotes ₹1,50,000+ upfront with hidden server &amp; revision costs</span>
+              </li>
+              <li>
+                <span class="icon-x">✕</span>
+                <span>Takes 3 to 5 months of boring Zoom calls with account managers</span>
+              </li>
+              <li>
+                <span class="icon-x">✕</span>
+                <span>Bloated WordPress templates with 40 plugins that take 6s to load</span>
+              </li>
+              <li>
+                <span class="icon-x">✕</span>
+                <span>They ghost you right after the final invoice is paid</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="compare-footer-problem">
+            Result: Huge budget burned, zero measurable revenue growth.
+          </div>
+        </div>
+
+        <!-- The Inovix Standard -->
+        <div class="compare-card solution-card">
+          <div class="solution-badge">The Inovix Standard</div>
+          <div>
+            <div class="compare-card-head">
+              <div class="compare-icon-solution">✓</div>
+              <div>
+                <h3 class="compare-title">How Inovix Works ⚡</h3>
+                <p class="compare-subtitle solution-sub">Fast, lean, and founder-driven</p>
+              </div>
+            </div>
+
+            <ul class="compare-list">
+              <li>
+                <span class="icon-check">✓</span>
+                <span>Transparent pricing starting at just ₹500/month (Hosting included)</span>
+              </li>
+              <li>
+                <span class="icon-check">✓</span>
+                <span>Delivered in 3 to 7 days with live preview link updates</span>
+              </li>
+              <li>
+                <span class="icon-check">✓</span>
+                <span>Engineered with React &amp; Vite — sub-second load times &amp; 100% SEO</span>
+              </li>
+              <li>
+                <span class="icon-check">✓</span>
+                <span>Direct founder access on WhatsApp whenever you need updates</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="compare-footer-solution">
+            <span class="solution-result-text">Result: Premium brand authority &amp; real inbound customer inquiries.</span>
+            <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20want%20to%20switch%20to%20Inovix" target="_blank" rel="noopener noreferrer" class="pill pill-switch">
+              <span>Switch to Inovix ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: PROVEN ENGINEERING MILESTONES
+       ========================================================================== -->
+  <section class="section-wrap" id="metrics">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 780px; margin: 0 auto 60px;">
+        <span class="section-tag">Proven Engineering Milestones</span>
+        <h2 class="section-title">Real Software Metrics. Zero Vanity.</h2>
+        <p class="section-desc" style="margin: 0 auto;">Every number below is backed by real deployed code, active database transactions, and live users.</p>
+      </div>
+
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <div>
+            <div class="milestone-icon">⚡</div>
+            <div class="milestone-val">22+</div>
+            <div class="milestone-label">Live Platforms Built</div>
+          </div>
+          <div class="milestone-desc">Delivered across SaaS, B2B Pharma, Education, and Export/Import</div>
+        </div>
+
+        <div class="milestone-card">
+          <div>
+            <div class="milestone-icon">★</div>
+            <div class="milestone-val">99%</div>
+            <div class="milestone-label">Client Satisfaction</div>
+          </div>
+          <div class="milestone-desc">High-standard engineering delivered on time with direct founder communication</div>
+        </div>
+
+        <div class="milestone-card">
+          <div>
+            <div class="milestone-icon">₹</div>
+            <div class="milestone-val">₹50L+</div>
+            <div class="milestone-label">Volume Processed</div>
+          </div>
+          <div class="milestone-desc">Automated payment and lead pipelines built with n8n and REST APIs</div>
+        </div>
+
+        <div class="milestone-card">
+          <div>
+            <div class="milestone-icon">⏱</div>
+            <div class="milestone-val">50ms</div>
+            <div class="milestone-label">Sub-Second Latency</div>
+          </div>
+          <div class="milestone-desc">90% API latency reduction engineered via Redis &amp; modern Next/React code</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: REAL LIVE PRODUCTION BUILDS (WITH BANNER IMAGES)
+       ========================================================================== -->
+  <section class="section-wrap" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Real Live Production Builds • Click Any Card To Open</span>
+        <h2 class="section-title">Real Clients. Live URLs. Click To Inspect Live Builds.</h2>
+        <p class="section-desc">Inspect our actual production code in action. No static mockups or templates — every card below is a live operational client platform.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Builds (11)</button>
+        <button class="filter-btn" data-filter="saas">SaaS &amp; AI</button>
+        <button class="filter-btn" data-filter="pharma">Pharma &amp; Healthcare</button>
+        <button class="filter-btn" data-filter="enterprise">Enterprise &amp; Global Export</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- 1. Trireme Group -->
+        <a href="https://triremegroup.in" target="_blank" rel="noopener noreferrer" class="project-card span-7" data-cat="pharma">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/trireme.png" alt="Trireme Group & Life Sciences" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">90% Latency Drop (500ms → 50ms)</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">B2B APIs</span>
+            </div>
+            <h3 class="project-title">
+              <span>Trireme Group &amp; Life Sciences</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">High-volume B2B pharmaceutical enterprise platform with multi-vendor catalogs, role-based access, and high-speed Redis caching architecture.</p>
+          </div>
+          <div class="project-footer">
+            <span>triremegroup.in</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 2. Saksham Appleveda -->
+        <a href="https://sakshamappleveda.com" target="_blank" rel="noopener noreferrer" class="project-card span-5" data-cat="pharma">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/saksham.png" alt="Saksham Appleveda" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Sub-0.7s Load Time &amp; High SEO</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Technical SEO</span>
+              <span class="tech-tag">Fast CDN</span>
+            </div>
+            <h3 class="project-title">
+              <span>Saksham Appleveda</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Ayurvedic wellness and healthcare digital storefront optimized for mobile conversion, instant WhatsApp customer acquisition, and search engine ranking.</p>
+          </div>
+          <div class="project-footer">
+            <span>sakshamappleveda.com</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 3. Veda Group Conglomerate -->
+        <a href="https://vedagroup.co.in" target="_blank" rel="noopener noreferrer" class="project-card span-5" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/vedagroup.png" alt="Veda Group Conglomerate" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Multi-Division Architecture</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Enterprise UI</span>
+              <span class="tech-tag">CRM Integration</span>
+              <span class="tech-tag">Vite</span>
+            </div>
+            <h3 class="project-title">
+              <span>Veda Group Conglomerate</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Corporate group website presenting multi-vertical industrial manufacturing, global compliance certifications, and enterprise inquiry routing.</p>
+          </div>
+          <div class="project-footer">
+            <span>vedagroup.co.in</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 4. Digital Pharmapreneur -->
+        <a href="https://digitalpharmapreneur.com" target="_blank" rel="noopener noreferrer" class="project-card span-7" data-cat="saas">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/digitalpharma.png" alt="Digital Pharmapreneur" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">10,000+ Pharma Learners</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Video Funnels</span>
+              <span class="tech-tag">Payment Gateway</span>
+            </div>
+            <h3 class="project-title">
+              <span>Digital Pharmapreneur</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Comprehensive educational and business growth ecosystem empowering pharma entrepreneurs with digital modules, community webinars, and lead funnels.</p>
+          </div>
+          <div class="project-footer">
+            <span>digitalpharmapreneur.com</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 5. Vedomine Lifesciences -->
+        <a href="https://vedominelifesciences.com" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="pharma">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/vedomin.png" alt="Vedomine Lifesciences" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Page-1 Google Visibility</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Content SEO</span>
+              <span class="tech-tag">Lead Funnels</span>
+              <span class="tech-tag">Schema Markup</span>
+            </div>
+            <h3 class="project-title">
+              <span>Vedomine Lifesciences</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Comprehensive pharmaceutical digital assets targeting commercial PCD franchise search queries and international export procurement inquiries.</p>
+          </div>
+          <div class="project-footer">
+            <span>vedominelifesciences.com</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 6. Holistic Jeevandhara Foundation -->
+        <a href="https://holisticjeevandhara.org" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/holistic.png" alt="Holistic Foundation" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">5,000+ Community Beneficiaries</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Razorpay</span>
+              <span class="tech-tag">CMS Integration</span>
+              <span class="tech-tag">Tailwind</span>
+            </div>
+            <h3 class="project-title">
+              <span>Holistic Jeevandhara Foundation</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Non-profit digital foundation portal enabling transparent donation pipelines, community health initiatives, and volunteer onboarding workflows.</p>
+          </div>
+          <div class="project-footer">
+            <span>holisticjeevandhara.org</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 7. Multi-Agent AI Research System -->
+        <a href="https://creatorhq.com/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="saas">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/multiagent.png" alt="Multi-Agent AI Research System" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">10x Research Speed Automation</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">AI Agents</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">n8n Workflows</span>
+              <span class="tech-tag">FastAPI</span>
+            </div>
+            <h3 class="project-title">
+              <span>Multi-Agent AI Research System</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Distributed multi-agent research engine orchestrating autonomous LLMs, web crawlers, and automated synthesis pipelines built with n8n and Python.</p>
+          </div>
+          <div class="project-footer">
+            <span>Proprietary AI Architecture</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 8. DesignBuzz Creative Studio -->
+        <a href="https://frenchise-model-nl5z.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/desinbuzz.png" alt="DesignBuzz Creative Studio" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Fluid 60 FPS Micro-Interactions</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Framer Motion</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Canvas</span>
+            </div>
+            <h3 class="project-title">
+              <span>DesignBuzz Creative Studio</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Ultra-slick portfolio experience engineered for brand consultants and digital creatives with interactive showcases, dark aesthetics, and rapid load times.</p>
+          </div>
+          <div class="project-footer">
+            <span>Live App Showcase</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 9. ZK Brothers -->
+        <a href="https://www.zkbrother.com/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/zkbrothers.png" alt="ZK Brothers - Export Stretch Denim & Handloom" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Panipat Direct Manufacturer &amp; Exporter</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Panipat Handloom</span>
+              <span class="tech-tag">B2B Export Catalog</span>
+              <span class="tech-tag">WhatsApp RFQ</span>
+              <span class="tech-tag">Fast CDN</span>
+            </div>
+            <h3 class="project-title">
+              <span>ZK Brothers</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Heavy-duty cotton-spandex denim and artisan handloom manufacturing portal engineered for wholesale MOQ orders, global export buyers, and instant WhatsApp inquiry routing.</p>
+          </div>
+          <div class="project-footer">
+            <span>zkbrother.com</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 10. Ambavi Pvt Ltd -->
+        <a href="https://ambavi.in/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/ambavi.png" alt="Ambavi Pvt Ltd - Connecting India To Global Markets" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Worldwide Export &amp; Verified Supplier</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Global Trade</span>
+              <span class="tech-tag">Agro Commodities</span>
+              <span class="tech-tag">Multi-Language</span>
+              <span class="tech-tag">React.js</span>
+            </div>
+            <h3 class="project-title">
+              <span>Ambavi Pvt Ltd</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">International import-export digital portal connecting Indian agricultural commodities (makhana, grains, agro products) to global buyers with multi-currency inquiries and verified supplier trust.</p>
+          </div>
+          <div class="project-footer">
+            <span>ambavi.in</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- 11. AgileXports India -->
+        <a href="https://agilexports.com/" target="_blank" rel="noopener noreferrer" class="project-card span-12" data-cat="enterprise">
+          <div class="project-thumb-wrap">
+            <img src="/bannerimg/agilexports.png" alt="AgileXports India - Egg Powder & Global Agro Exporter" class="project-thumb" loading="lazy" />
+            <span class="project-thumb-badge">Global Food &amp; Egg Powder Exporter</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-tags">
+              <span class="tech-tag">Food Processing</span>
+              <span class="tech-tag">Global Shipping</span>
+              <span class="tech-tag">RFQ Portal</span>
+              <span class="tech-tag">Technical SEO</span>
+            </div>
+            <h3 class="project-title">
+              <span>AgileXports India</span>
+              <span>↗</span>
+            </h3>
+            <p class="project-desc">Specialized global B2B agro-commodity platform for high-protein spray-dried egg powder and food processing ingredients, featuring Google multi-language translation and instant buyer funnels.</p>
+          </div>
+          <div class="project-footer">
+            <span>agilexports.com</span>
+            <span class="project-live-btn">Open Live Website ↗</span>
+          </div>
+        </a>
+
+        <!-- Callout Banner -->
+        <div class="portfolio-callout-card">
+          <div>
+            <h3 style="font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px;">Need a platform engineered for your business?</h3>
+            <p style="font-size: 15px; color: var(--muted);">We build full-stack web apps, custom CRMs, and automated lead pipelines starting at ₹4,999.</p>
+          </div>
+          <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20want%20to%20discuss%20architecture" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 12px 26px; font-size: 14.5px;">
+            <span>Discuss Architecture ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: THE INOVIX COMPETITIVE ADVANTAGE
+       ========================================================================== -->
+  <section class="section-wrap" id="advantage">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Inovix Competitive Advantage</span>
+        <h2 class="section-title">Why Business Owners Choose Inovix Over Others</h2>
+        <p class="section-desc">We stripped out the corporate fluff and built an agency that respects your hard-earned money and time.</p>
+      </div>
+
+      <div class="advantage-grid">
+        <div class="advantage-card">
+          <span class="advantage-badge">Save ₹1,50,000+</span>
+          <h3 class="advantage-title">Radical Affordability</h3>
+          <p class="advantage-desc">Up to 70% lower investment than big-city agencies. No bloated agency markup — you pay only for direct engineering.</p>
+        </div>
+
+        <div class="advantage-card">
+          <span class="advantage-badge">Zero Bureaucracy</span>
+          <h3 class="advantage-title">1-on-1 Founder Care</h3>
+          <p class="advantage-desc">Never get passed around between 4 different junior account managers. You speak directly with the founder building your project.</p>
+        </div>
+
+        <div class="advantage-card">
+          <span class="advantage-badge">Rapid Delivery</span>
+          <h3 class="advantage-title">3 to 5 Day Turnaround</h3>
+          <p class="advantage-desc">We don't waste 3 months on unnecessary Zoom meetings. We build, review, and launch your high-converting site in days.</p>
+        </div>
+
+        <div class="advantage-card">
+          <span class="advantage-badge">No Bloated Templates</span>
+          <h3 class="advantage-title">Modern Web Stack</h3>
+          <p class="advantage-desc">Built with React, Vite &amp; Next.js. Sub-second load times (&lt;0.8s), 99.9% uptime, and 100% Google Core Web Vitals score.</p>
+        </div>
+      </div>
+
+      <!-- Founder Card -->
+      <div class="founder-card">
+        <div class="founder-avatar-wrap">
+          <img src="/brand/dev_avatar.png" alt="Sagar Punia — Founder & Lead Engineer" class="founder-avatar" onerror="this.src='/ino.png';" />
+        </div>
+        <div class="founder-info">
+          <h3>Founder &amp; Lead Engineer — Sagar Punia</h3>
+          <div class="role">Direct Senior Engineering. Zero Junior Middlemen.</div>
+          <p>Certified AI Full-Stack &amp; Automation Developer with a track record building high-performance SaaS platforms (₹50L+ volume), B2B pharmaceutical portals (Trireme Group, 90% latency reduction), and 22+ production websites. You get personal founder accountability on every commit.</p>
+        </div>
+      </div>
+
+      <!-- How We Work Together -->
+      <div class="section-header" style="margin-bottom: 36px;">
+        <span class="section-tag">How We Work Together</span>
+        <h3 style="font-size: 28px; font-weight: 600; color: #fff;">From initial WhatsApp chat to live deployment in 4 straightforward steps.</h3>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4 class="step-title">15-Min Quick Brief</h4>
+          <p class="step-desc">Share your business details, target customers, and goals via WhatsApp or quick phone call.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4 class="step-title">Live Preview in 48h</h4>
+          <p class="step-desc">We engineer a working live preview link so you can test and give feedback immediately.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4 class="step-title">SEO &amp; Lead Tuning</h4>
+          <p class="step-desc">We connect Google Maps, configure high-intent keywords, and test 1-click WhatsApp buttons.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h4 class="step-title">Live Launch &amp; Care</h4>
+          <p class="step-desc">We deploy to high-speed cloud hosting with ongoing technical care starting at just ₹500/mo.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20let's%20get%20started" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 15px 36px; font-size: 16px;">
+          <span>Get Your Project Started Today ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: RADICAL TRANSPARENCY PRICING
+       ========================================================================== -->
+  <section class="section-wrap" id="pricing">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+        <span class="section-tag">Radical Transparency • Zero Hidden Fees</span>
+        <h2 class="section-title">India's Most Affordable Agency Pricing</h2>
+        <p class="section-desc" style="margin: 0 auto;">Whether you are a local shopkeeper starting with ₹500/month or an exporter building custom enterprise software — we have a predictable, high-ROI tier for you.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Tier 1 -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-tag">Lowest in India</div>
+            <h3 class="plan-name">Web Care &amp; Hosting</h3>
+            <div class="plan-price">₹500 <span>/month</span></div>
+            <p class="plan-desc">Zero headache website hosting, security, and technical maintenance for local businesses.</p>
+
+            <ul class="plan-features">
+              <li>Ultra-Fast Cloud Hosting</li>
+              <li>Free SSL Certificate</li>
+              <li>99.9% Uptime Guarantee</li>
+              <li>Monthly Content / Menu Updates</li>
+              <li>Direct WhatsApp Tech Support</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20the%20500%20plan" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+            <span>Start for ₹500/mo ↗</span>
+          </a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-tag">Best for Local Businesses</div>
+            <h3 class="plan-name">Launchpad Website</h3>
+            <div class="plan-price">₹4,999 <span>one-time</span></div>
+            <p class="plan-desc">Modern, professional website built to convert visitors into phone calls and visits.</p>
+
+            <ul class="plan-features">
+              <li>High-Converting Modern Web Design</li>
+              <li>Google Maps &amp; Local SEO Setup</li>
+              <li>Direct 1-Click WhatsApp Lead Button</li>
+              <li>100% Mobile &amp; Tablet Optimized</li>
+              <li>Delivered in 3 to 5 Days</li>
+              <li>1 Month Free Maintenance Included</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20Launchpad%20Website" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+            <span>Launch My Website ↗</span>
+          </a>
+        </div>
+
+        <!-- Tier 3: Growth Engine (Featured) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div>
+            <div class="plan-tag" style="color: #fff;">Scale Your Business</div>
+            <h3 class="plan-name">Growth Engine</h3>
+            <div class="plan-price">₹19,999 <span>one-time</span></div>
+            <p class="plan-desc">Complete digital dominance package to rank on Google and capture maximum leads.</p>
+
+            <ul class="plan-features">
+              <li>Full Multi-Page React/Vite Web App</li>
+              <li>Targeted Google Page-1 SEO Campaign</li>
+              <li>Automated Lead Capture &amp; Alerts</li>
+              <li>Sub-Second Page Load Speeds (&lt;0.8s)</li>
+              <li>High-Converting Sales Copy &amp; Visuals</li>
+              <li>Founder-Level Priority Consultation</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20the%20Growth%20Engine%20Plan" target="_blank" rel="noopener noreferrer" class="pill plan-btn" style="background: #fff; color: #050505;">
+            <span>Scale With Growth Plan ↗</span>
+          </a>
+        </div>
+
+        <!-- Tier 4 -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-tag">Enterprise &amp; Exporters</div>
+            <h3 class="plan-name">Custom Software &amp; CRM</h3>
+            <div class="plan-price">₹49,999+ <span>custom</span></div>
+            <p class="plan-desc">Custom internal software, billing, staff dashboards, and export consulting for scaling companies.</p>
+
+            <ul class="plan-features">
+              <li>Bespoke Internal Business Software</li>
+              <li>Inventory, Billing &amp; Staff Tracking CRM</li>
+              <li>WhatsApp Business API Bots</li>
+              <li>Export/Import Digital Consulting</li>
+              <li>Role-Based Multi-User Access</li>
+              <li>Full Source Code &amp; Architecture Handoff</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20to%20discuss%20custom%20software" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+            <span>Discuss Enterprise Build ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Guarantees -->
+      <div class="guarantees-strip">
+        <span>🔒 No Long-Term Contracts • Cancel Anytime</span>
+        <span>⚡ 100% Transparent Estimates Before Coding Starts</span>
+        <span>🚀 Free Migration from Slow Hosting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: INOVIX LABS TOOLS HUB
+       ========================================================================== -->
+  <section class="section-wrap" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Inovix Labs — Product-Led Engineering</span>
+        <h2 class="section-title">We Don’t Just Code Websites. We Build Functional Software.</h2>
+        <p class="section-desc">Try our 16+ completely free in-browser utility tools built for daily business workflows — zero signups, zero ads.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-item">
+          <div>
+            <span class="tool-badge">Popular</span>
+            <h3 class="tool-name">Smart Image Compressor</h3>
+            <p class="tool-meta">Lossless compression for web and mobile images. Reduce file size by up to 80% instantly.</p>
+          </div>
+          <span class="tool-cta">Launch Tool ↗</span>
+        </div>
+
+        <div class="tool-item">
+          <div>
+            <span class="tool-badge">Fast</span>
+            <h3 class="tool-name">QR Studio &amp; Generator</h3>
+            <p class="tool-meta">Generate high-resolution branded QR codes for UPI payments, menus, and marketing campaigns.</p>
+          </div>
+          <span class="tool-cta">Launch Tool ↗</span>
+        </div>
+
+        <div class="tool-item">
+          <div>
+            <span class="tool-badge">AI Powered</span>
+            <h3 class="tool-name">AI Background Remover</h3>
+            <p class="tool-meta">One-click background removal for product photos and e-commerce listings.</p>
+          </div>
+          <span class="tool-cta">Launch Tool ↗</span>
+        </div>
+
+        <div class="tool-item">
+          <div>
+            <span class="tool-badge">Free</span>
+            <h3 class="tool-name">PDF &amp; Document Toolkit</h3>
+            <p class="tool-meta">Compress PDFs, convert images to PDF, and extract text without installing heavy software.</p>
+          </div>
+          <span class="tool-cta">Launch Tool ↗</span>
+        </div>
+      </div>
+
+      <div style="background: var(--surface); border: 1px solid var(--surface-border); border-radius: 18px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <span style="font-size: 15px; color: var(--muted);">Want a custom internal tool, dashboard, or client portal for your team?</span>
+        <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20need%20a%20custom%20tool" target="_blank" rel="noopener noreferrer" style="color: #fff; font-weight: 700; text-decoration: none;">We can build it for you →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: REAL FOUNDER & CLIENT STORIES
+       ========================================================================== -->
+  <section class="section-wrap" id="stories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Real Founder &amp; Client Stories</span>
+        <h2 class="section-title">Proof from Businesses Just Like Yours</h2>
+        <p class="section-desc">Real results delivered for real business owners across Haryana, Delhi-NCR, and beyond.</p>
+      </div>
+
+      <div class="stories-grid">
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"40+ International Inquiries"</div>
+            <p class="story-quote">"Inovix built our B2B export catalog and automated WhatsApp RFQ system. Other agencies in Delhi quoted ₹2,00,000 for this — Inovix delivered in 10 days at a fraction of the cost with zero bugs."</p>
+          </div>
+          <div>
+            <div class="story-author">Athish Ravikant</div>
+            <div class="story-role">Export Manager, Panipat Textiles</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"Page-1 Google Ranking"</div>
+            <p class="story-quote">"The best decision for our business. The website loads in under a second, our Google local ranking hit page 1, and customers now contact us directly through the 1-click WhatsApp button every single day."</p>
+          </div>
+          <div>
+            <div class="story-author">Deepak Rai</div>
+            <div class="story-role">Founder, Haryana Retail &amp; Tech</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"₹500/mo Care Plan Active"</div>
+            <p class="story-quote">"Whenever we update our menu or offer a seasonal discount, I just text them on WhatsApp and it's live on the website within an hour. The ₹500/month hosting plan is an absolute blessing for local shops."</p>
+          </div>
+          <div>
+            <div class="story-author">Nirjan Sharma</div>
+            <div class="story-role">Restaurant &amp; Cafe Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: FAQ ACCORDION (#faq)
+       ========================================================================== -->
+  <section class="section-wrap" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Got Questions? We Have Honest Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about our pricing, timelines, and execution process.</p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <div class="faq-q">
+            <span>Why is Inovix so affordable compared to agencies charging ₹1,00,000+?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Traditional agencies spend your money on fancy air-conditioned offices, sales teams, and 5 layers of account managers who can't even code. At Inovix, you work directly with the founder and engineers. We use modern, automated tech stacks that cut build time by 70%, passing 100% of the savings directly to you.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>How long does it take to design and launch my website?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Our Launchpad websites go live in just 3 to 5 business days. Full-scale multi-page web applications and custom CRMs typically take 10 to 18 days. You receive a private live development link on Day 1 to track progress in real time.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>What is included in the ₹500/month hosting &amp; maintenance plan?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            It includes ultra-fast cloud edge hosting, free SSL security, 99.9% uptime monitoring, automated weekly backups, and monthly content/photo/menu updates whenever you need them. Just message us on WhatsApp and we handle the technical side.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Do I get full ownership of my domain and source code?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            100% yes. You retain complete ownership of your domain, brand assets, and custom code. We never lock clients into hostage proprietary platforms or penalty fees.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>How does Inovix ensure my website generates actual customer leads?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            We don't build digital brochures. We build conversion funnels: high-contrast 1-click WhatsApp buttons, quick call triggers, Google Maps local integration, and instant inquiry forms that notify your phone the second a buyer clicks.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Can you build custom internal software, inventory, or CRM tools for my factory?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            Yes! We specialize in custom business tools, billing software, staff portals, and export-import buyer catalog systems for Panipat manufacturers, exporters, and service businesses.
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--surface); border: 1px solid var(--surface-border); border-radius: 18px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <span style="font-size: 15px; color: var(--muted);">Have a specific question not covered here? Ask the founder directly on WhatsApp. No sales bot.</span>
+        <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20have%20a%20question%20about%20Inovix" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 10px 22px; font-size: 13.5px;">Chat on WhatsApp ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9: CONTACT & INSTANT QUOTE FORM (#contact)
+       ========================================================================== -->
+  <section class="section-wrap" id="contact">
+    <div class="container">
+      <div class="contact-card-main">
+        <!-- Info Column -->
+        <div class="contact-info-col">
+          <span class="section-tag">Fast Execution • Direct Founder Attention</span>
+          <h3>Let's Build Something Unstoppable Together.</h3>
+          <p>Tell us about your brand or shop. We will send you a fixed, transparent quote and live concept in under 24 hours.</p>
+
+          <div class="direct-actions">
+            <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20a%20quote%20for%20my%20business" target="_blank" rel="noopener noreferrer" class="action-row">
+              <div class="action-icon">WA</div>
+              <div class="action-text">
+                <div class="label">WhatsApp Priority Chat (Instant &lt;15 mins)</div>
+                <div class="val">+91 83079 67782 ↗</div>
+              </div>
+            </a>
+
+            <a href="tel:+918307967782" class="action-row">
+              <div class="action-icon">📞</div>
+              <div class="action-text">
+                <div class="label">Direct Founder Phone (9am - 9pm)</div>
+                <div class="val">+91 83079 67782</div>
+              </div>
+            </a>
+
+            <div class="action-row">
+              <div class="action-icon">📍</div>
+              <div class="action-text">
+                <div class="label">Engineering Studio</div>
+                <div class="val">Panipat, Haryana, India • Serving Clients Globally</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <form class="form-col" onsubmit="event.preventDefault(); window.open('https://wa.me/918307967782?text=' + encodeURIComponent('Hi Sagar, my name is ' + document.getElementById('nameInput').value + '. Phone: ' + document.getElementById('phoneInput').value + '. Business: ' + document.getElementById('businessInput').value + '. Package: ' + document.getElementById('packageInput').value + '. Requirements: ' + document.getElementById('reqInput').value));">
+          <div style="font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 4px;">Get an Instant Quote</div>
+          <div style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Takes 60 seconds. Zero sales harassment, guaranteed.</div>
+
+          <input type="text" id="nameInput" required placeholder="Your Name *" class="form-input" />
+          <input type="tel" id="phoneInput" required placeholder="WhatsApp / Phone *" class="form-input" />
+          <input type="text" id="businessInput" placeholder="Business / Shop Name" class="form-input" />
+
+          <select id="packageInput" class="form-input">
+            <option value="Launchpad Website (₹4,999)">Launchpad Website (₹4,999)</option>
+            <option value="Growth Engine & SEO (₹19,999)">Growth Engine &amp; SEO (₹19,999)</option>
+            <option value="Custom CRM & Software (₹49,999+)">Custom CRM &amp; Software (₹49,999+)</option>
+            <option value="Web Care & Hosting (₹500/mo)">Web Care &amp; Hosting (₹500/mo)</option>
+            <option value="Export & Business Consulting">Export &amp; Business Consulting</option>
+          </select>
+
+          <textarea id="reqInput" placeholder="Brief Requirements / Goal (Optional)" class="form-input" style="height: 80px; resize: none;"></textarea>
+
+          <button type="submit" class="pill form-btn">
+            <span>Send via WhatsApp &amp; Get Instant Quote ↗</span>
+          </button>
+          <div style="text-align: center; font-size: 11.5px; color: var(--muted);">100% Privacy • Direct response from founder in 15 mins</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix.co.in</h4>
+        <p style="max-width: 420px; line-height: 1.6; margin-bottom: 14px;">India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="font-size: 13px; color: #fff;">Panipat &amp; NCR, Haryana • Direct: +91 8307967782</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/work">Web Engineering</a></li>
+          <li><a href="/work">Mobile App Development</a></li>
+          <li><a href="/pricing">Custom CRM &amp; Software</a></li>
+          <li><a href="/process">Page-1 Google SEO</a></li>
+          <li><a href="/pricing">Export &amp; Business Consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Knowledge</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Built for Speed, Engineered for Growth.</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       INTERACTIONS SCRIPT
+       ========================================================================== -->
+  <script>
+    (function () {
+      const topbar = document.getElementById('topbar');
+      const burger = document.getElementById('burger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const faqItems = document.querySelectorAll('.faq-item');
+      const video = document.querySelector('.plate-video');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card[data-cat]');
+
+      // Autoplay background video
+      if (video) {
+        video.muted = true;
+        const p = video.play();
+        if (p) p.catch(() => {});
+      }
+
+      // Sticky glass navbar
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          topbar.classList.add('scrolled');
+        } else {
+          topbar.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile burger toggle
+      function toggleMenu() {
+        const isOpen = document.body.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      }
+
+      function closeMenu() {
+        document.body.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+
+      burger.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+
+      // Filter tabs for project builds
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          projectCards.forEach(card => {
+            const cat = card.getAttribute('data-cat');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // FAQ accordion toggle
+      faqItems.forEach(item => {
+        const q = item.querySelector('.faq-q');
+        q.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(f => f.classList.remove('active'));
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      // Escape key to close mobile menu
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // ==========================================================================
+    // LENIS SMOOTH SCROLL + GSAP SCROLLTRIGGER (UP & REVERSE ENGINE)
+    // ==========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Initialize Lenis Smooth Scrolling
+      let lenis = null;
+      if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1.0,
+          touchMultiplier: 1.5,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
+      // 2. GSAP ScrollTrigger Integration with Up & Reverse Animations
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (lenis) {
+          lenis.on('scroll', ScrollTrigger.update);
+          gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0);
+        }
+
+        // Section Headers (Up and Reverse)
+        document.querySelectorAll('.section-header').forEach((header) => {
+          gsap.fromTo(header, 
+            { opacity: 0, y: 40, filter: 'blur(4px)' },
+            {
+              opacity: 1,
+              y: 0,
+              filter: 'blur(0px)',
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: header,
+                start: 'top 85%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        });
+
+        // Comparison Cards (Problem vs Solution Split Reveal with Reverse)
+        const compareProblem = document.querySelector('.compare-card.problem-card');
+        const compareSolution = document.querySelector('.compare-card.solution-card');
+        if (compareProblem && compareSolution) {
+          gsap.fromTo(compareProblem,
+            { opacity: 0, x: -50, y: 30 },
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: '.comparison-grid',
+                start: 'top 80%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+          gsap.fromTo(compareSolution,
+            { opacity: 0, x: 50, y: 30 },
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: 0.9,
+              delay: 0.15,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: '.comparison-grid',
+                start: 'top 80%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // Milestone Stat Cards (Staggered Up and Reverse)
+        const milestoneCards = document.querySelectorAll('.milestone-card');
+        if (milestoneCards.length > 0) {
+          gsap.fromTo(milestoneCards,
+            { opacity: 0, y: 45, scale: 0.95 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.7,
+              stagger: 0.12,
+              ease: 'back.out(1.4)',
+              scrollTrigger: {
+                trigger: '.milestones-grid',
+                start: 'top 82%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // Project Showcase Cards (Staggered Up and Reverse)
+        const projectCardsAll = document.querySelectorAll('.project-card');
+        projectCardsAll.forEach((card) => {
+          gsap.fromTo(card,
+            { opacity: 0, y: 50, filter: 'blur(6px)' },
+            {
+              opacity: 1,
+              y: 0,
+              filter: 'blur(0px)',
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 88%',
+                end: 'bottom 12%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        });
+
+        // 4-Step Process Cards (Up and Reverse)
+        const stepCards = document.querySelectorAll('.step-card');
+        if (stepCards.length > 0) {
+          gsap.fromTo(stepCards,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              stagger: 0.15,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: '.steps-grid',
+                start: 'top 82%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // Free Tools Cards (Up and Reverse)
+        const toolCards = document.querySelectorAll('.tool-card');
+        if (toolCards.length > 0) {
+          gsap.fromTo(toolCards,
+            { opacity: 0, y: 35, scale: 0.96 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.6,
+              stagger: 0.08,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: '.tools-grid',
+                start: 'top 85%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // Founder Accountability Card (Up, Scale & Unblur with Reverse)
+        const founderCard = document.querySelector('.founder-card');
+        if (founderCard) {
+          gsap.fromTo(founderCard,
+            { opacity: 0, y: 50, scale: 0.94, filter: 'blur(6px)' },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+              duration: 0.9,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: founderCard,
+                start: 'top 82%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // Contact Consultation Card (Pop & Reverse)
+        const contactCard = document.querySelector('.contact-card-main');
+        if (contactCard) {
+          gsap.fromTo(contactCard,
+            { opacity: 0, y: 45, scale: 0.96 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: contactCard,
+                start: 'top 82%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+
+        // FAQ Items (Up and Reverse)
+        const faqItemsList = document.querySelectorAll('.faq-item');
+        if (faqItemsList.length > 0) {
+          gsap.fromTo(faqItemsList,
+            { opacity: 0, y: 25 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: 0.08,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: '.faq-list',
+                start: 'top 85%',
+                end: 'bottom 15%',
+                toggleActions: 'play reverse play reverse',
+              }
+            }
+          );
+        }
+      }
+
+      // 3. Initialize AOS (with mirror: true so it reverses when scrolling up)
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-cubic',
+          once: false,
+          mirror: true,
+          offset: 80,
+        });
+      }
+    });
+  </script>
+</body>
 </html>

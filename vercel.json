@@ -1,8 +1,14 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/why-inovix", "destination": "/why-inovix/index.html" },
+    { "source": "/work", "destination": "/work/index.html" },
+    { "source": "/pricing", "destination": "/pricing/index.html" },
+    { "source": "/process", "destination": "/process/index.html" },
+    { "source": "/tools", "destination": "/tools/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },
+    { "source": "/faq", "destination": "/faq/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" }
   ]
 }

@@ -16,6 +16,9 @@ const bannerVedaGroup = "/bannerimg/vedagroup.png";
 const bannerHolistic = "/bannerimg/holistic.png";
 const bannerMultiAgent = "/bannerimg/multiagent.png";
 const bannerDesinBuzz = "/bannerimg/desinbuzz.png";
+const bannerZK = "/bannerimg/zkbrothers.png";
+const bannerAmbavi = "/bannerimg/ambavi.png";
+const bannerAgile = "/bannerimg/agilexports.png";
 
 const logoTrireme = "/brand/trireme.png";
 const logoAppleveda = "/brand/appleveda.png";
@@ -130,6 +133,45 @@ export default function PortfolioSection() {
       tech: ["React.js", "Framer Motion", "Tailwind CSS", "Canvas"],
       link: "https://frenchise-model-nl5z.vercel.app",
       liveLabel: "Live App Showcase",
+    },
+    {
+      title: "ZK Brothers",
+      category: "enterprise",
+      tag: "Panipat Handloom & Export Denim",
+      result: "Panipat Direct Manufacturer & Exporter",
+      desc: "Heavy-duty cotton-spandex denim and artisan handloom manufacturing portal engineered for wholesale MOQ orders, global export buyers, and instant WhatsApp inquiry routing.",
+      img: bannerZK,
+      logo: null,
+      size: "md:col-span-1",
+      tech: ["Panipat Handloom", "B2B Export Catalog", "WhatsApp RFQ", "Fast CDN"],
+      link: "https://www.zkbrother.com/",
+      liveLabel: "zkbrother.com",
+    },
+    {
+      title: "Ambavi Pvt Ltd",
+      category: "enterprise",
+      tag: "Global Trade & Agro Exporter",
+      result: "Worldwide Export & Verified Supplier",
+      desc: "International import-export digital portal connecting Indian agricultural commodities (makhana, grains, agro products) to global buyers with multi-currency inquiries and verified supplier trust.",
+      img: bannerAmbavi,
+      logo: null,
+      size: "md:col-span-1",
+      tech: ["Global Trade", "Agro Commodities", "Multi-Language", "React.js"],
+      link: "https://ambavi.in/",
+      liveLabel: "ambavi.in",
+    },
+    {
+      title: "AgileXports India",
+      category: "enterprise",
+      tag: "B2B Agro & Food Commodities",
+      result: "Global Food & Egg Powder Exporter",
+      desc: "Specialized global B2B agro-commodity platform for high-protein spray-dried egg powder and food processing ingredients, featuring Google multi-language translation and instant buyer funnels.",
+      img: bannerAgile,
+      logo: null,
+      size: "md:col-span-2",
+      tech: ["Food Processing", "Global Shipping", "RFQ Portal", "Technical SEO"],
+      link: "https://agilexports.com/",
+      liveLabel: "agilexports.com",
     },
   ];
 

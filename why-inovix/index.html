@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Why Inovix vs Traditional Agencies | Pure Engineering & Direct Results</title>
+  <meta name="description" content="Why pay ₹2 Lakhs for a bloated WordPress site that doesn't bring leads? At Inovix, you get pure sub-second React engineering, zero middlemen, and transparent plans starting at ₹500/mo." />
+  <link rel="icon" type="image/png" href="/ino.png" />
+  <link rel="canonical" href="https://www.inovix.co.in/why-inovix" />
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #fafafa;
+      --muted: #a7a6a6;
+      --nav: #b6b5b5;
+      --pill: #ffffff;
+      --pill-ink: #050505;
+      --bg: #050505;
+      --surface: #0c0c0c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-hover: rgba(255, 255, 255, 0.04);
+      --accent-blue: #38bdf8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Topbar */
+    .topbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: padding 0.2s ease, background 0.2s ease;
+    }
+    .topbar-wrap.scrolled {
+      padding: 12px 40px;
+      background: rgba(5, 5, 5, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+    }
+    .brand-text { font-size: 17px; font-weight: 700; }
+    .brand-text .dot { color: #38bdf8; }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a {
+      color: var(--nav);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; font-weight: 600; }
+    .badge-nav {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #fff;
+      color: #050505;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .pill:hover {
+      background: #f1f1f1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger i { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 99;
+      padding: 100px 30px 40px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    body.is-open .mobile-menu { display: flex; }
+    .mobile-nav-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .mobile-nav-list a { font-size: 20px; font-weight: 600; color: #ccc; text-decoration: none; }
+    .mobile-nav-list a.active { color: #fff; font-weight: 800; }
+
+    /* Page Content */
+    .page-hero {
+      padding: 150px 24px 70px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .page-title {
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .page-desc {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+    .compare-card {
+      border-radius: 24px;
+      padding: 36px;
+      position: relative;
+    }
+    .compare-card.problem {
+      background: rgba(239, 68, 68, 0.03);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .compare-card.solution {
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.08);
+    }
+    .compare-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .compare-card.problem .compare-tag { color: #f87171; }
+    .compare-card.solution .compare-tag { color: #38bdf8; }
+    .compare-title { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .compare-subtitle { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+
+    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .compare-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14.5px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+    .compare-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .compare-card.problem .compare-icon { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .compare-card.solution .compare-icon { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+
+    /* Detailed Matrix Table */
+    .matrix-wrap {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+    .matrix-table th, .matrix-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .matrix-table th {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .matrix-table tr:hover td { background: rgba(255, 255, 255, 0.015); }
+    .matrix-table td:nth-child(2) { color: #94a3b8; }
+    .matrix-table td:nth-child(3) { color: #38bdf8; font-weight: 600; }
+
+    /* CTA Section */
+    .cta-banner {
+      background: linear-gradient(180deg, rgba(20, 24, 33, 0.6) 0%, rgba(10, 12, 18, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .cta-banner h3 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .cta-banner p { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 24px 40px;
+      background: #050505;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .footer-col h5 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 13.5px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .topbar-wrap { padding: 16px 20px; }
+    }
+    @media (max-width: 560px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="topbar-wrap" id="topbar">
+    <a href="/" class="brand-group">
+      <div class="brand-mark">IX</div>
+      <span class="brand-text">Inovix<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/why-inovix" class="active">Why Inovix</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools">Tools <span class="badge-nav">Free</span></a>
+      <a href="/blog">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <a href="/contact" class="pill">Start a Project</a>
+
+    <button class="burger" id="burger" aria-label="Toggle Menu">
+      <i></i>
+      <i></i>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="/why-inovix" class="active">Why Inovix</a></li>
+      <li><a href="/work">Work (Live Builds)</a></li>
+      <li><a href="/pricing">Transparent Pricing</a></li>
+      <li><a href="/process">Our Process</a></li>
+      <li><a href="/tools">Tools (16 Free)</a></li>
+      <li><a href="/blog">Engineering Blog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">Contact &amp; Quote</a></li>
+    </ul>
+    <div>
+      <a href="https://wa.me/918307967782" target="_blank" class="pill" style="width: 100%; text-align: center;">Chat on WhatsApp ↗</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-tag">The Traditional Agency Problem vs The Inovix Way</div>
+    <h1 class="page-title">Why pay ₹2 Lakhs for a website that doesn't bring you leads?</h1>
+    <p class="page-desc">Big agencies charge you for their luxury AC offices, sales pitches, and 5 layers of account managers who don't know how to code. At Inovix, you pay strictly for pure engineering and measurable business revenue.</p>
+    <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+      <a href="/pricing" class="pill">View Transparent Pricing ↗</a>
+      <a href="/work" class="pill" style="background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2);">Inspect Live Client Work</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Comparison Grid -->
+    <div class="comparison-grid">
+      <!-- Old Way -->
+      <div class="compare-card problem">
+        <div class="compare-tag">The Expensive Agency Way</div>
+        <h2 class="compare-title">Slow, Overpriced &amp; Bloated</h2>
+        <p class="compare-subtitle">How typical marketing agencies burn small business budgets</p>
+        <ul class="compare-list">
+          <li class="compare-item">
+            <span class="compare-icon">✕</span>
+            <span><strong>Quotes ₹1,50,000+ upfront:</strong> Plus hidden charges for basic SSL, domain hookups, and revision penalty fees.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✕</span>
+            <span><strong>Takes 3 to 5 months:</strong> Countless boring Zoom calls with sales executives who never touch your codebase.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✕</span>
+            <span><strong>Bloated WordPress with 40 plugins:</strong> Painfully slow (6 to 10 seconds load time) that destroys your Google ranking.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✕</span>
+            <span><strong>Hostage code &amp; ghosting:</strong> Zero code ownership and complete silence the second the final invoice is cleared.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Inovix Way -->
+      <div class="compare-card solution">
+        <div class="compare-tag">The Inovix Standard</div>
+        <h2 class="compare-title">Fast, Lean &amp; Founder-Driven</h2>
+        <p class="compare-subtitle">Engineered for sub-second speeds and direct WhatsApp customer inquiries</p>
+        <ul class="compare-list">
+          <li class="compare-item">
+            <span class="compare-icon">✓</span>
+            <span><strong>Transparent pricing from ₹500/mo:</strong> Clear starter tiers, no hidden renewal traps, and cloud hosting included.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✓</span>
+            <span><strong>Delivered in 3 to 7 days:</strong> Private live preview link provided on Day 1 so you inspect development live.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✓</span>
+            <span><strong>Engineered with React &amp; Vite:</strong> Sub-second (&lt;0.8s) load times, 99 Google PageSpeed, and 100% technical SEO.</span>
+          </li>
+          <li class="compare-item">
+            <span class="compare-icon">✓</span>
+            <span><strong>Direct founder access on WhatsApp:</strong> Message Sagar Punia directly whenever you need updates or new features.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Feature Matrix Table -->
+    <div class="matrix-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Comparison Criteria</th>
+            <th>Traditional Agency</th>
+            <th>The Inovix Standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Starting Investment</strong></td>
+            <td>₹80,000 to ₹2,50,000</td>
+            <td>₹500/mo or ₹4,999 one-time</td>
+          </tr>
+          <tr>
+            <td><strong>Time to Production Launch</strong></td>
+            <td>60 to 120 Days</td>
+            <td>3 to 7 Business Days</td>
+          </tr>
+          <tr>
+            <td><strong>Underlying Tech Stack</strong></td>
+            <td>WordPress with 35+ plugins</td>
+            <td>Modern React, Vite &amp; Next.js</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile PageSpeed Score</strong></td>
+            <td>35 – 55 (Fails Core Web Vitals)</td>
+            <td>95 – 100 (Google Page-1 Speed)</td>
+          </tr>
+          <tr>
+            <td><strong>Lead Conversion Mechanism</strong></td>
+            <td>Dead static contact form</td>
+            <td>1-Click WhatsApp + Direct Call CRM</td>
+          </tr>
+          <tr>
+            <td><strong>Source Code Ownership</strong></td>
+            <td>Proprietary lockdown</td>
+            <td>100% Full Client Ownership</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <h3>Ready to switch to high-speed engineering?</h3>
+      <p>Stop burning your budget on agency overhead. Get a live, custom-engineered platform delivered in days.</p>
+      <a href="/contact" class="pill">Start Your Project in 15 Mins ↗</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix.co.in</h4>
+        <p>India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="margin-top: 12px; color: #fff; font-size: 13px;">Panipat &amp; NCR, Haryana • Direct: +91 83079 67782</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/work">Web Engineering</a></li>
+          <li><a href="/work">Mobile App Development</a></li>
+          <li><a href="/pricing">Custom CRM &amp; Software</a></li>
+          <li><a href="/process">Page-1 Google SEO</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Knowledge</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Built for Speed, Engineered for Growth.</span>
+    </div>
+  </footer>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    burger.addEventListener('click', () => {
+      document.body.classList.toggle('is-open');
+    });
+  </script>
+  <script src="/scripts/motion.js" defer></script>
+</body>
+</html>

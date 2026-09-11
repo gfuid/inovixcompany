@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -23,6 +23,9 @@ const bannerSaksham = "/bannerimg/saksham.png";
 const bannerVedaGroup = "/bannerimg/vedagroup.png";
 const bannerDigitalPharma = "/bannerimg/digitalpharma.png";
 const bannerVedomin = "/bannerimg/vedomin.png";
+const bannerZK = "/bannerimg/zkbrothers.png";
+const bannerAmbavi = "/bannerimg/ambavi.png";
+const bannerAgile = "/bannerimg/agilexports.png";
 
 // Real client brand logos
 const logoTrireme = "/brand/trireme.png";
@@ -99,7 +102,57 @@ export default function Hero() {
       tag: "Pharma Export",
       tech: ["Next.js", "Schema SEO", "Lead Funnels", "Cloudflare"],
     },
+    {
+      id: "zkbrothers",
+      title: "ZK Brothers",
+      category: "Export Stretch Denim & Handloom",
+      metric: "Panipat Direct Manufacturer & Exporter",
+      desc: "Heavy-duty cotton-spandex denim and artisan handloom manufacturing portal engineered for wholesale MOQ orders, global export buyers, and instant WhatsApp inquiry routing.",
+      img: bannerZK,
+      logo: null,
+      url: "https://www.zkbrother.com/",
+      urlDisplay: "zkbrother.com",
+      tag: "Panipat Handloom & Export",
+      tech: ["Panipat Handloom", "B2B Export Catalog", "WhatsApp RFQ", "Fast CDN"],
+    },
+    {
+      id: "ambavi",
+      title: "Ambavi Pvt Ltd",
+      category: "Global Trade & Agro Exporter",
+      metric: "Worldwide Export & Verified Supplier",
+      desc: "International import-export digital portal connecting Indian agricultural commodities (makhana, grains, agro products) to global buyers with multi-currency inquiries and verified supplier trust.",
+      img: bannerAmbavi,
+      logo: null,
+      url: "https://ambavi.in/",
+      urlDisplay: "ambavi.in",
+      tag: "Global Trade & Export Hub",
+      tech: ["Global Trade", "Agro Commodities", "Multi-Language", "React.js"],
+    },
+    {
+      id: "agilexports",
+      title: "AgileXports India",
+      category: "B2B Agro & Food Commodities",
+      metric: "Global Food & Egg Powder Exporter",
+      desc: "Specialized global B2B agro-commodity platform for high-protein spray-dried egg powder and food processing ingredients, featuring Google multi-language translation and instant buyer funnels.",
+      img: bannerAgile,
+      logo: null,
+      url: "https://agilexports.com/",
+      urlDisplay: "agilexports.com",
+      tag: "Food Commodities Exporter",
+      tech: ["Food Processing", "Global Shipping", "RFQ Portal", "Technical SEO"],
+    },
   ];
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-slide tabs continuously
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % showcaseProjects.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused, showcaseProjects.length]);
 
   return (
     <section className="relative min-h-[92vh] pt-32 pb-20 px-4 sm:px-6 overflow-hidden bg-white">
@@ -209,6 +262,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="relative mt-12 w-full max-w-5xl rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-900/10 overflow-hidden"
         >
           <BorderBeam size={350} duration={8} colorFrom="#2563eb" colorTo="#6366F1" />

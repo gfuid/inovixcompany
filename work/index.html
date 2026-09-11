@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Live Production Builds & Portfolio | Inovix Technologies</title>
+  <meta name="description" content="Explore real production code, enterprise platforms, and high-conversion web apps built by Inovix. Trireme Group, Saksham Appleveda, Veda Group, and more with sub-second latency." />
+  <link rel="icon" type="image/png" href="/ino.png" />
+  <link rel="canonical" href="https://www.inovix.co.in/work" />
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #fafafa;
+      --muted: #a7a6a6;
+      --nav: #b6b5b5;
+      --pill: #ffffff;
+      --pill-ink: #050505;
+      --bg: #050505;
+      --surface: #0c0c0c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-hover: rgba(255, 255, 255, 0.04);
+      --accent-blue: #38bdf8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Topbar */
+    .topbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: padding 0.2s ease, background 0.2s ease;
+    }
+    .topbar-wrap.scrolled {
+      padding: 12px 40px;
+      background: rgba(5, 5, 5, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .brand-text { font-size: 17px; font-weight: 700; }
+    .brand-text .dot { color: #38bdf8; }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a {
+      color: var(--nav);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; font-weight: 600; }
+    .badge-nav {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #fff;
+      color: #050505;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .pill:hover {
+      background: #f1f1f1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger i { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 99;
+      padding: 100px 30px 40px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    body.is-open .mobile-menu { display: flex; }
+    .mobile-nav-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .mobile-nav-list a { font-size: 20px; font-weight: 600; color: #ccc; text-decoration: none; }
+    .mobile-nav-list a.active { color: #fff; font-weight: 800; }
+
+    /* Page Content */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .page-hero {
+      padding: 140px 24px 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .page-title {
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .page-desc {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    /* Milestones Grid */
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 70px;
+    }
+    .milestone-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .milestone-icon { font-size: 24px; margin-bottom: 12px; }
+    .milestone-val {
+      font-size: clamp(32px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .milestone-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    .milestone-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--surface-border);
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-btn:hover {
+      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .filter-btn.active {
+      background: #ffffff;
+      color: #050505;
+      border-color: #ffffff;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+    .project-card.span-7 { grid-column: span 6; }
+    .project-card.span-5 { grid-column: span 6; }
+    .project-card.span-6 { grid-column: span 6; }
+    .project-card.span-12 { grid-column: span 12; }
+
+    .project-thumb-wrap {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+      background: #0f1117;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .project-card.span-12 .project-thumb-wrap { height: 320px; }
+    .project-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    .project-card:hover .project-thumb { transform: scale(1.03); }
+    .project-thumb-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .tech-tag {
+      font-size: 11.5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #d1d5db;
+    }
+    .project-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .project-footer {
+      padding: 14px 24px 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .project-live-btn {
+      color: #fff;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover .project-live-btn {
+      color: #60a5fa;
+      transform: translateX(2px);
+    }
+
+    /* Callout Card */
+    .portfolio-callout-card {
+      grid-column: span 12;
+      background: linear-gradient(135deg, rgba(20, 24, 33, 0.8) 0%, rgba(10, 12, 18, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Testimonials */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .story-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .story-highlight {
+      font-size: 16px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    .story-quote {
+      font-size: 14.5px;
+      color: #cbd5e1;
+      line-height: 1.65;
+    }
+    .story-author { font-size: 14px; font-weight: 700; color: #fff; }
+    .story-role { font-size: 12px; color: var(--muted); }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 24px 40px;
+      background: #050505;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .footer-col h5 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 13.5px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .milestones-grid { grid-template-columns: 1fr 1fr; }
+      .project-card.span-7, .project-card.span-5, .project-card.span-6 { grid-column: span 12; }
+      .stories-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .topbar-wrap { padding: 16px 20px; }
+    }
+    @media (max-width: 560px) {
+      .milestones-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="topbar-wrap" id="topbar">
+    <a href="/" class="brand-group">
+      <div class="brand-mark">IX</div>
+      <span class="brand-text">Inovix<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/why-inovix">Why Inovix</a>
+      <a href="/work" class="active">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools">Tools <span class="badge-nav">Free</span></a>
+      <a href="/blog">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <a href="/contact" class="pill">Start a Project</a>
+
+    <button class="burger" id="burger" aria-label="Toggle Menu">
+      <i></i>
+      <i></i>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="/why-inovix">Why Inovix</a></li>
+      <li><a href="/work" class="active">Work (Live Builds)</a></li>
+      <li><a href="/pricing">Transparent Pricing</a></li>
+      <li><a href="/process">Our Process</a></li>
+      <li><a href="/tools">Tools (16 Free)</a></li>
+      <li><a href="/blog">Engineering Blog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">Contact &amp; Quote</a></li>
+    </ul>
+    <div>
+      <a href="https://wa.me/918307967782" target="_blank" class="pill" style="width: 100%; text-align: center;">Chat on WhatsApp ↗</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-tag">Real Clients • Live URLs • Sub-Second Latency</div>
+    <h1 class="page-title">Real Live Production Builds. Zero Mockups.</h1>
+    <p class="page-desc">Every platform below is an active, deployed business application serving live customers, processing real transactions, and generating measurable revenue.</p>
+  </section>
+
+  <div class="container">
+    <!-- Milestones -->
+    <div class="milestones-grid">
+      <div class="milestone-card">
+        <div>
+          <div class="milestone-icon">⚡</div>
+          <div class="milestone-val">22+</div>
+          <div class="milestone-label">Live Platforms Built</div>
+        </div>
+        <div class="milestone-desc">Delivered across SaaS, B2B Pharma, Education, and Export/Import</div>
+      </div>
+
+      <div class="milestone-card">
+        <div>
+          <div class="milestone-icon">★</div>
+          <div class="milestone-val">99%</div>
+          <div class="milestone-label">Client Satisfaction</div>
+        </div>
+        <div class="milestone-desc">High-standard engineering delivered on time with direct founder communication</div>
+      </div>
+
+      <div class="milestone-card">
+        <div>
+          <div class="milestone-icon">₹</div>
+          <div class="milestone-val">₹50L+</div>
+          <div class="milestone-label">Volume Processed</div>
+        </div>
+        <div class="milestone-desc">Automated payment and lead pipelines built with n8n and REST APIs</div>
+      </div>
+
+      <div class="milestone-card">
+        <div>
+          <div class="milestone-icon">⏱</div>
+          <div class="milestone-val">50ms</div>
+          <div class="milestone-label">Sub-Second Latency</div>
+        </div>
+        <div class="milestone-desc">90% API latency reduction engineered via Redis &amp; modern Next/React code</div>
+      </div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Builds (11)</button>
+      <button class="filter-btn" data-filter="saas">SaaS &amp; AI</button>
+      <button class="filter-btn" data-filter="pharma">Pharma &amp; Healthcare</button>
+      <button class="filter-btn" data-filter="enterprise">Enterprise &amp; Global Export</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- 1. Trireme Group -->
+      <a href="https://triremegroup.in" target="_blank" rel="noopener noreferrer" class="project-card span-7" data-cat="pharma">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/trireme.png" alt="Trireme Group & Life Sciences" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">90% Latency Drop (500ms → 50ms)</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">B2B APIs</span>
+          </div>
+          <h2 class="project-title">
+            <span>Trireme Group &amp; Life Sciences</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">High-volume B2B pharmaceutical enterprise platform with multi-vendor catalogs, role-based access, and high-speed Redis caching architecture.</p>
+        </div>
+        <div class="project-footer">
+          <span>triremegroup.in</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 2. Saksham Appleveda -->
+      <a href="https://sakshamappleveda.com" target="_blank" rel="noopener noreferrer" class="project-card span-5" data-cat="pharma">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/saksham.png" alt="Saksham Appleveda" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Sub-0.7s Load Time &amp; High SEO</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Technical SEO</span>
+            <span class="tech-tag">Fast CDN</span>
+          </div>
+          <h2 class="project-title">
+            <span>Saksham Appleveda</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Ayurvedic wellness and healthcare digital storefront optimized for mobile conversion, instant WhatsApp customer acquisition, and search engine ranking.</p>
+        </div>
+        <div class="project-footer">
+          <span>sakshamappleveda.com</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 3. Veda Group Conglomerate -->
+      <a href="https://vedagroup.co.in" target="_blank" rel="noopener noreferrer" class="project-card span-5" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/vedagroup.png" alt="Veda Group Conglomerate" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Multi-Division Architecture</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Enterprise UI</span>
+            <span class="tech-tag">CRM Integration</span>
+            <span class="tech-tag">Vite</span>
+          </div>
+          <h2 class="project-title">
+            <span>Veda Group Conglomerate</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Corporate group website presenting multi-vertical industrial manufacturing, global compliance certifications, and enterprise inquiry routing.</p>
+        </div>
+        <div class="project-footer">
+          <span>vedagroup.co.in</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 4. Digital Pharmapreneur -->
+      <a href="https://digitalpharmapreneur.com" target="_blank" rel="noopener noreferrer" class="project-card span-7" data-cat="saas">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/digitalpharma.png" alt="Digital Pharmapreneur" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">10,000+ Pharma Learners</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Video Funnels</span>
+            <span class="tech-tag">Payment Gateway</span>
+          </div>
+          <h2 class="project-title">
+            <span>Digital Pharmapreneur</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Comprehensive educational and business growth ecosystem empowering pharma entrepreneurs with digital modules, community webinars, and lead funnels.</p>
+        </div>
+        <div class="project-footer">
+          <span>digitalpharmapreneur.com</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 5. Vedomine Lifesciences -->
+      <a href="https://vedominelifesciences.com" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="pharma">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/vedomin.png" alt="Vedomine Lifesciences" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Page-1 Google Visibility</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Content SEO</span>
+            <span class="tech-tag">Lead Funnels</span>
+            <span class="tech-tag">Schema Markup</span>
+          </div>
+          <h2 class="project-title">
+            <span>Vedomine Lifesciences</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Comprehensive pharmaceutical digital assets targeting commercial PCD franchise search queries and international export procurement inquiries.</p>
+        </div>
+        <div class="project-footer">
+          <span>vedominelifesciences.com</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 6. Holistic Jeevandhara Foundation -->
+      <a href="https://holisticjeevandhara.org" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/holistic.png" alt="Holistic Foundation" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">5,000+ Community Beneficiaries</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Razorpay</span>
+            <span class="tech-tag">CMS Integration</span>
+            <span class="tech-tag">Tailwind</span>
+          </div>
+          <h2 class="project-title">
+            <span>Holistic Jeevandhara Foundation</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Non-profit digital foundation portal enabling transparent donation pipelines, community health initiatives, and volunteer onboarding workflows.</p>
+        </div>
+        <div class="project-footer">
+          <span>holisticjeevandhara.org</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 7. Multi-Agent AI Research System -->
+      <a href="https://creatorhq.com/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="saas">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/multiagent.png" alt="Multi-Agent AI Research System" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">10x Research Speed Automation</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">AI Agents</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">n8n Workflows</span>
+            <span class="tech-tag">FastAPI</span>
+          </div>
+          <h2 class="project-title">
+            <span>Multi-Agent AI Research System</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Distributed multi-agent research engine orchestrating autonomous LLMs, web crawlers, and automated synthesis pipelines built with n8n and Python.</p>
+        </div>
+        <div class="project-footer">
+          <span>Proprietary AI Architecture</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 8. DesignBuzz Creative Studio -->
+      <a href="https://frenchise-model-nl5z.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/desinbuzz.png" alt="DesignBuzz Creative Studio" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Fluid 60 FPS Micro-Interactions</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Framer Motion</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Canvas</span>
+          </div>
+          <h2 class="project-title">
+            <span>DesignBuzz Creative Studio</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Ultra-slick portfolio experience engineered for brand consultants and digital creatives with interactive showcases, dark aesthetics, and rapid load times.</p>
+        </div>
+        <div class="project-footer">
+          <span>Live App Showcase</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 9. ZK Brothers -->
+      <a href="https://www.zkbrother.com/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/zkbrothers.png" alt="ZK Brothers - Export Stretch Denim & Handloom" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Panipat Direct Manufacturer &amp; Exporter</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Panipat Handloom</span>
+            <span class="tech-tag">B2B Export Catalog</span>
+            <span class="tech-tag">WhatsApp RFQ</span>
+            <span class="tech-tag">Fast CDN</span>
+          </div>
+          <h2 class="project-title">
+            <span>ZK Brothers</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Heavy-duty cotton-spandex denim and artisan handloom manufacturing portal engineered for wholesale MOQ orders, global export buyers, and instant WhatsApp inquiry routing.</p>
+        </div>
+        <div class="project-footer">
+          <span>zkbrother.com</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 10. Ambavi Pvt Ltd -->
+      <a href="https://ambavi.in/" target="_blank" rel="noopener noreferrer" class="project-card span-6" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/ambavi.png" alt="Ambavi Pvt Ltd - Connecting India To Global Markets" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Worldwide Export &amp; Verified Supplier</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Global Trade</span>
+            <span class="tech-tag">Agro Commodities</span>
+            <span class="tech-tag">Multi-Language</span>
+            <span class="tech-tag">React.js</span>
+          </div>
+          <h2 class="project-title">
+            <span>Ambavi Pvt Ltd</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">International import-export digital portal connecting Indian agricultural commodities (makhana, grains, agro products) to global buyers with multi-currency inquiries and verified supplier trust.</p>
+        </div>
+        <div class="project-footer">
+          <span>ambavi.in</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- 11. AgileXports India -->
+      <a href="https://agilexports.com/" target="_blank" rel="noopener noreferrer" class="project-card span-12" data-cat="enterprise">
+        <div class="project-thumb-wrap">
+          <img src="/bannerimg/agilexports.png" alt="AgileXports India - Egg Powder & Global Agro Exporter" class="project-thumb" loading="lazy" />
+          <span class="project-thumb-badge">Global Food &amp; Egg Powder Exporter</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tech-tags">
+            <span class="tech-tag">Food Processing</span>
+            <span class="tech-tag">Global Shipping</span>
+            <span class="tech-tag">RFQ Portal</span>
+            <span class="tech-tag">Technical SEO</span>
+          </div>
+          <h2 class="project-title">
+            <span>AgileXports India</span>
+            <span>↗</span>
+          </h2>
+          <p class="project-desc">Specialized global B2B agro-commodity platform for high-protein spray-dried egg powder and food processing ingredients, featuring Google multi-language translation and instant buyer funnels.</p>
+        </div>
+        <div class="project-footer">
+          <span>agilexports.com</span>
+          <span class="project-live-btn">Open Live Website ↗</span>
+        </div>
+      </a>
+
+      <!-- Callout Banner -->
+      <div class="portfolio-callout-card">
+        <div>
+          <h3 style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 6px;">Need a platform engineered for your business?</h3>
+          <p style="font-size: 15px; color: var(--muted);">We build full-stack web apps, custom CRMs, and automated lead pipelines starting at ₹4,999.</p>
+        </div>
+        <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20want%20to%20discuss%20architecture" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 14px 30px; font-size: 15px;">
+          <span>Discuss Architecture on WhatsApp ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Client Testimonials -->
+    <div style="margin-bottom: 80px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="page-tag">Verified Testimonials</span>
+        <h2 style="font-size: 32px; font-weight: 800; color: #fff;">What Founders Say About Inovix</h2>
+      </div>
+
+      <div class="stories-grid">
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"40+ International Inquiries"</div>
+            <p class="story-quote">"Inovix built our B2B export catalog and automated WhatsApp RFQ system. Other agencies in Delhi quoted ₹2,00,000 for this — Inovix delivered in 10 days at a fraction of the cost with zero bugs."</p>
+          </div>
+          <div>
+            <div class="story-author">Athish Ravikant</div>
+            <div class="story-role">Export Manager, Panipat Textiles</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"Page-1 Google Ranking"</div>
+            <p class="story-quote">"The best decision for our business. The website loads in under a second, our Google local ranking hit page 1, and customers now contact us directly through the 1-click WhatsApp button every single day."</p>
+          </div>
+          <div>
+            <div class="story-author">Deepak Rai</div>
+            <div class="story-role">Founder, Haryana Retail &amp; Tech</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div>
+            <div class="story-highlight">"₹500/mo Care Plan Active"</div>
+            <p class="story-quote">"Whenever we update our menu or offer a seasonal discount, I just text them on WhatsApp and it's live on the website within an hour. The ₹500/month hosting plan is an absolute blessing for local shops."</p>
+          </div>
+          <div>
+            <div class="story-author">Nirjan Sharma</div>
+            <div class="story-role">Restaurant &amp; Cafe Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix.co.in</h4>
+        <p>India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="margin-top: 12px; color: #fff; font-size: 13px;">Panipat &amp; NCR, Haryana • Direct: +91 83079 67782</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/work">Web Engineering</a></li>
+          <li><a href="/work">Mobile App Development</a></li>
+          <li><a href="/pricing">Custom CRM &amp; Software</a></li>
+          <li><a href="/process">Page-1 Google SEO</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Knowledge</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Built for Speed, Engineered for Growth.</span>
+    </div>
+  </footer>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    burger.addEventListener('click', () => {
+      document.body.classList.toggle('is-open');
+    });
+
+    // Portfolio Category Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+  <script src="/scripts/motion.js" defer></script>
+</body>
+</html>

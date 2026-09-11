@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transparent Agency Pricing & Plans | Inovix Technologies</title>
+  <meta name="description" content="India's most affordable digital agency pricing. Web care from ₹500/mo, Launchpad websites from ₹4,999, and custom CRM systems from ₹49,999. Zero hidden charges." />
+  <link rel="icon" type="image/png" href="/ino.png" />
+  <link rel="canonical" href="https://www.inovix.co.in/pricing" />
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #fafafa;
+      --muted: #a7a6a6;
+      --nav: #b6b5b5;
+      --pill: #ffffff;
+      --pill-ink: #050505;
+      --bg: #050505;
+      --surface: #0c0c0c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-hover: rgba(255, 255, 255, 0.04);
+      --accent-blue: #38bdf8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Topbar */
+    .topbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: padding 0.2s ease, background 0.2s ease;
+    }
+    .topbar-wrap.scrolled {
+      padding: 12px 40px;
+      background: rgba(5, 5, 5, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .brand-text { font-size: 17px; font-weight: 700; }
+    .brand-text .dot { color: #38bdf8; }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a {
+      color: var(--nav);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; font-weight: 600; }
+    .badge-nav {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #fff;
+      color: #050505;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .pill:hover {
+      background: #f1f1f1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .burger i { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 99;
+      padding: 100px 30px 40px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    body.is-open .mobile-menu { display: flex; }
+    .mobile-nav-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .mobile-nav-list a { font-size: 20px; font-weight: 600; color: #ccc; text-decoration: none; }
+    .mobile-nav-list a.active { color: #fff; font-weight: 800; }
+
+    /* Page Content */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .page-hero {
+      padding: 140px 24px 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .page-title {
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .page-desc {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto 36px;
+    }
+
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 24px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .pricing-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+    .pricing-card.featured {
+      background: linear-gradient(180deg, rgba(30, 36, 50, 0.7) 0%, rgba(12, 14, 20, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.12);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #38bdf8;
+      color: #050505;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .plan-tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    .plan-name { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .plan-price {
+      font-size: clamp(34px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .plan-price span { font-size: 14px; font-weight: 500; color: var(--muted); }
+    .plan-desc { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 20px;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .plan-features li::before {
+      content: "✓";
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .plan-btn { width: 100%; text-align: center; }
+
+    /* Guarantees Strip */
+    .guarantees-strip {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 70px;
+    }
+
+    /* Comparison Table */
+    .matrix-wrap {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      overflow-x: auto;
+      margin-bottom: 80px;
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      min-width: 700px;
+    }
+    .matrix-table th, .matrix-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .matrix-table th {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .matrix-table td:first-child { font-weight: 600; color: #fff; }
+    .matrix-table tr:hover td { background: rgba(255, 255, 255, 0.015); }
+    .matrix-table .highlight-cell { color: #38bdf8; font-weight: 700; }
+
+    /* CTA Section */
+    .cta-banner {
+      background: linear-gradient(180deg, rgba(20, 24, 33, 0.6) 0%, rgba(10, 12, 18, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .cta-banner h3 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .cta-banner p { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 24px 40px;
+      background: #050505;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .footer-col h5 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 13.5px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .topbar-wrap { padding: 16px 20px; }
+    }
+    @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="topbar-wrap" id="topbar">
+    <a href="/" class="brand-group">
+      <div class="brand-mark">IX</div>
+      <span class="brand-text">Inovix<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/why-inovix">Why Inovix</a>
+      <a href="/work">Work</a>
+      <a href="/pricing" class="active">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools">Tools <span class="badge-nav">Free</span></a>
+      <a href="/blog">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <a href="/contact" class="pill">Start a Project</a>
+
+    <button class="burger" id="burger" aria-label="Toggle Menu">
+      <i></i>
+      <i></i>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="/why-inovix">Why Inovix</a></li>
+      <li><a href="/work">Work (Live Builds)</a></li>
+      <li><a href="/pricing" class="active">Transparent Pricing</a></li>
+      <li><a href="/process">Our Process</a></li>
+      <li><a href="/tools">Tools (16 Free)</a></li>
+      <li><a href="/blog">Engineering Blog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">Contact &amp; Quote</a></li>
+    </ul>
+    <div>
+      <a href="https://wa.me/918307967782" target="_blank" class="pill" style="width: 100%; text-align: center;">Chat on WhatsApp ↗</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-tag">Radical Transparency • Zero Hidden Fees</div>
+    <h1 class="page-title">India's Most Affordable Web &amp; Software Pricing</h1>
+    <p class="page-desc">Whether you are a local shop starting at ₹500/month or an enterprise exporter building custom software, our predictable, high-ROI packages eliminate corporate bloat.</p>
+  </section>
+
+  <div class="container">
+    <!-- Pricing Grid -->
+    <div class="pricing-grid">
+      <!-- Tier 1 -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-tag">Lowest in India</div>
+          <h2 class="plan-name">Web Care &amp; Hosting</h2>
+          <div class="plan-price">₹500 <span>/month</span></div>
+          <p class="plan-desc">Zero headache website hosting, security, and ongoing technical maintenance for small businesses and clinics.</p>
+
+          <ul class="plan-features">
+            <li>Ultra-Fast Cloud Hosting</li>
+            <li>Free SSL Certificate</li>
+            <li>99.9% Uptime Guarantee</li>
+            <li>Monthly Content / Menu Updates</li>
+            <li>Direct WhatsApp Tech Support</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20the%20500%20monthly%20plan" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+          <span>Start for ₹500/mo ↗</span>
+        </a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-tag">Best for Local Businesses</div>
+          <h2 class="plan-name">Launchpad Website</h2>
+          <div class="plan-price">₹4,999 <span>one-time</span></div>
+          <p class="plan-desc">Modern, high-converting website built to convert visitors into direct customer phone calls and store visits.</p>
+
+          <ul class="plan-features">
+            <li>High-Converting Modern Web Design</li>
+            <li>Google Maps &amp; Local SEO Setup</li>
+            <li>Direct 1-Click WhatsApp Lead Button</li>
+            <li>100% Mobile &amp; Tablet Optimized</li>
+            <li>Delivered in 3 to 5 Days</li>
+            <li>1 Month Free Maintenance Included</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20Launchpad%20Website" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+          <span>Launch My Website ↗</span>
+        </a>
+      </div>
+
+      <!-- Tier 3: Growth Engine (Featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div>
+          <div class="plan-tag" style="color: #fff;">Scale Your Business</div>
+          <h2 class="plan-name">Growth Engine</h2>
+          <div class="plan-price">₹19,999 <span>one-time</span></div>
+          <p class="plan-desc">Complete digital dominance package to rank on Google and capture maximum high-value buyer leads.</p>
+
+          <ul class="plan-features">
+            <li>Full Multi-Page React/Vite Web App</li>
+            <li>Targeted Google Page-1 SEO Campaign</li>
+            <li>Automated Lead Capture &amp; Alerts</li>
+            <li>Sub-Second Page Load Speeds (&lt;0.8s)</li>
+            <li>High-Converting Sales Copy &amp; Visuals</li>
+            <li>Founder-Level Priority Consultation</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20the%20Growth%20Engine%20Plan" target="_blank" rel="noopener noreferrer" class="pill plan-btn" style="background: #fff; color: #050505;">
+          <span>Scale With Growth Plan ↗</span>
+        </a>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-tag">Enterprise &amp; Exporters</div>
+          <h2 class="plan-name">Custom Software &amp; CRM</h2>
+          <div class="plan-price">₹49,999+ <span>custom</span></div>
+          <p class="plan-desc">Custom internal software, billing, staff dashboards, and export consulting for growing companies.</p>
+
+          <ul class="plan-features">
+            <li>Bespoke Internal Business Software</li>
+            <li>Inventory, Billing &amp; Staff Tracking CRM</li>
+            <li>WhatsApp Business API Bots</li>
+            <li>Export/Import Digital Consulting</li>
+            <li>Role-Based Multi-User Access</li>
+            <li>Full Source Code &amp; Architecture Handoff</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/918307967782?text=Hi%20Inovix,%20I%20want%20to%20discuss%20custom%20software" target="_blank" rel="noopener noreferrer" class="pill plan-btn">
+          <span>Discuss Enterprise Build ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Guarantees Strip -->
+    <div class="guarantees-strip">
+      <span>🔒 No Long-Term Contracts • Cancel Anytime</span>
+      <span>⚡ 100% Transparent Estimates Before Coding Starts</span>
+      <span>🚀 Free Migration from Slow WordPress / Hostinger</span>
+    </div>
+
+    <!-- Comparison Table -->
+    <div style="margin-bottom: 30px;">
+      <h3 style="font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 16px; text-align: center;">Detailed Package Comparison Matrix</h3>
+      <p style="text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 30px;">Pick the exact tier matching your business growth phase</p>
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Feature / Capability</th>
+            <th>Web Care (₹500/mo)</th>
+            <th>Launchpad (₹4,999)</th>
+            <th>Growth Engine (₹19,999)</th>
+            <th>Custom CRM (₹49,999+)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Target Audience</td>
+            <td>Existing site maintenance</td>
+            <td>Local shops, clinics, lawyers</td>
+            <td>Established brands, D2C, services</td>
+            <td>Factories, exporters, B2B platforms</td>
+          </tr>
+          <tr>
+            <td>Delivery Speed</td>
+            <td>Same Day Setup</td>
+            <td>3 to 5 Business Days</td>
+            <td>7 to 10 Business Days</td>
+            <td>14 to 28 Days Sprint</td>
+          </tr>
+          <tr>
+            <td>Underlying Tech Stack</td>
+            <td>Managed Cloud CDN</td>
+            <td>HTML5, Tailwind, Modern JS</td>
+            <td>React.js, Vite &amp; Next.js</td>
+            <td>Full-Stack (Next.js, Python, Redis)</td>
+          </tr>
+          <tr>
+            <td>Lead Capture Mechanism</td>
+            <td>Existing Forms</td>
+            <td>1-Click WhatsApp Button</td>
+            <td>WhatsApp CRM + Lead Alerts</td>
+            <td>Automated Multi-Channel Webhooks</td>
+          </tr>
+          <tr>
+            <td>Google SEO Package</td>
+            <td>Basic Sitemaps</td>
+            <td>Local Maps &amp; Schema</td>
+            <td>Page-1 Targeted Keywords</td>
+            <td>Comprehensive Technical SEO</td>
+          </tr>
+          <tr>
+            <td>Source Code Ownership</td>
+            <td>Client Owned</td>
+            <td>100% Full Ownership</td>
+            <td>100% Full Ownership</td>
+            <td>100% Full Git Repo Handoff</td>
+          </tr>
+          <tr>
+            <td>Ongoing Support</td>
+            <td>Monthly Updates Included</td>
+            <td>1 Month Free Support</td>
+            <td>3 Months Priority Support</td>
+            <td>Dedicated SLA &amp; Founder Direct Line</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <h3>Need a tailored estimate for your exact project?</h3>
+      <p>Send your requirements on WhatsApp. We will reply with an architectural breakdown and quote within 15 minutes.</p>
+      <a href="https://wa.me/918307967782?text=Hi%20Sagar,%20I%20need%20a%20custom%20quote%20for%20my%20business" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 14px 34px; font-size: 15px;">Get Instant WhatsApp Quote ↗</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix.co.in</h4>
+        <p>India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="margin-top: 12px; color: #fff; font-size: 13px;">Panipat &amp; NCR, Haryana • Direct: +91 83079 67782</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/work">Web Engineering</a></li>
+          <li><a href="/work">Mobile App Development</a></li>
+          <li><a href="/pricing">Custom CRM &amp; Software</a></li>
+          <li><a href="/process">Page-1 Google SEO</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Knowledge</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Built for Speed, Engineered for Growth.</span>
+    </div>
+  </footer>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    burger.addEventListener('click', () => {
+      document.body.classList.toggle('is-open');
+    });
+  </script>
+  <script src="/scripts/motion.js" defer></script>
+</body>
+</html>
