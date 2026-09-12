@@ -819,6 +819,10 @@ function generateHtml(post) {
       .article-container { padding: 24px 16px 60px; }
       .article-cta { padding: 30px 20px; }
     }
+    @media (max-width: 560px) {
+      .topbar-wrap .pill { display: none; }
+      .topbar-wrap { padding: 12px 16px; }
+    }
   </style>
 
   <!-- Schema.org Article Structured Data -->
