@@ -362,6 +362,8 @@
       gap: 12px;
     }
 
+    body.is-open { overflow: hidden; }
+
     @media (max-width: 1100px) {
       .pricing-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -369,11 +371,16 @@
       .nav-links { display: none; }
       .burger { display: flex; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
-      .topbar-wrap { padding: 16px 20px; }
+      .topbar-wrap { padding: 14px 20px; }
+      .page-hero { padding: 110px 20px 40px; }
     }
     @media (max-width: 600px) {
+      .topbar-wrap .pill { display: none; }
+      .topbar-wrap { padding: 12px 16px; }
+      .page-hero { padding: 100px 16px 36px; }
       .pricing-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
+      .guarantees-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>

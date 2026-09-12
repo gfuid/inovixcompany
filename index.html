@@ -1510,6 +1510,10 @@
     /* ==========================================================================
        RESPONSIVE BREAKPOINTS
        ========================================================================== */
+    body.is-open {
+      overflow: hidden;
+    }
+
     @media (max-width: 1100px) {
       .pricing-grid { grid-template-columns: 1fr 1fr; }
       .advantage-grid { grid-template-columns: 1fr 1fr; }
@@ -1519,61 +1523,458 @@
     }
 
     @media (max-width: 960px) {
+      /* Navigation */
       .nav-links { display: none; }
       .burger { display: flex; }
       .mobile-menu { display: flex; }
-      .comparison-grid { grid-template-columns: 1fr; }
-      .milestones-grid { grid-template-columns: 1fr 1fr; }
-      .contact-card-main { grid-template-columns: 1fr; gap: 36px; }
-      .project-card.span-7, .project-card.span-5, .project-card.span-6 { grid-column: span 12; }
-      .footer-inner { grid-template-columns: 1fr; gap: 30px; }
+      .topbar-wrap,
+      .topbar-wrap.scrolled {
+        padding: 14px 20px;
+        background: rgba(5, 5, 5, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .pill-header {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
 
-      .headline {
-        font-size: clamp(30px, 6vw, 38px);
-        line-height: 1.16;
-        white-space: normal;
+      /* Hero Fold (Full-width Column Layout) */
+      .hero-stage {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 110px 0 44px;
+        overflow: hidden;
+      }
+      .plate-video {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        min-width: 860px;
+        transform: translateX(-50%);
+        object-fit: cover;
+        opacity: 0.65;
+      }
+      .plate::after {
+        background:
+          linear-gradient(180deg,
+            rgba(5, 5, 5, 0.92) 0%,
+            rgba(5, 5, 5, 0.78) 40%,
+            rgba(5, 5, 5, 0.9) 78%,
+            #050505 100%
+          ),
+          linear-gradient(90deg,
+            rgba(5, 5, 5, 0.95) 0%,
+            rgba(5, 5, 5, 0.7) 100%
+          );
+      }
+      .hero-content {
+        width: 100%;
         max-width: 100%;
+        padding: 0 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hero-badge {
+        font-size: 11.5px;
+        letter-spacing: 0.08em;
+        padding: 6px 14px;
+        margin-bottom: 16px;
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.35;
+        gap: 7px;
+      }
+      .headline {
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        max-width: 100%;
+        margin-bottom: 16px;
+        white-space: normal;
+      }
+      .headline span {
+        display: inline;
       }
       .subcopy {
-        font-size: 16px;
-        line-height: 1.5;
-        white-space: normal;
+        font-size: 15px;
+        line-height: 1.55;
         max-width: 100%;
+        margin-bottom: 28px;
+        color: #cbd5e1;
+        white-space: normal;
       }
+      .subcopy span {
+        display: inline;
+      }
+      .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+        max-width: 380px;
+        margin-bottom: 36px;
+      }
+      .pill-hero {
+        width: 100%;
+        height: 50px;
+        padding: 0 24px;
+        font-size: 15.5px;
+        font-weight: 700;
+        justify-content: center;
+        text-align: center;
+      }
+      .ghost-hero {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 14.5px;
+        text-align: center;
+      }
+
+      /* Marquee / Trusted By */
       .client-strip-wrapper {
         position: relative;
         bottom: auto;
         left: auto;
         transform: none;
-        margin-top: 36px;
-        padding: 0 16px;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+        padding: 0 20px;
       }
       .client-strip-inner {
         flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+      }
+      .client-strip-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        opacity: 0.7;
       }
       .client-marquee-container {
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
       }
-      .hero-content {
-        padding-left: 24px;
+      .client-marquee-group {
+        gap: 20px;
+        padding-right: 20px;
       }
-      .hero-stage {
-        height: auto;
-        min-height: 100vh;
-        padding: 120px 0 60px;
+      .client-item {
+        font-size: 13px;
+      }
+
+      /* Sections General */
+      .section-wrap {
+        padding: 72px 20px;
+      }
+      .section-header {
+        margin-bottom: 36px;
+      }
+      .section-title {
+        font-size: clamp(26px, 6.5vw, 36px);
+        line-height: 1.18;
+      }
+      .section-desc {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      /* Problem vs Solution Comparison */
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .compare-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+      }
+      .compare-title {
+        font-size: 20px;
+      }
+      .compare-list {
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .compare-list li {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .compare-footer-solution {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+      .solution-result-text {
+        min-width: 0;
+        font-size: 13px;
+      }
+      .pill-switch {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px;
+      }
+
+      /* Milestones */
+      .milestones-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      /* Portfolio / Builds Grid */
+      .filter-bar {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 24px;
+        scrollbar-width: none;
+      }
+      .filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 7px 14px;
+        font-size: 12.5px;
+      }
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .project-card,
+      .project-card.span-7,
+      .project-card.span-5,
+      .project-card.span-6,
+      .project-card.span-12 {
+        grid-column: span 1 !important;
+      }
+      .project-thumb-wrap,
+      .project-card.span-12 .project-thumb-wrap {
+        height: 210px;
+      }
+      .project-body {
+        padding: 20px;
+      }
+      .project-title {
+        font-size: 18px;
+      }
+      .project-desc {
+        font-size: 13.5px;
+      }
+      .project-footer {
+        padding: 12px 20px 16px;
+      }
+      .portfolio-callout-card {
+        grid-column: span 1 !important;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 20px;
+        text-align: left;
+        gap: 18px;
+      }
+      .portfolio-callout-card .pill {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Advantage & Founder */
+      .advantage-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+      .advantage-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+      }
+      .founder-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 28px 20px;
+        gap: 20px;
+        margin-bottom: 44px;
+      }
+      .founder-avatar {
+        width: 90px;
+        height: 90px;
+      }
+      .founder-info h3 {
+        font-size: 22px;
+      }
+      .founder-info p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .step-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+      }
+
+      /* Pricing */
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .pricing-card {
+        padding: 28px 20px;
+        border-radius: 20px;
+      }
+      .guarantees-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 20px;
+        gap: 12px;
+        font-size: 13.5px;
+      }
+
+      /* Tools & Stories */
+      .tools-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .tool-item {
+        padding: 22px 20px;
+        border-radius: 18px;
+      }
+      .stories-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .story-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+      }
+
+      /* FAQ */
+      .faq-q {
+        padding: 18px 20px;
+        font-size: 15.5px;
+      }
+      .faq-a {
+        padding: 0 20px 20px;
+        font-size: 14px;
+      }
+
+      /* Contact Card Main */
+      .contact-card-main {
+        grid-template-columns: 1fr;
+        padding: 28px 20px;
+        gap: 32px;
+        border-radius: 22px;
+      }
+      .contact-info-col h3 {
+        font-size: 26px;
+      }
+      .contact-info-col p {
+        font-size: 14.5px;
+        margin-bottom: 24px;
+      }
+      .action-row {
+        padding: 14px 16px;
+      }
+      .form-input {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+      .form-btn {
+        height: 50px;
+        font-size: 15px;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 48px 20px 28px;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 12.5px;
       }
     }
 
     @media (max-width: 600px) {
-      .milestones-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .advantage-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .founder-card { padding: 24px; }
+      .topbar-wrap,
+      .topbar-wrap.scrolled {
+        padding: 12px 16px;
+      }
+      .topbar-wrap .pill-header {
+        display: none;
+      }
+      .hero-content {
+        padding: 0 16px;
+      }
+      .client-strip-wrapper {
+        padding: 0 16px;
+      }
+      .section-wrap {
+        padding: 56px 16px;
+      }
+      .milestones-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .milestone-card {
+        padding: 24px 20px;
+      }
+      .milestone-val {
+        font-size: 38px;
+      }
+      .advantage-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .plan-price {
+        font-size: 32px;
+      }
+      .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .founder-card {
+        padding: 24px 16px;
+      }
+      .contact-card-main {
+        padding: 24px 16px;
+      }
     }
   </style>
 </head>

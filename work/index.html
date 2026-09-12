@@ -443,6 +443,8 @@
       gap: 12px;
     }
 
+    body.is-open { overflow: hidden; }
+
     @media (max-width: 960px) {
       .nav-links { display: none; }
       .burger { display: flex; }
@@ -450,11 +452,15 @@
       .project-card.span-7, .project-card.span-5, .project-card.span-6 { grid-column: span 12; }
       .stories-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
-      .topbar-wrap { padding: 16px 20px; }
+      .topbar-wrap { padding: 14px 20px; }
+      .page-hero { padding: 110px 20px 40px; }
     }
     @media (max-width: 560px) {
+      .topbar-wrap .pill { display: none; }
+      .topbar-wrap { padding: 12px 16px; }
       .milestones-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
+      .page-hero { padding: 100px 16px 36px; }
     }
   </style>
 </head>
