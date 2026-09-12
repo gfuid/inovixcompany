@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { jsPDF } from "jspdf";
 import {
   FileOutput, Upload, Download, ArrowLeft,
   MoveUp, MoveDown, Trash2, FileImage, Settings2, CheckCircle2
@@ -11,6 +12,7 @@ const ImageToPDF = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
+  const [pdfBlobUrl, setPdfBlobUrl] = useState(null);
 
   // Settings
   const [orientation, setOrientation] = useState("portrait"); // portrait, landscape
@@ -32,11 +34,14 @@ const ImageToPDF = () => {
     if (newImages.length > 0) {
       setImages(prev => [...prev, ...newImages]);
       setIsReady(false);
+      setPdfBlobUrl(null);
     }
   };
 
   const removeImage = (id) => {
     setImages(prev => prev.filter(img => img.id !== id));
+    setIsReady(false);
+    setPdfBlobUrl(null);
   };
 
   const moveImage = (index, direction) => {
@@ -47,39 +52,87 @@ const ImageToPDF = () => {
       [newImages[index], newImages[index + 1]] = [newImages[index + 1], newImages[index]];
     }
     setImages(newImages);
+    setIsReady(false);
+    setPdfBlobUrl(null);
   };
 
-  const startGeneration = () => {
+  const startGeneration = async () => {
     if (images.length === 0) return;
     setIsGenerating(true);
     setIsReady(false);
     setProgress(0);
 
-    // --- SIMULATION LOGIC ---
-    // Mimics adding pages to a PDF document
-    let current = 0;
-    const interval = setInterval(() => {
-      current += 10;
-      setProgress(current);
+    try {
+      const isPortrait = orientation === "portrait";
+      const pdf = new jsPDF({
+        orientation: isPortrait ? "p" : "l",
+        unit: "mm",
+        format: pageSize.toLowerCase()
+      });
 
-      if (current >= 100) {
-        clearInterval(interval);
-        setIsGenerating(false);
-        setIsReady(true);
+      for (let i = 0; i < images.length; i++) {
+        if (i > 0) {
+          pdf.addPage(pageSize.toLowerCase(), isPortrait ? "p" : "l");
+        }
+
+        const imgItem = images[i];
+        const img = new Image();
+        img.src = imgItem.url;
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        const marginMm = margin === "none" ? 0 : margin === "small" ? 10 : 20;
+        const availWidth = pageWidth - (marginMm * 2);
+        const availHeight = pageHeight - (marginMm * 2);
+
+        const imgRatio = img.width / img.height;
+        let printWidth = availWidth;
+        let printHeight = availWidth / imgRatio;
+
+        if (printHeight > availHeight) {
+          printHeight = availHeight;
+          printWidth = availHeight * imgRatio;
+        }
+
+        const posX = marginMm + (availWidth - printWidth) / 2;
+        const posY = marginMm + (availHeight - printHeight) / 2;
+
+        pdf.addImage(img, "JPEG", posX, posY, printWidth, printHeight);
+        setProgress(Math.round(((i + 1) / images.length) * 100));
       }
-    }, 200);
+
+      const blob = pdf.output("blob");
+      const url = URL.createObjectURL(blob);
+      setPdfBlobUrl(url);
+      setIsReady(true);
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+      alert("Failed to generate PDF. Please ensure all uploaded files are valid images.");
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleDownload = () => {
-    alert("Simulation: PDF file downloaded successfully!");
+    if (!pdfBlobUrl) return;
+    const link = document.createElement("a");
+    link.href = pdfBlobUrl;
+    link.download = `inovix-document-${Date.now()}.pdf`;
+    link.click();
   };
 
   // Cleanup memory
   useEffect(() => {
     return () => {
       images.forEach(img => URL.revokeObjectURL(img.url));
+      if (pdfBlobUrl) URL.revokeObjectURL(pdfBlobUrl);
     };
-  }, []);
+  }, [images, pdfBlobUrl]);
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-amber-500/30 pb-24">

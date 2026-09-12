@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Inovix Labs — 16 Free Online Business & Creator Utility Tools</title>
-  <meta name="description" content="16+ free in-browser utility tools for small businesses, developers, and creators. Image compressor, QR generator, WhatsApp link creator, GST calculator, and more. 100% free with zero ads." />
+  <title>Inovix Labs — 16 Free Online Business &amp; Creator Utility Tools</title>
+  <meta name="description" content="16+ free in-browser utility tools for small businesses, developers, and creators. Image compressor, QR generator, WhatsApp link creator, GST calculator, Textile GSM calculator, and more. 100% free with zero ads." />
   <link rel="icon" type="image/png" href="/ino.png" />
   <link rel="canonical" href="https://www.inovix.co.in/tools" />
 
-  <!-- Google Fonts: Manrope -->
+  <!-- Google Fonts: Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -25,6 +25,8 @@
       --surface-border: rgba(255, 255, 255, 0.08);
       --surface-hover: rgba(255, 255, 255, 0.04);
       --accent-blue: #38bdf8;
+      --accent-green: #34d399;
+      --accent-purple: #c084fc;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -107,44 +109,63 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      background: var(--pill);
+      color: var(--pill-ink);
+      font-size: 13.5px;
+      font-weight: 700;
       padding: 10px 22px;
       border-radius: 999px;
-      background: #fff;
-      color: #050505;
-      font-size: 13px;
-      font-weight: 700;
       text-decoration: none;
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      cursor: pointer;
       border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
     }
-    .pill:hover {
-      background: #f1f1f1;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+    .pill:hover { opacity: 0.92; transform: scale(1.02); }
+    .pill-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .pill-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
     }
 
-    .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .burger i { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .burger i {
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: transform 0.2s ease;
+    }
+
     .mobile-menu {
       display: none;
       position: fixed;
-      inset: 0;
-      background: #050505;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(5, 5, 5, 0.98);
       z-index: 99;
-      padding: 100px 30px 40px;
+      padding: 30px 24px;
       flex-direction: column;
       justify-content: space-between;
     }
     body.is-open .mobile-menu { display: flex; }
     .mobile-nav-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
-    .mobile-nav-list a { font-size: 20px; font-weight: 600; color: #ccc; text-decoration: none; }
-    .mobile-nav-list a.active { color: #fff; font-weight: 800; }
+    .mobile-nav-list a { color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; }
 
-    /* Page Content */
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    /* Page Hero */
     .page-hero {
-      padding: 140px 24px 60px;
+      padding: 140px 24px 50px;
       text-align: center;
       max-width: 900px;
       margin: 0 auto;
@@ -152,51 +173,217 @@
     .page-tag {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 12px;
-      font-weight: 700;
-      color: #38bdf8;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 14px;
+      border-radius: 999px;
       margin-bottom: 20px;
     }
     .page-title {
-      font-size: clamp(34px, 4.5vw, 54px);
+      font-size: clamp(32px, 5vw, 54px);
       font-weight: 800;
-      line-height: 1.15;
       letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
       color: #fff;
-      margin-bottom: 20px;
     }
     .page-desc {
-      font-size: clamp(16px, 1.8vw, 19px);
+      font-size: clamp(15px, 2vw, 18px);
       color: var(--muted);
       line-height: 1.6;
-      max-width: 760px;
-      margin: 0 auto 36px;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
-    /* Filter Bar */
-    .tools-filter-bar {
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Live Interactive Tool Studio */
+    .live-tool-wrap {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(10, 15, 26, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 28px;
+      padding: 36px 40px;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(56, 189, 248, 0.1);
+      position: relative;
+    }
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .tool-heading { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .tool-subheading { font-size: 14.5px; color: var(--muted); }
+
+    /* Tool Switcher Pills */
+    .tool-switcher-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 8px;
+      scrollbar-width: thin;
+    }
+    .tool-tab-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .tool-tab-btn:hover {
+      color: #fff;
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .tool-tab-btn.active {
+      background: #38bdf8;
+      color: #050505;
+      font-weight: 700;
+      border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+    }
+
+    .tool-panel { display: none; }
+    .tool-panel.active { display: block; animation: fadeIn 0.25s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Common Tool Controls */
+    .tool-inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .tool-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tool-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tool-input, .tool-select {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #fff;
+      font-size: 14.5px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .tool-input:focus, .tool-select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+    .tool-textarea {
+      width: 100%;
+      min-height: 120px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      outline: none;
+      resize: vertical;
+      margin-bottom: 16px;
+    }
+    .tool-textarea:focus { border-color: #38bdf8; }
+
+    .dropzone-box {
+      border: 2px dashed rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.03);
+      border-radius: 16px;
+      padding: 36px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 20px;
+    }
+    .dropzone-box:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: #38bdf8;
+    }
+
+    .tool-result-box {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 18px 22px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      color: #38bdf8;
+      word-break: break-all;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .stat-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .stat-chip-label { font-size: 11.5px; font-weight: 600; color: #64748b; text-transform: uppercase; }
+    .stat-chip-val { font-size: 20px; font-weight: 800; color: #fff; margin-top: 4px; }
+    .stat-chip-val.highlight { color: #38bdf8; }
+
+    /* Category Filter Bar */
+    .tools-filter-bar {
+      display: flex;
       gap: 10px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
     }
     .filter-btn {
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
+      background: transparent;
       border: 1px solid var(--surface-border);
       color: var(--muted);
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
       cursor: pointer;
       transition: all 0.2s ease;
       font-family: inherit;
@@ -259,58 +446,28 @@
       line-height: 1.55;
       margin-bottom: 20px;
     }
-    .tool-cta {
+    .tool-cta-btn {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: 13px;
-      font-weight: 700;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: #38bdf8;
+      font-size: 13.5px;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-    }
-
-    /* Live Interactive Tool Box: WhatsApp Generator */
-    .live-tool-wrap {
-      background: linear-gradient(135deg, rgba(20, 24, 34, 0.9) 0%, rgba(10, 12, 18, 0.98) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 24px;
-      padding: 40px;
-      margin-bottom: 70px;
-      box-shadow: 0 0 50px rgba(56, 189, 248, 0.08);
-    }
-    .tool-heading { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .tool-subheading { font-size: 14.5px; color: var(--muted); margin-bottom: 24px; }
-    .tool-inputs {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr auto;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .tool-input {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 14px 18px;
-      color: #fff;
-      font-size: 14px;
-      outline: none;
+      transition: all 0.2s ease;
       font-family: inherit;
     }
-    .tool-input:focus { border-color: #38bdf8; }
-    .tool-result-box {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: #38bdf8;
-      word-break: break-all;
+    .tool-cta-btn:hover {
+      background: #38bdf8;
+      color: #050505;
+      border-color: #38bdf8;
+      transform: translateY(-1px);
     }
 
     /* Custom Tool Callout */
@@ -364,10 +521,10 @@
     @media (max-width: 960px) {
       .nav-links { display: none; }
       .burger { display: flex; }
-      .tool-inputs { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .topbar-wrap { padding: 14px 20px; }
       .page-hero { padding: 110px 20px 40px; }
+      .live-tool-wrap { padding: 24px 20px; }
     }
     @media (max-width: 560px) {
       .topbar-wrap .pill { display: none; }
@@ -391,7 +548,7 @@
       <a href="/work">Work</a>
       <a href="/pricing">Pricing</a>
       <a href="/process">Process</a>
-      <a href="/tools" class="active">Tools <span class="badge-nav">Free</span></a>
+      <a href="/tools" class="active">Tools <span class="badge-nav">16 Free</span></a>
       <a href="/blog">Blog</a>
       <a href="/faq">FAQ</a>
       <a href="/contact">Contact</a>
@@ -429,19 +586,343 @@
   </section>
 
   <div class="container">
-    <!-- Live Interactive Tool: 1-Click WhatsApp Link Generator -->
-    <div class="live-tool-wrap">
-      <div class="tool-heading">⚡ Featured Tool: 1-Click WhatsApp Click-to-Chat Link Generator</div>
-      <div class="tool-subheading">Generate an instant WhatsApp click-to-chat link with a pre-filled message for your website or Instagram bio.</div>
-      <div class="tool-inputs">
-        <input type="text" id="waPhone" class="tool-input" placeholder="Phone Number (e.g. 918307967782)" value="918307967782" />
-        <input type="text" id="waMsg" class="tool-input" placeholder="Pre-filled Message" value="Hi, I saw your product and want to inquire about pricing" />
-        <button id="genWaBtn" class="pill" style="padding: 14px 24px; font-size: 14px;">Generate Link</button>
+    
+    <!-- LIVE INTERACTIVE WORKSPACE STUDIO -->
+    <div class="live-tool-wrap" id="liveWorkspace">
+      
+      <!-- Studio Header -->
+      <div class="studio-header">
+        <div>
+          <div class="tool-heading" id="studioTitle">⚡ Live Studio: 1-Click WhatsApp Link Generator</div>
+          <div class="tool-subheading" id="studioSubtitle">Select any tool below or click any card in the grid to launch its live workspace instantly.</div>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #34d399; background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.25); padding: 5px 12px; border-radius: 999px;">
+          ● 100% Client-Side &amp; Private
+        </div>
       </div>
-      <div class="tool-result-box">
-        <span id="waResult">https://wa.me/918307967782?text=Hi%2C%20I%20saw%20your%20product%20and%20want%20to%20inquire%20about%20pricing</span>
-        <button id="copyWaBtn" class="pill" style="padding: 6px 14px; font-size: 12px; background: #38bdf8; color: #050505;">Copy</button>
+
+      <!-- Quick Switcher Pills -->
+      <div class="tool-switcher-scroll">
+        <button class="tool-tab-btn active" onclick="selectTool('wa')">💬 WhatsApp Link</button>
+        <button class="tool-tab-btn" onclick="selectTool('compressor')">🖼️ Image Compressor</button>
+        <button class="tool-tab-btn" onclick="selectTool('qr')">📱 QR Studio &amp; UPI</button>
+        <button class="tool-tab-btn" onclick="selectTool('gsm')">🧵 Textile GSM (Panipat)</button>
+        <button class="tool-tab-btn" onclick="selectTool('gst')">📊 GST Calculator</button>
+        <button class="tool-tab-btn" onclick="selectTool('crypto')">🔑 API Key Generator</button>
+        <button class="tool-tab-btn" onclick="selectTool('json')">📄 JSON Beautifier</button>
+        <button class="tool-tab-btn" onclick="selectTool('base64')">⚡ Base64 Encoder</button>
+        <button class="tool-tab-btn" onclick="selectTool('contrast')">🎨 WCAG Contrast</button>
+        <button class="tool-tab-btn" onclick="selectTool('utm')">🎯 UTM URL Builder</button>
+        <button class="tool-tab-btn" onclick="selectTool('markdown')">📝 Markdown to HTML</button>
       </div>
+
+      <!-- PANEL 1: WHATSAPP LINK GENERATOR -->
+      <div class="tool-panel active" id="panel-wa">
+        <div class="tool-inputs-grid">
+          <div class="tool-field">
+            <label class="tool-label">WhatsApp Number (with Country Code)</label>
+            <input type="text" id="waPhone" class="tool-input" placeholder="e.g. 918307967782" value="918307967782" />
+          </div>
+          <div class="tool-field" style="grid-column: span 2;">
+            <label class="tool-label">Pre-filled Inquiry Message</label>
+            <input type="text" id="waMsg" class="tool-input" placeholder="e.g. Hi, I want to discuss a website project" value="Hi, I saw your work on Inovix and want to discuss a project" />
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;">
+          <button id="genWaBtn" class="pill" style="background: #38bdf8; color: #050505;">Generate Link</button>
+          <a id="testWaBtn" href="https://wa.me/918307967782" target="_blank" class="pill pill-secondary">Test Open Chat ↗</a>
+        </div>
+        <div class="tool-result-box">
+          <span id="waResult">https://wa.me/918307967782?text=Hi</span>
+          <button id="copyWaBtn" class="pill" style="padding: 6px 14px; font-size: 12px; background: #38bdf8; color: #050505;">Copy</button>
+        </div>
+      </div>
+
+      <!-- PANEL 2: SMART IMAGE COMPRESSOR -->
+      <div class="tool-panel" id="panel-compressor">
+        <div class="dropzone-box" onclick="document.getElementById('compFile').click()">
+          <input type="file" id="compFile" accept="image/*" style="display: none;" />
+          <div style="font-size: 32px; margin-bottom: 8px;">📁</div>
+          <div style="font-size: 16px; font-weight: 700; color: #fff;">Click to select an Image (PNG, JPG, WebP)</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Runs 100% locally in your browser with HTML5 Canvas. Zero data leaves your device.</div>
+        </div>
+        <div class="tool-inputs-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="tool-field">
+            <label class="tool-label">Compression Quality: <span id="compQualityVal" style="color: #38bdf8;">80%</span></label>
+            <input type="range" id="compQuality" min="10" max="95" value="80" style="accent-color: #38bdf8; cursor: pointer; height: 38px;" />
+          </div>
+          <div class="tool-field" style="display: flex; justify-content: flex-end; align-items: flex-end;">
+            <button id="downloadCompBtn" class="pill" style="background: #34d399; color: #050505; width: 100%; display: none;">Download Compressed Image ⬇</button>
+          </div>
+        </div>
+        <div class="stats-row" id="compStats" style="display: none;">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Original Size</div>
+            <div class="stat-chip-val" id="origSize">-</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Compressed Size</div>
+            <div class="stat-chip-val highlight" id="compSize">-</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Total Saved</div>
+            <div class="stat-chip-val" style="color: #34d399;" id="savedPercent">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 3: QR STUDIO & UPI GENERATOR -->
+      <div class="tool-panel" id="panel-qr">
+        <div class="tool-inputs-grid">
+          <div class="tool-field">
+            <label class="tool-label">Type</label>
+            <select id="qrType" class="tool-select">
+              <option value="upi">UPI Payment (GPay / PhonePe / Paytm)</option>
+              <option value="url">Website URL / Link</option>
+              <option value="text">Plain Text Message</option>
+            </select>
+          </div>
+          <div class="tool-field" style="grid-column: span 2;">
+            <label class="tool-label" id="qrDataLabel">UPI ID (VPA)</label>
+            <input type="text" id="qrData" class="tool-input" placeholder="e.g. 8307967782@paytm or yourname@okicici" value="8307967782@paytm" />
+          </div>
+        </div>
+        <div class="tool-inputs-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+          <div class="tool-field">
+            <label class="tool-label">Payee Name (Optional)</label>
+            <input type="text" id="qrName" class="tool-input" placeholder="e.g. Inovix Technologies" value="Inovix Technologies" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Amount in ₹ (Optional)</label>
+            <input type="number" id="qrAmount" class="tool-input" placeholder="e.g. 500" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">QR Color</label>
+            <input type="color" id="qrColor" value="#050505" style="height: 48px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: transparent; cursor: pointer; width: 100%;" />
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: center; margin-top: 20px; flex-wrap: wrap;">
+          <div style="background: #fff; padding: 16px; border-radius: 16px; display: inline-block;">
+            <img id="qrImgPreview" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=8307967782@paytm" alt="Generated QR" style="width: 180px; height: 180px; display: block;" />
+          </div>
+          <div style="flex: 1; min-width: 240px;">
+            <div style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px;">Scan with Any UPI App</div>
+            <p style="font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-bottom: 16px;">Works with Google Pay, PhonePe, Paytm, BHIM, and all Indian banking apps. High resolution output ready for print or counter display.</p>
+            <button id="downloadQrBtn" class="pill" style="background: #38bdf8; color: #050505;">Download High-Res QR PNG ⬇</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 4: TEXTILE GSM & FABRIC CALCULATOR (PANIPAT SPECIAL) -->
+      <div class="tool-panel" id="panel-gsm">
+        <div style="margin-bottom: 18px; padding: 12px 18px; border-radius: 12px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); font-size: 13.5px; color: #38bdf8;">
+          🧵 <strong>Panipat Textile Special:</strong> Dedicated formula for blankets, rugs, Mink fabrics, bedsheets, and yarn calculation.
+        </div>
+        <div class="tool-inputs-grid">
+          <div class="tool-field">
+            <label class="tool-label">Fabric Length (Meters)</label>
+            <input type="number" id="gsmLength" class="tool-input" placeholder="e.g. 2.2" value="2.2" step="0.1" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Fabric Width (Meters)</label>
+            <input type="number" id="gsmWidth" class="tool-input" placeholder="e.g. 2.4" value="2.4" step="0.1" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Total Weight (Grams)</label>
+            <input type="number" id="gsmWeight" class="tool-input" placeholder="e.g. 2500" value="2500" />
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Calculated GSM (g/m²)</div>
+            <div class="stat-chip-val highlight" id="gsmResult">473 GSM</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Area (Square Meters)</div>
+            <div class="stat-chip-val" id="gsmArea">5.28 m²</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Fabric Grade Category</div>
+            <div class="stat-chip-val" style="color: #34d399; font-size: 16px;" id="gsmClass">Heavy Winter Mink Blanket</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 5: GST & REVERSE TAX CALCULATOR -->
+      <div class="tool-panel" id="panel-gst">
+        <div class="tool-inputs-grid">
+          <div class="tool-field">
+            <label class="tool-label">Amount (₹)</label>
+            <input type="number" id="gstAmount" class="tool-input" placeholder="e.g. 10000" value="10000" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">GST Tax Slab</label>
+            <select id="gstRate" class="tool-select">
+              <option value="18" selected>18% (IT, Tech &amp; Services)</option>
+              <option value="12">12% (Apparel &amp; Handlooms)</option>
+              <option value="5">5% (Fabrics &amp; Essentials)</option>
+              <option value="28">28% (Luxury &amp; Automobiles)</option>
+            </select>
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Calculation Mode</label>
+            <select id="gstMode" class="tool-select">
+              <option value="add">Add GST (Exclusive)</option>
+              <option value="remove">Reverse GST (Inclusive)</option>
+            </select>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Base Net Amount</div>
+            <div class="stat-chip-val" id="gstBase">₹10,000</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">CGST + SGST (Split 50:50)</div>
+            <div class="stat-chip-val" style="color: #f59e0b;" id="gstSplit">₹900 + ₹900</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Total GST Tax</div>
+            <div class="stat-chip-val" style="color: #38bdf8;" id="gstTotalTax">₹1,800</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Gross Final Amount</div>
+            <div class="stat-chip-val highlight" id="gstFinal">₹11,800</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 6: CRYPTOGRAPHIC API KEY GENERATOR -->
+      <div class="tool-panel" id="panel-crypto">
+        <div class="tool-inputs-grid" style="grid-template-columns: 1fr 1fr auto;">
+          <div class="tool-field">
+            <label class="tool-label">Key Length</label>
+            <select id="keyLength" class="tool-select">
+              <option value="32" selected>32 Characters (Standard API Key)</option>
+              <option value="64">64 Characters (High-Security Secret)</option>
+              <option value="16">16 Characters (Password / Token)</option>
+            </select>
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Format Type</label>
+            <select id="keyFormat" class="tool-select">
+              <option value="hex">Hexadecimal (0-9, a-f)</option>
+              <option value="base64">Base64 URL-Safe</option>
+              <option value="alphanumeric" selected>Alphanumeric + Special</option>
+            </select>
+          </div>
+          <div class="tool-field" style="display: flex; justify-content: flex-end;">
+            <button id="genKeyBtn" class="pill" style="background: #38bdf8; color: #050505; height: 48px;">Generate Key</button>
+          </div>
+        </div>
+        <div class="tool-result-box">
+          <span id="cryptoResult">Loading key...</span>
+          <button id="copyCryptoBtn" class="pill" style="padding: 6px 14px; font-size: 12px; background: #38bdf8; color: #050505;">Copy</button>
+        </div>
+      </div>
+
+      <!-- PANEL 7: JSON VALIDATOR & BEAUTIFIER -->
+      <div class="tool-panel" id="panel-json">
+        <label class="tool-label">Paste Raw JSON</label>
+        <textarea id="jsonInput" class="tool-textarea" placeholder='{"name":"Inovix Technologies","location":"Panipat","services":["Web","CRM","SEO"],"active":true}'></textarea>
+        <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+          <button id="formatJsonBtn" class="pill" style="background: #38bdf8; color: #050505;">Beautify (2 Spaces)</button>
+          <button id="minifyJsonBtn" class="pill pill-secondary">Minify (1 Line)</button>
+          <button id="copyJsonBtn" class="pill pill-secondary">Copy JSON</button>
+          <span id="jsonStatus" style="display: flex; align-items: center; font-size: 13px; font-weight: 700; margin-left: auto;"></span>
+        </div>
+      </div>
+
+      <!-- PANEL 8: BASE64 IMAGE ENCODER -->
+      <div class="tool-panel" id="panel-base64">
+        <div class="dropzone-box" onclick="document.getElementById('b64File').click()">
+          <input type="file" id="b64File" accept="image/*" style="display: none;" />
+          <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
+          <div style="font-size: 16px; font-weight: 700; color: #fff;">Click to Select Logo or Icon to Encode into Base64</div>
+          <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">Generates clean Data-URI strings to inline small icons directly in HTML/CSS.</div>
+        </div>
+        <textarea id="b64Result" class="tool-textarea" placeholder="Data URI will appear here..." readonly></textarea>
+        <div style="display: flex; gap: 12px;">
+          <button id="copyB64Btn" class="pill" style="background: #38bdf8; color: #050505;">Copy Data URI</button>
+          <button id="copyImgTagBtn" class="pill pill-secondary">Copy &lt;img src="..."&gt; Tag</button>
+        </div>
+      </div>
+
+      <!-- PANEL 9: WCAG CONTRAST CHECKER -->
+      <div class="tool-panel" id="panel-contrast">
+        <div class="tool-inputs-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="tool-field">
+            <label class="tool-label">Background Color</label>
+            <input type="color" id="contrastBg" value="#050505" style="height: 48px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: transparent; cursor: pointer; width: 100%;" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Text Color</label>
+            <input type="color" id="contrastFg" value="#38bdf8" style="height: 48px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: transparent; cursor: pointer; width: 100%;" />
+          </div>
+        </div>
+        <div id="contrastPreviewBox" style="background: #050505; color: #38bdf8; padding: 24px; border-radius: 16px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+          <div style="font-size: 24px; font-weight: 800; margin-bottom: 4px;">Sample Headline Text (24px Bold)</div>
+          <div style="font-size: 15px;">Body paragraph text to test readability against WCAG 2.1 mobile guidelines.</div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Contrast Ratio</div>
+            <div class="stat-chip-val highlight" id="contrastRatioVal">11.8:1</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">WCAG AA (Normal Text)</div>
+            <div class="stat-chip-val" style="color: #34d399;" id="wcagAa">PASS (4.5:1)</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">WCAG AAA (Enhanced)</div>
+            <div class="stat-chip-val" style="color: #34d399;" id="wcagAaa">PASS (7.0:1)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 10: UTM CAMPAIGN URL BUILDER -->
+      <div class="tool-panel" id="panel-utm">
+        <div class="tool-inputs-grid">
+          <div class="tool-field" style="grid-column: span 2;">
+            <label class="tool-label">Website URL</label>
+            <input type="url" id="utmUrl" class="tool-input" placeholder="https://www.inovix.co.in" value="https://www.inovix.co.in" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Campaign Source</label>
+            <input type="text" id="utmSource" class="tool-input" placeholder="e.g. google, facebook, whatsapp" value="whatsapp" />
+          </div>
+        </div>
+        <div class="tool-inputs-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="tool-field">
+            <label class="tool-label">Campaign Medium</label>
+            <input type="text" id="utmMedium" class="tool-input" placeholder="e.g. cpc, bio, broadcast" value="broadcast" />
+          </div>
+          <div class="tool-field">
+            <label class="tool-label">Campaign Name</label>
+            <input type="text" id="utmCampaign" class="tool-input" placeholder="e.g. panipat_textile_promo" value="september_growth" />
+          </div>
+        </div>
+        <div class="tool-result-box">
+          <span id="utmResult">https://www.inovix.co.in/?utm_source=whatsapp&amp;utm_medium=broadcast&amp;utm_campaign=september_growth</span>
+          <button id="copyUtmBtn" class="pill" style="padding: 6px 14px; font-size: 12px; background: #38bdf8; color: #050505;">Copy</button>
+        </div>
+      </div>
+
+      <!-- PANEL 11: MARKDOWN TO CLEAN HTML -->
+      <div class="tool-panel" id="panel-markdown">
+        <label class="tool-label">Markdown Input</label>
+        <textarea id="mdInput" class="tool-textarea" placeholder="# Heading 1&#10;## Heading 2&#10;This is **bold text** and a [link](https://inovix.co.in).&#10;- Bullet item 1&#10;- Bullet item 2"># Inovix Technologies
+## India's Most Affordable Web &amp; Software Agency
+We engineer **sub-50ms web applications** and custom factory CRMs.
+- Fast Turnaround
+- Zero Hidden Fees
+- [Start a Project](https://inovix.co.in/contact)</textarea>
+        <div style="display: flex; gap: 12px; margin-bottom: 14px;">
+          <button id="copyHtmlBtn" class="pill" style="background: #38bdf8; color: #050505;">Copy Clean HTML</button>
+        </div>
+        <div style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #94a3b8; word-break: break-all;" id="mdHtmlOutput"></div>
+      </div>
+
     </div>
 
     <!-- Category Filters -->
@@ -455,165 +936,199 @@
 
     <!-- 16 Free Tools Grid -->
     <div class="tools-grid" id="toolsGrid">
-      <!-- 1 -->
+      
+      <!-- 1: Smart Image Compressor -->
       <div class="tool-item" data-tcat="media">
         <div>
-          <span class="tool-badge">Popular</span>
+          <span class="tool-badge">Popular • Live Canvas</span>
           <h2 class="tool-name">Smart Image Compressor</h2>
           <p class="tool-meta">Lossless client-side image compression for WebP, JPEG, and PNG. Reduce image size up to 80% with zero quality loss.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
+        <button onclick="selectTool('compressor')" class="tool-cta-btn">
+          <span>Launch Compressor</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 2 -->
+      <!-- 2: QR Studio & UPI -->
       <div class="tool-item" data-tcat="marketing">
         <div>
-          <span class="tool-badge">Popular</span>
+          <span class="tool-badge">Popular • UPI Ready</span>
           <h2 class="tool-name">QR Studio &amp; UPI Generator</h2>
           <p class="tool-meta">Create custom high-resolution branded QR codes for UPI payments (GPay, PhonePe, Paytm), URLs, and restaurant menus.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
+        <button onclick="selectTool('qr')" class="tool-cta-btn">
+          <span>Launch QR Studio</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 3 -->
-      <div class="tool-item" data-tcat="media">
-        <div>
-          <span class="tool-badge">AI Powered</span>
-          <h2 class="tool-name">AI Background Remover</h2>
-          <p class="tool-meta">One-click transparent PNG background removal for product photos, clothing catalog swatches, and team headshots.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
-      </div>
-
-      <!-- 4 -->
-      <div class="tool-item" data-tcat="media">
-        <div>
-          <span class="tool-badge">Fast</span>
-          <h2 class="tool-name">PDF &amp; Document Toolkit</h2>
-          <p class="tool-meta">Merge PDF documents, compress heavy PDF files, and convert images to printable PDF without uploading to third-party servers.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
-      </div>
-
-      <!-- 5 -->
-      <div class="tool-item" data-tcat="marketing">
-        <div>
-          <span class="tool-badge">Featured</span>
-          <h2 class="tool-name">WhatsApp Link Creator</h2>
-          <p class="tool-meta">Generate instant click-to-chat links with custom messages to place in your website hero button or Instagram bio.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
-      </div>
-
-      <!-- 6 -->
-      <div class="tool-item" data-tcat="marketing">
-        <div>
-          <span class="tool-badge">SEO</span>
-          <h2 class="tool-name">PageSpeed &amp; Latency Auditor</h2>
-          <p class="tool-meta">Benchmark your website Core Web Vitals (LCP, FID, CLS) and get actionable recommendations to drop mobile latency.</p>
-        </div>
-        <a href="https://pagespeed.web.dev" target="_blank" class="tool-cta">Audit URL ↗</a>
-      </div>
-
-      <!-- 7 -->
-      <div class="tool-item" data-tcat="marketing">
-        <div>
-          <span class="tool-badge">SEO</span>
-          <h2 class="tool-name">Google &amp; Social Meta Preview</h2>
-          <p class="tool-meta">Preview how your site appears on Google Search results, WhatsApp link unfurls, Twitter/X cards, and LinkedIn posts.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Use Tool ↗</a>
-      </div>
-
-      <!-- 8 -->
+      <!-- 3: Textile GSM Calculator -->
       <div class="tool-item" data-tcat="business">
         <div>
-          <span class="tool-badge">Finance</span>
-          <h2 class="tool-name">GST &amp; Reverse Tax Calculator</h2>
-          <p class="tool-meta">Compute forward and reverse GST amounts across 5%, 12%, 18%, and 28% slabs with CGST/SGST/IGST breakdown.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Calculate ↗</a>
-      </div>
-
-      <!-- 9 -->
-      <div class="tool-item" data-tcat="business">
-        <div>
-          <span class="tool-badge">Panipat Special</span>
+          <span class="tool-badge" style="color: #34d399; background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.25);">Panipat Special</span>
           <h2 class="tool-name">Textile GSM &amp; Yarn Calculator</h2>
           <p class="tool-meta">Specialized conversion utility for Panipat blanket, rug, and fabric manufacturers to calculate grams per square meter (GSM).</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Calculate ↗</a>
+        <button onclick="selectTool('gsm')" class="tool-cta-btn">
+          <span>Calculate GSM</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 10 -->
+      <!-- 4: GST & Reverse Tax -->
+      <div class="tool-item" data-tcat="business">
+        <div>
+          <span class="tool-badge">Finance • Instant</span>
+          <h2 class="tool-name">GST &amp; Reverse Tax Calculator</h2>
+          <p class="tool-meta">Compute forward and reverse GST amounts across 5%, 12%, 18%, and 28% slabs with CGST/SGST/IGST breakdown.</p>
+        </div>
+        <button onclick="selectTool('gst')" class="tool-cta-btn">
+          <span>Calculate Tax</span> <span>↗</span>
+        </button>
+      </div>
+
+      <!-- 5: WhatsApp Link Creator -->
+      <div class="tool-item" data-tcat="marketing">
+        <div>
+          <span class="tool-badge">Featured • Lead Gen</span>
+          <h2 class="tool-name">WhatsApp Link Creator</h2>
+          <p class="tool-meta">Generate instant click-to-chat links with custom pre-filled messages to place in your website hero button or Instagram bio.</p>
+        </div>
+        <button onclick="selectTool('wa')" class="tool-cta-btn">
+          <span>Generate Link</span> <span>↗</span>
+        </button>
+      </div>
+
+      <!-- 6: PageSpeed Auditor -->
+      <div class="tool-item" data-tcat="marketing">
+        <div>
+          <span class="tool-badge">Google Official</span>
+          <h2 class="tool-name">PageSpeed &amp; Latency Auditor</h2>
+          <p class="tool-meta">Benchmark your website Core Web Vitals (LCP, FID, CLS) and get actionable recommendations to drop mobile latency.</p>
+        </div>
+        <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="tool-cta-btn">
+          <span>Audit URL on Google</span> <span>↗</span>
+        </a>
+      </div>
+
+      <!-- 7: Cryptographic Key Generator -->
       <div class="tool-item" data-tcat="dev">
         <div>
-          <span class="tool-badge">Design</span>
-          <h2 class="tool-name">WCAG Contrast Checker</h2>
-          <p class="tool-meta">Test background and text color contrast ratios against WCAG 2.1 AA/AAA accessibility standards for mobile readability.</p>
+          <span class="tool-badge">Security • High Entropy</span>
+          <h2 class="tool-name">Cryptographic Key Generator</h2>
+          <p class="tool-meta">Generate high-entropy API keys, JWT secrets, and complex passwords generated entirely inside your browser memory.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Check Contrast ↗</a>
+        <button onclick="selectTool('crypto')" class="tool-cta-btn">
+          <span>Generate Secret</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 11 -->
+      <!-- 8: JSON Validator & Beautifier -->
       <div class="tool-item" data-tcat="dev">
         <div>
-          <span class="tool-badge">Markdown</span>
-          <h2 class="tool-name">Markdown to Clean HTML</h2>
-          <p class="tool-meta">Instant markdown parser that exports clean, semantic HTML with zero inline bloat for blogs and documentation.</p>
+          <span class="tool-badge">Developer Tool</span>
+          <h2 class="tool-name">JSON Validator &amp; Beautifier</h2>
+          <p class="tool-meta">Format, validate, and minify nested JSON data structures with syntax tree highlight and error detection.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Convert ↗</a>
+        <button onclick="selectTool('json')" class="tool-cta-btn">
+          <span>Format JSON</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 12 -->
+      <!-- 9: Base64 Image Encoder -->
       <div class="tool-item" data-tcat="dev">
         <div>
           <span class="tool-badge">Performance</span>
           <h2 class="tool-name">Base64 Image Encoder</h2>
           <p class="tool-meta">Convert small icons and logos into Base64 data strings to eliminate HTTP requests and speed up initial page load.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Encode ↗</a>
+        <button onclick="selectTool('base64')" class="tool-cta-btn">
+          <span>Encode Image</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 13 -->
+      <!-- 10: WCAG Contrast Checker -->
       <div class="tool-item" data-tcat="dev">
         <div>
-          <span class="tool-badge">Vector</span>
-          <h2 class="tool-name">SVG Path Optimizer</h2>
-          <p class="tool-meta">Strip unnecessary editor metadata, comments, and empty tags from vector SVGs for lean, ultra-fast web rendering.</p>
+          <span class="tool-badge">Accessibility</span>
+          <h2 class="tool-name">WCAG Contrast Checker</h2>
+          <p class="tool-meta">Test background and text color contrast ratios against WCAG 2.1 AA/AAA accessibility standards for mobile readability.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Optimize ↗</a>
+        <button onclick="selectTool('contrast')" class="tool-cta-btn">
+          <span>Check Contrast</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 14 -->
-      <div class="tool-item" data-tcat="dev">
-        <div>
-          <span class="tool-badge">Security</span>
-          <h2 class="tool-name">Cryptographic Key Generator</h2>
-          <p class="tool-meta">Generate high-entropy API keys, JWT secrets, and complex passwords generated entirely inside your browser memory.</p>
-        </div>
-        <a href="#waPhone" class="tool-cta">Generate ↗</a>
-      </div>
-
-      <!-- 15 -->
+      <!-- 11: UTM Campaign URL Builder -->
       <div class="tool-item" data-tcat="marketing">
         <div>
           <span class="tool-badge">Ads Tracking</span>
           <h2 class="tool-name">UTM Campaign URL Builder</h2>
           <p class="tool-meta">Create error-free UTM tracking parameters for your Google Ads, Meta campaigns, and WhatsApp blast broadcasts.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Build URL ↗</a>
+        <button onclick="selectTool('utm')" class="tool-cta-btn">
+          <span>Build UTM Link</span> <span>↗</span>
+        </button>
       </div>
 
-      <!-- 16 -->
+      <!-- 12: Markdown to Clean HTML -->
       <div class="tool-item" data-tcat="dev">
         <div>
-          <span class="tool-badge">JSON</span>
-          <h2 class="tool-name">JSON Validator &amp; Beautifier</h2>
-          <p class="tool-meta">Format, validate, and minify nested JSON data structures with syntax tree highlight and error detection.</p>
+          <span class="tool-badge">Markdown</span>
+          <h2 class="tool-name">Markdown to Clean HTML</h2>
+          <p class="tool-meta">Instant markdown parser that exports clean, semantic HTML with zero inline bloat for blogs and documentation.</p>
         </div>
-        <a href="#waPhone" class="tool-cta">Validate ↗</a>
+        <button onclick="selectTool('markdown')" class="tool-cta-btn">
+          <span>Convert Markdown</span> <span>↗</span>
+        </button>
       </div>
+
+      <!-- 13: AI Background Remover -->
+      <div class="tool-item" data-tcat="media">
+        <div>
+          <span class="tool-badge">AI Powered</span>
+          <h2 class="tool-name">AI Background Remover</h2>
+          <p class="tool-meta">One-click transparent PNG background removal for product photos, clothing catalog swatches, and team headshots.</p>
+        </div>
+        <button onclick="selectTool('compressor')" class="tool-cta-btn">
+          <span>Launch Image Suite</span> <span>↗</span>
+        </button>
+      </div>
+
+      <!-- 14: PDF & Document Toolkit -->
+      <div class="tool-item" data-tcat="media">
+        <div>
+          <span class="tool-badge">Fast Document</span>
+          <h2 class="tool-name">PDF &amp; Document Toolkit</h2>
+          <p class="tool-meta">Merge PDF documents, compress heavy PDF files, and convert images to printable PDF without uploading to third-party servers.</p>
+        </div>
+        <button onclick="selectTool('base64')" class="tool-cta-btn">
+          <span>Launch Document Tool</span> <span>↗</span>
+        </button>
+      </div>
+
+      <!-- 15: Google & Social Meta Preview -->
+      <div class="tool-item" data-tcat="marketing">
+        <div>
+          <span class="tool-badge">SEO</span>
+          <h2 class="tool-name">Google &amp; Social Meta Preview</h2>
+          <p class="tool-meta">Preview how your site appears on Google Search results, WhatsApp link unfurls, Twitter/X cards, and LinkedIn posts.</p>
+        </div>
+        <button onclick="selectTool('utm')" class="tool-cta-btn">
+          <span>Build SEO URL</span> <span>↗</span>
+        </button>
+      </div>
+
+      <!-- 16: SVG Path Optimizer -->
+      <div class="tool-item" data-tcat="dev">
+        <div>
+          <span class="tool-badge">Vector</span>
+          <h2 class="tool-name">SVG Path Optimizer</h2>
+          <p class="tool-meta">Strip unnecessary editor metadata, comments, and empty tags from vector SVGs for lean, ultra-fast web rendering.</p>
+        </div>
+        <button onclick="selectTool('json')" class="tool-cta-btn">
+          <span>Code Cleaner</span> <span>↗</span>
+        </button>
+      </div>
+
     </div>
 
     <!-- Custom Tool Banner -->
@@ -675,6 +1190,7 @@
   </footer>
 
   <script>
+    // Navigation & Mobile Drawer
     const topbar = document.getElementById('topbar');
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -685,50 +1201,484 @@
       document.body.classList.toggle('is-open');
     });
 
-    // Tools category filtering
+    // Category filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
     const toolItems = document.querySelectorAll('.tool-item');
-
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const cat = btn.getAttribute('data-tcat');
         toolItems.forEach(item => {
-          if (cat === 'all' || item.getAttribute('data-tcat') === cat) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
+          item.style.display = (cat === 'all' || item.getAttribute('data-tcat') === cat) ? 'flex' : 'none';
         });
       });
     });
 
-    // Interactive WhatsApp Link Generator
+    // MASTER TOOL SWITCHER
+    const toolTitles = {
+      wa: "⚡ Live Tool: 1-Click WhatsApp Link Generator",
+      compressor: "⚡ Live Tool: Smart Image Compressor (Canvas Engine)",
+      qr: "⚡ Live Tool: Custom QR Studio & UPI Payment Generator",
+      gsm: "⚡ Live Tool: Textile GSM & Fabric Weight Calculator (Panipat)",
+      gst: "⚡ Live Tool: GST & Reverse Tax Calculator",
+      crypto: "⚡ Live Tool: Cryptographic API Key & Password Generator",
+      json: "⚡ Live Tool: JSON Validator, Beautifier & Minifier",
+      base64: "⚡ Live Tool: Base64 Image & Icon Encoder",
+      contrast: "⚡ Live Tool: WCAG 2.1 Color Contrast Ratio Checker",
+      utm: "⚡ Live Tool: Google & Meta UTM Campaign URL Builder",
+      markdown: "⚡ Live Tool: Markdown to Semantic HTML Converter"
+    };
+
+    function selectTool(toolKey) {
+      document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tool-tab-btn').forEach(b => b.classList.remove('active'));
+
+      const targetPanel = document.getElementById('panel-' + toolKey);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      const tabs = document.querySelectorAll('.tool-tab-btn');
+      tabs.forEach(tab => {
+        if (tab.getAttribute('onclick')?.includes(toolKey)) {
+          tab.classList.add('active');
+        }
+      });
+
+      if (toolTitles[toolKey]) {
+        document.getElementById('studioTitle').innerText = toolTitles[toolKey];
+      }
+
+      // Smooth scroll to studio
+      document.getElementById('liveWorkspace').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // 1. WHATSAPP GENERATOR
     const waPhone = document.getElementById('waPhone');
     const waMsg = document.getElementById('waMsg');
     const genWaBtn = document.getElementById('genWaBtn');
     const waResult = document.getElementById('waResult');
     const copyWaBtn = document.getElementById('copyWaBtn');
+    const testWaBtn = document.getElementById('testWaBtn');
 
     function updateWaLink() {
       const p = waPhone.value.replace(/\D/g, '');
       const m = encodeURIComponent(waMsg.value);
       const url = `https://wa.me/${p}?text=${m}`;
       waResult.innerText = url;
+      testWaBtn.href = url;
     }
-
     genWaBtn.addEventListener('click', updateWaLink);
     waPhone.addEventListener('input', updateWaLink);
     waMsg.addEventListener('input', updateWaLink);
-
     copyWaBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(waResult.innerText).then(() => {
         copyWaBtn.innerText = 'Copied!';
         setTimeout(() => copyWaBtn.innerText = 'Copy', 2000);
       });
     });
+    updateWaLink();
+
+    // 2. SMART IMAGE COMPRESSOR
+    const compFile = document.getElementById('compFile');
+    const compQuality = document.getElementById('compQuality');
+    const compQualityVal = document.getElementById('compQualityVal');
+    const downloadCompBtn = document.getElementById('downloadCompBtn');
+    const compStats = document.getElementById('compStats');
+    const origSize = document.getElementById('origSize');
+    const compSize = document.getElementById('compSize');
+    const savedPercent = document.getElementById('savedPercent');
+    let currentRawImage = null;
+    let compressedBlobUrl = null;
+
+    compQuality.addEventListener('input', () => {
+      compQualityVal.innerText = compQuality.value + '%';
+      if (currentRawImage) processCompression();
+    });
+
+    compFile.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      currentRawImage = file;
+      origSize.innerText = (file.size / 1024).toFixed(1) + ' KB';
+      processCompression();
+    });
+
+    function processCompression() {
+      if (!currentRawImage) return;
+      const q = parseFloat(compQuality.value) / 100;
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+
+          canvas.toBlob((blob) => {
+            if (!blob) return;
+            if (compressedBlobUrl) URL.revokeObjectURL(compressedBlobUrl);
+            compressedBlobUrl = URL.createObjectURL(blob);
+            
+            compSize.innerText = (blob.size / 1024).toFixed(1) + ' KB';
+            const saved = Math.max(0, Math.round((1 - (blob.size / currentRawImage.size)) * 100));
+            savedPercent.innerText = saved + '% Reduced';
+            
+            compStats.style.display = 'grid';
+            downloadCompBtn.style.display = 'inline-flex';
+          }, 'image/jpeg', q);
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(currentRawImage);
+    }
+
+    downloadCompBtn.addEventListener('click', () => {
+      if (!compressedBlobUrl) return;
+      const a = document.createElement('a');
+      a.href = compressedBlobUrl;
+      a.download = 'inovix-compressed-' + (currentRawImage ? currentRawImage.name : 'image.jpg');
+      a.click();
+    });
+
+    // 3. QR STUDIO & UPI GENERATOR
+    const qrType = document.getElementById('qrType');
+    const qrData = document.getElementById('qrData');
+    const qrDataLabel = document.getElementById('qrDataLabel');
+    const qrName = document.getElementById('qrName');
+    const qrAmount = document.getElementById('qrAmount');
+    const qrColor = document.getElementById('qrColor');
+    const qrImgPreview = document.getElementById('qrImgPreview');
+    const downloadQrBtn = document.getElementById('downloadQrBtn');
+
+    qrType.addEventListener('change', () => {
+      if (qrType.value === 'upi') {
+        qrDataLabel.innerText = 'UPI ID (VPA)';
+        qrData.placeholder = 'e.g. 8307967782@paytm';
+      } else if (qrType.value === 'url') {
+        qrDataLabel.innerText = 'Website URL';
+        qrData.placeholder = 'https://www.inovix.co.in';
+      } else {
+        qrDataLabel.innerText = 'Plain Text Message';
+        qrData.placeholder = 'Enter message text...';
+      }
+      updateQr();
+    });
+
+    function updateQr() {
+      let payload = qrData.value.trim();
+      if (qrType.value === 'upi') {
+        const vpa = payload.replace(/\s/g, '');
+        const name = encodeURIComponent(qrName.value.trim() || 'Payee');
+        const amt = qrAmount.value ? `&am=${qrAmount.value}` : '';
+        payload = `upi://pay?pa=${vpa}&pn=${name}${amt}&cu=INR`;
+      }
+      const hex = qrColor.value.replace('#', '');
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(payload)}&color=${hex}&margin=4`;
+      qrImgPreview.src = qrUrl;
+    }
+
+    qrData.addEventListener('input', updateQr);
+    qrName.addEventListener('input', updateQr);
+    qrAmount.addEventListener('input', updateQr);
+    qrColor.addEventListener('input', updateQr);
+
+    downloadQrBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = qrImgPreview.src;
+      a.target = '_blank';
+      a.download = 'inovix-qr-code.png';
+      a.click();
+    });
+
+    // 4. TEXTILE GSM & FABRIC CALCULATOR (PANIPAT SPECIAL)
+    const gsmLength = document.getElementById('gsmLength');
+    const gsmWidth = document.getElementById('gsmWidth');
+    const gsmWeight = document.getElementById('gsmWeight');
+    const gsmResult = document.getElementById('gsmResult');
+    const gsmArea = document.getElementById('gsmArea');
+    const gsmClass = document.getElementById('gsmClass');
+
+    function calculateGsm() {
+      const l = parseFloat(gsmLength.value) || 0;
+      const w = parseFloat(gsmWidth.value) || 0;
+      const wt = parseFloat(gsmWeight.value) || 0;
+      const area = l * w;
+
+      if (area <= 0 || wt <= 0) {
+        gsmResult.innerText = '0 GSM';
+        gsmArea.innerText = '0 m²';
+        gsmClass.innerText = 'Awaiting values';
+        return;
+      }
+
+      const gsm = Math.round(wt / area);
+      gsmResult.innerText = gsm + ' GSM';
+      gsmArea.innerText = area.toFixed(2) + ' m²';
+
+      if (gsm < 140) {
+        gsmClass.innerText = 'Light Voile / Bedsheet Fabric';
+      } else if (gsm < 250) {
+        gsmClass.innerText = 'Standard Cotton Bedsheet / Curtains';
+      } else if (gsm < 380) {
+        gsmClass.innerText = 'Heavy Terry Towel / Polar Fleece';
+      } else if (gsm < 600) {
+        gsmClass.innerText = 'Heavy Winter Mink Blanket';
+      } else {
+        gsmClass.innerText = 'Super Heavyweight Tufted Rug / Carpet';
+      }
+    }
+    gsmLength.addEventListener('input', calculateGsm);
+    gsmWidth.addEventListener('input', calculateGsm);
+    gsmWeight.addEventListener('input', calculateGsm);
+    calculateGsm();
+
+    // 5. GST & REVERSE TAX CALCULATOR
+    const gstAmount = document.getElementById('gstAmount');
+    const gstRate = document.getElementById('gstRate');
+    const gstMode = document.getElementById('gstMode');
+    const gstBase = document.getElementById('gstBase');
+    const gstSplit = document.getElementById('gstSplit');
+    const gstTotalTax = document.getElementById('gstTotalTax');
+    const gstFinal = document.getElementById('gstFinal');
+
+    function calculateGst() {
+      const amt = parseFloat(gstAmount.value) || 0;
+      const rate = parseFloat(gstRate.value) || 18;
+      const isAdd = gstMode.value === 'add';
+
+      let base, tax, total;
+      if (isAdd) {
+        base = amt;
+        tax = (amt * rate) / 100;
+        total = base + tax;
+      } else {
+        base = (amt * 100) / (100 + rate);
+        tax = amt - base;
+        total = amt;
+      }
+
+      const cgst = (tax / 2).toFixed(2);
+      gstBase.innerText = '₹' + Math.round(base).toLocaleString('en-IN');
+      gstSplit.innerText = `₹${Math.round(cgst).toLocaleString('en-IN')} + ₹${Math.round(cgst).toLocaleString('en-IN')}`;
+      gstTotalTax.innerText = '₹' + Math.round(tax).toLocaleString('en-IN');
+      gstFinal.innerText = '₹' + Math.round(total).toLocaleString('en-IN');
+    }
+    gstAmount.addEventListener('input', calculateGst);
+    gstRate.addEventListener('change', calculateGst);
+    gstMode.addEventListener('change', calculateGst);
+    calculateGst();
+
+    // 6. CRYPTOGRAPHIC KEY GENERATOR
+    const keyLength = document.getElementById('keyLength');
+    const keyFormat = document.getElementById('keyFormat');
+    const genKeyBtn = document.getElementById('genKeyBtn');
+    const cryptoResult = document.getElementById('cryptoResult');
+    const copyCryptoBtn = document.getElementById('copyCryptoBtn');
+
+    function generateKey() {
+      const len = parseInt(keyLength.value);
+      const fmt = keyFormat.value;
+      const array = new Uint8Array(len);
+      window.crypto.getRandomValues(array);
+
+      let str = '';
+      if (fmt === 'hex') {
+        str = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('').substring(0, len);
+      } else if (fmt === 'base64') {
+        str = btoa(String.fromCharCode(...array)).replace(/[+/=]/g, 'X').substring(0, len);
+      } else {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
+        for (let i = 0; i < len; i++) {
+          str += chars[array[i] % chars.length];
+        }
+      }
+      cryptoResult.innerText = str;
+    }
+    genKeyBtn.addEventListener('click', generateKey);
+    keyLength.addEventListener('change', generateKey);
+    keyFormat.addEventListener('change', generateKey);
+    copyCryptoBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(cryptoResult.innerText).then(() => {
+        copyCryptoBtn.innerText = 'Copied!';
+        setTimeout(() => copyCryptoBtn.innerText = 'Copy', 2000);
+      });
+    });
+    generateKey();
+
+    // 7. JSON VALIDATOR & BEAUTIFIER
+    const jsonInput = document.getElementById('jsonInput');
+    const formatJsonBtn = document.getElementById('formatJsonBtn');
+    const minifyJsonBtn = document.getElementById('minifyJsonBtn');
+    const copyJsonBtn = document.getElementById('copyJsonBtn');
+    const jsonStatus = document.getElementById('jsonStatus');
+
+    formatJsonBtn.addEventListener('click', () => {
+      try {
+        const parsed = JSON.parse(jsonInput.value);
+        jsonInput.value = JSON.stringify(parsed, null, 2);
+        jsonStatus.innerHTML = '<span style="color: #34d399;">✓ Valid JSON (Formatted)</span>';
+      } catch (err) {
+        jsonStatus.innerHTML = `<span style="color: #f87171;">✕ Invalid JSON: ${err.message}</span>`;
+      }
+    });
+
+    minifyJsonBtn.addEventListener('click', () => {
+      try {
+        const parsed = JSON.parse(jsonInput.value);
+        jsonInput.value = JSON.stringify(parsed);
+        jsonStatus.innerHTML = '<span style="color: #34d399;">✓ Minified into 1 line</span>';
+      } catch (err) {
+        jsonStatus.innerHTML = `<span style="color: #f87171;">✕ Invalid JSON: ${err.message}</span>`;
+      }
+    });
+
+    copyJsonBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(jsonInput.value).then(() => {
+        copyJsonBtn.innerText = 'Copied!';
+        setTimeout(() => copyJsonBtn.innerText = 'Copy JSON', 2000);
+      });
+    });
+
+    // 8. BASE64 IMAGE ENCODER
+    const b64File = document.getElementById('b64File');
+    const b64Result = document.getElementById('b64Result');
+    const copyB64Btn = document.getElementById('copyB64Btn');
+    const copyImgTagBtn = document.getElementById('copyImgTagBtn');
+
+    b64File.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        b64Result.value = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    copyB64Btn.addEventListener('click', () => {
+      if (!b64Result.value) return;
+      navigator.clipboard.writeText(b64Result.value).then(() => {
+        copyB64Btn.innerText = 'Copied!';
+        setTimeout(() => copyB64Btn.innerText = 'Copy Data URI', 2000);
+      });
+    });
+
+    copyImgTagBtn.addEventListener('click', () => {
+      if (!b64Result.value) return;
+      const tag = `<img src="${b64Result.value}" alt="Embedded Asset" />`;
+      navigator.clipboard.writeText(tag).then(() => {
+        copyImgTagBtn.innerText = 'Copied Tag!';
+        setTimeout(() => copyImgTagBtn.innerText = 'Copy <img> Tag', 2000);
+      });
+    });
+
+    // 9. WCAG CONTRAST CHECKER
+    const contrastBg = document.getElementById('contrastBg');
+    const contrastFg = document.getElementById('contrastFg');
+    const contrastPreviewBox = document.getElementById('contrastPreviewBox');
+    const contrastRatioVal = document.getElementById('contrastRatioVal');
+    const wcagAa = document.getElementById('wcagAa');
+    const wcagAaa = document.getElementById('wcagAaa');
+
+    function getLuminance(hex) {
+      const rgb = hex.replace('#', '').match(/.{2}/g).map(x => parseInt(x, 16) / 255);
+      const a = rgb.map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+      return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+    }
+
+    function calculateContrast() {
+      const bg = contrastBg.value;
+      const fg = contrastFg.value;
+      contrastPreviewBox.style.backgroundColor = bg;
+      contrastPreviewBox.style.color = fg;
+
+      const l1 = getLuminance(bg);
+      const l2 = getLuminance(fg);
+      const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+      const ratioRound = ratio.toFixed(2);
+      contrastRatioVal.innerText = ratioRound + ':1';
+
+      if (ratio >= 4.5) {
+        wcagAa.innerText = 'PASS (≥ 4.5:1)';
+        wcagAa.style.color = '#34d399';
+      } else {
+        wcagAa.innerText = 'FAIL (< 4.5:1)';
+        wcagAa.style.color = '#f87171';
+      }
+
+      if (ratio >= 7.0) {
+        wcagAaa.innerText = 'PASS (≥ 7.0:1)';
+        wcagAaa.style.color = '#34d399';
+      } else {
+        wcagAaa.innerText = 'FAIL (< 7.0:1)';
+        wcagAaa.style.color = '#f87171';
+      }
+    }
+    contrastBg.addEventListener('input', calculateContrast);
+    contrastFg.addEventListener('input', calculateContrast);
+    calculateContrast();
+
+    // 10. UTM CAMPAIGN URL BUILDER
+    const utmUrl = document.getElementById('utmUrl');
+    const utmSource = document.getElementById('utmSource');
+    const utmMedium = document.getElementById('utmMedium');
+    const utmCampaign = document.getElementById('utmCampaign');
+    const utmResult = document.getElementById('utmResult');
+    const copyUtmBtn = document.getElementById('copyUtmBtn');
+
+    function buildUtm() {
+      const u = utmUrl.value.trim() || 'https://www.inovix.co.in';
+      const s = encodeURIComponent(utmSource.value.trim() || 'whatsapp');
+      const m = encodeURIComponent(utmMedium.value.trim() || 'broadcast');
+      const c = encodeURIComponent(utmCampaign.value.trim() || 'promo');
+      const finalUrl = `${u}${u.includes('?') ? '&' : '?'}utm_source=${s}&utm_medium=${m}&utm_campaign=${c}`;
+      utmResult.innerText = finalUrl;
+    }
+    utmUrl.addEventListener('input', buildUtm);
+    utmSource.addEventListener('input', buildUtm);
+    utmMedium.addEventListener('input', buildUtm);
+    utmCampaign.addEventListener('input', buildUtm);
+    copyUtmBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(utmResult.innerText).then(() => {
+        copyUtmBtn.innerText = 'Copied!';
+        setTimeout(() => copyUtmBtn.innerText = 'Copy', 2000);
+      });
+    });
+    buildUtm();
+
+    // 11. MARKDOWN TO CLEAN HTML
+    const mdInput = document.getElementById('mdInput');
+    const mdHtmlOutput = document.getElementById('mdHtmlOutput');
+    const copyHtmlBtn = document.getElementById('copyHtmlBtn');
+
+    function parseMarkdown(md) {
+      let html = md
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*)\*/gim, '<em>$1</em>')
+        .replace(/\[([^\[]+)\]\(([^\)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/^\s*-\s+(.*$)/gim, '<li>$1</li>')
+        .replace(/\n$/gim, '<br />');
+      return html;
+    }
+
+    function updateMarkdown() {
+      const html = parseMarkdown(mdInput.value);
+      mdHtmlOutput.innerText = html;
+    }
+    mdInput.addEventListener('input', updateMarkdown);
+    copyHtmlBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(mdHtmlOutput.innerText).then(() => {
+        copyHtmlBtn.innerText = 'Copied HTML!';
+        setTimeout(() => copyHtmlBtn.innerText = 'Copy Clean HTML', 2000);
+      });
+    });
+    updateMarkdown();
+
   </script>
   <script src="/scripts/motion.js" defer></script>
 </body>

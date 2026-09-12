@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Tesseract from "tesseract.js";
 import {
   Upload, FileText, ScanLine, ArrowLeft,
   Copy, Check, RefreshCw, Loader2, FileImage
@@ -25,24 +26,33 @@ const TextExtractor = () => {
     }
   };
 
-  const startScan = () => {
+  const startScan = async () => {
     if (!file) return;
     setIsScanning(true);
     setProgress(0);
     setExtractedText("");
 
-    // --- SIMULATION LOGIC (Replace this with Tesseract.js for real OCR) ---
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsScanning(false);
-          setExtractedText(generateMockText(file.name));
-          return 100;
+    try {
+      const result = await Tesseract.recognize(
+        file,
+        'eng',
+        {
+          logger: (m) => {
+            if (m.status === 'recognizing text' && m.progress) {
+              setProgress(Math.round(m.progress * 100));
+            }
+          }
         }
-        return prev + 2; // Increment progress
-      });
-    }, 50);
+      );
+      const text = result?.data?.text?.trim();
+      setExtractedText(text || "No readable text detected in this image. Please ensure the image is clear and well-lit.");
+      setProgress(100);
+    } catch (err) {
+      console.error("Tesseract OCR Error:", err);
+      alert("Failed to extract text. Please upload a clear image (PNG or JPG).");
+    } finally {
+      setIsScanning(false);
+    }
   };
 
   const handleCopy = () => {
@@ -57,11 +67,6 @@ const TextExtractor = () => {
     setPreview(null);
     setExtractedText("");
     setProgress(0);
-  };
-
-  // Mock text generator for demo
-  const generateMockText = (filename) => {
-    return `[EXTRACTED DATA FROM ${filename}]\n\nINVOICE #49201\nDATE: OCT 24, 2025\n\nBILL TO:\nAcme Corp Global\n123 Innovation Drive\nTech City, CA 90210\n\nITEMS:\n1. Web Development Services ... $4,500.00\n2. Cloud Hosting Setup ........ $1,200.00\n3. SEO Optimization .......... $800.00\n\nTOTAL DUE: $6,500.00\n\nThank you for your business. Please remit payment within 30 days.`;
   };
 
   return (
