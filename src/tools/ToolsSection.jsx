@@ -3,12 +3,25 @@ import { Link } from "react-router-dom";
 import {
   FileJson, ImageIcon, Scissors, ScanLine, QrCode,
   Layers, Palette, Wand2, FileType, FileText,
-  ImagePlus, FileOutput, Video, Mic2, Music, ArrowUpRight
+  ImagePlus, FileOutput, Video, Mic2, Music, ArrowUpRight,
+  Youtube
 } from "lucide-react";
 
 // --- All Services Configuration with Links ---
 const tools = [
-  // 1. Smart Compressor
+  // 1. YouTube Downloader
+  {
+    id: "youtube-downloader",
+    title: "YouTube Downloader",
+    badge: "NEW & POPULAR",
+    desc: "Download YouTube videos & Shorts in 1080p HD or extract 320 kbps MP3 audio.",
+    icon: Youtube,
+    color: "text-red-400",
+    bg: "bg-red-500/10",
+    border: "group-hover:border-red-500/50",
+    link: "/tools/youtube-downloader"
+  },
+  // 2. Smart Compressor
   {
     id: "compressor",
     title: "Smart Compressor",
@@ -211,12 +224,19 @@ const ToolsSection = () => {
               {/* Top Accent Blob (Color Note) */}
               <div className={`absolute top-0 right-0 w-24 h-24 ${tool.bg} rounded-bl-[2rem] rounded-tr-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-              {/* Icon Container */}
-              <div className={`
-                w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-xl shadow-lg
-                ${tool.bg} ${tool.color}
-              `}>
-                <tool.icon size={26} />
+              {/* Icon Container & Badge */}
+              <div className="flex items-center justify-between mb-6">
+                <div className={`
+                  w-14 h-14 rounded-2xl flex items-center justify-center text-xl shadow-lg
+                  ${tool.bg} ${tool.color}
+                `}>
+                  <tool.icon size={26} />
+                </div>
+                {tool.badge && (
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-red-500/20 text-red-400 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                    {tool.badge}
+                  </span>
+                )}
               </div>
 
               {/* Content */}

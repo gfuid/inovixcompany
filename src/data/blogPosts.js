@@ -1,4 +1,6 @@
-export const blogPosts = [
+import { haryanaDistrictPosts } from "./haryanaDistrictPosts";
+
+const baseBlogPosts = [
   {
     slug: "textile-exporter-website-design-panipat",
     title: "Textile & Handloom Exporter Website Design in Panipat (2026 Guide): B2B Digital Catalogs & Global Buyers",
@@ -468,3 +470,5 @@ Inovix healthcare websites me **1-Click WhatsApp Appointment Booking** feature h
     ]
   }
 ];
+
+export const blogPosts = [...baseBlogPosts, ...haryanaDistrictPosts];

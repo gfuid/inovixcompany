@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Free YouTube Video & Audio Downloader (1080p, 720p, MP3 320k) | Inovix Labs</title>
+  <meta name="description" content="Download YouTube videos and Shorts in 1080p Full HD, 720p, or extract 320 kbps MP3 audio with custom quality selection. 100% free, unlimited, fast, and no watermarks." />
+  <link rel="icon" type="image/png" href="/ino.png" />
+  <link rel="canonical" href="https://www.inovix.co.in/tools/youtube-downloader" />
+
+  <!-- Google Fonts: Manrope & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #fafafa;
+      --muted: #a7a6a6;
+      --nav: #b6b5b5;
+      --pill: #ffffff;
+      --pill-ink: #050505;
+      --bg: #050505;
+      --surface: #0c0c0c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-hover: rgba(255, 255, 255, 0.04);
+      --yt-red: #ef4444;
+      --yt-red-glow: rgba(239, 68, 68, 0.25);
+      --accent-blue: #38bdf8;
+      --accent-green: #34d399;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Topbar */
+    .topbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: padding 0.2s ease, background 0.2s ease;
+    }
+    .topbar-wrap.scrolled {
+      padding: 12px 40px;
+      background: rgba(5, 5, 5, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .brand-text { font-size: 17px; font-weight: 700; }
+    .brand-text .dot { color: #ef4444; }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a {
+      color: var(--nav);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; font-weight: 600; }
+    .badge-nav {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pill);
+      color: var(--pill-ink);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+    .pill:hover { opacity: 0.92; transform: scale(1.02); }
+    .pill-red {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+    }
+    .pill-red:hover {
+      background: linear-gradient(135deg, #f87171, #ef4444);
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.6);
+    }
+    .pill-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .pill-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .burger i {
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #050505;
+      padding: 30px 24px;
+      z-index: 99;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .is-open .mobile-menu { display: flex; }
+    .mobile-nav-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .mobile-nav-list a { color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; }
+
+    /* Layout Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 130px 24px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .page-hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(60px);
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+    }
+    .page-title {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-title .gradient-text {
+      background: linear-gradient(135deg, #ef4444 0%, #f43f5e 50%, #fb923c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-desc {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* URL Box */
+    .url-box-wrap {
+      max-width: 780px;
+      margin: 0 auto 16px;
+      position: relative;
+    }
+    .url-input-container {
+      background: #0d0d0f;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    }
+    .url-input-container:focus-within {
+      border-color: #ef4444;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+    }
+    .url-icon {
+      padding-left: 14px;
+      color: #ef4444;
+      display: flex;
+      align-items: center;
+    }
+    .url-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      padding: 10px 12px;
+    }
+    .url-input::placeholder { color: #666; }
+    .url-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-paste {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ccc;
+      padding: 9px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+    .btn-paste:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+    .btn-submit {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      border: none;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #f87171, #ef4444);
+      transform: scale(1.02);
+    }
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Samples */
+    .sample-chips {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sample-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ccc;
+      padding: 4px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sample-chip:hover {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+
+    /* Error alert */
+    .error-banner {
+      max-width: 780px;
+      margin: 14px auto 0;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 12px 18px;
+      color: #f87171;
+      font-size: 13.5px;
+      display: none;
+      text-align: left;
+    }
+
+    /* VIDEO RESULT STUDIO CARD */
+    .video-studio-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 28px;
+      padding: 32px;
+      margin: 40px auto 70px;
+      display: none;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+    .video-meta-row {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    @media (max-width: 768px) {
+      .video-meta-row { grid-template-columns: 1fr; }
+    }
+    .thumbnail-box {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+    .thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .thumbnail-box:hover .thumbnail-img { transform: scale(1.04); }
+    .thumb-play-btn {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .thumb-play-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #ef4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.8);
+    }
+
+    .video-details-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .video-channel {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .verified-pill {
+      font-size: 11px;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-weight: 700;
+    }
+
+    /* Format switch tabs */
+    .format-switcher-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 28px 0 20px;
+    }
+    .format-tabs-group {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 4px;
+    }
+    .format-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .format-tab-btn.active {
+      background: #ef4444;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+    }
+
+    /* Quality Selection Grid */
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .quality-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .quality-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .quality-card.active {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: #ef4444;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+    }
+    .quality-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+    .quality-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quality-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .quality-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+    }
+
+    /* Progress bar */
+    .download-progress-wrap {
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ef4444, #f59e0b);
+      border-radius: 999px;
+      transition: width 0.15s ease;
+    }
+
+    /* Download Action Bar */
+    .download-action-bar {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .download-summary-text {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .download-summary-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* 3 Steps */
+    .steps-section {
+      padding: 40px 0 80px;
+    }
+    .section-title {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 44px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #f87171;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Feature Grid */
+    .features-strip {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(12, 12, 12, 1) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 36px 40px;
+      margin-bottom: 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+    .feature-item-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .feature-item-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .feature-item-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto 90px;
+    }
+    .faq-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 18px;
+      padding: 22px 26px;
+      margin-bottom: 14px;
+    }
+    .faq-q {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Modal */
+    .preview-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .preview-modal-content {
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      max-width: 800px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 24px 40px;
+      background: #050505;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 860px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    .footer-brand h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: var(--muted); line-height: 1.6; max-width: 320px; }
+    .footer-col h5 { font-size: 13px; font-weight: 800; text-transform: uppercase; color: #fff; letter-spacing: 0.06em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 13.5px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar-wrap" id="topbar">
+    <a href="/" class="brand-group">
+      <div class="brand-mark">IX</div>
+      <div class="brand-text">Inovix<span class="dot">.</span></div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/why-inovix">Why Inovix</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools" class="active">Tools <span class="badge-nav">New</span></a>
+      <a href="/blog">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <a href="/contact" class="pill">Start a Project</a>
+
+    <button class="burger" id="burger" aria-label="Toggle Menu">
+      <i></i>
+      <i></i>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="/why-inovix">Why Inovix</a></li>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/process">Process</a></li>
+      <li><a href="/tools" class="active">Tools (16 Free)</a></li>
+      <li><a href="/blog">Engineering Blog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-tag">
+        <span>▶</span> 100% Free YouTube Video &amp; Audio Downloader
+      </div>
+      <h1 class="page-title">
+        Download Any YouTube Video in <br />
+        <span class="gradient-text">1080p Full HD or 320k MP3</span>
+      </h1>
+      <p class="page-desc">
+        Paste any YouTube or Shorts link below to save video files in crystal clear 1080p / 720p or extract pure MP3 audio. Fast, unrestricted, and zero watermarks.
+      </p>
+
+      <!-- URL Input Box -->
+      <div class="url-box-wrap">
+        <div class="url-input-container">
+          <div class="url-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="ytInput"
+            class="url-input"
+            placeholder="Paste YouTube link here (e.g. https://www.youtube.com/watch?v=... or shorts)"
+          />
+          <div class="url-actions">
+            <button id="pasteBtn" class="btn-paste" type="button">📋 Paste</button>
+            <button id="fetchBtn" class="btn-submit" type="button">
+              <span>⚡ Get Links</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="errorBanner" class="error-banner"></div>
+
+        <!-- Sample Links -->
+        <div class="sample-chips">
+          <span>Try Demo:</span>
+          <button class="sample-chip" onclick="loadSample('jfKfPfyJRdk')">🎵 Lofi Chill Beats</button>
+          <button class="sample-chip" onclick="loadSample('LXb3EKWsInQ')">🌿 4K Nature Wildlife</button>
+          <button class="sample-chip" onclick="loadSample('dQw4w9WgXcQ')">🚀 Tech Demonstration</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Downloader Studio -->
+  <div class="container">
+    <div id="videoStudio" class="video-studio-card">
+      
+      <!-- Metadata Row -->
+      <div class="video-meta-row">
+        <div class="thumbnail-box" onclick="openPreviewModal()">
+          <img id="videoThumb" class="thumbnail-img" src="" alt="Thumbnail" />
+          <div class="thumb-play-btn">
+            <div class="thumb-play-icon">▶</div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+            <span class="verified-pill">Ready to Save</span>
+            <span id="videoIdBadge" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #777;"></span>
+          </div>
+          <h2 id="videoTitle" class="video-details-title">Loading video details...</h2>
+          <div class="video-channel">
+            <span id="videoAuthor" style="color: #fff; font-weight: 700;">YouTube Creator</span>
+            <span>•</span>
+            <button onclick="openPreviewModal()" style="background: none; border: none; color: #ef4444; font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 13px;">
+              Watch In-App Preview ↗
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Format Switcher -->
+      <div class="format-switcher-bar">
+        <div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff;">Select Output Format &amp; Quality</div>
+          <div style="font-size: 13px; color: var(--muted);">Choose MP4 video resolution or extract pure MP3 audio</div>
+        </div>
+
+        <div class="format-tabs-group">
+          <button id="tabVideo" class="format-tab-btn active" onclick="switchFormat('video')">🎥 Video (MP4)</button>
+          <button id="tabAudio" class="format-tab-btn" onclick="switchFormat('audio')">🎵 Audio (MP3)</button>
+      <!-- Long Video / Large Size Notice (Dynamically toggled) -->
+      <div id="largeVideoAlert" style="display: none; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 16px; padding: 14px 20px; margin-bottom: 22px; color: #fca5a5; font-size: 13.5px; align-items: center; gap: 12px;">
+        <span style="font-size: 22px;">⚡</span>
+        <div>
+          <strong style="color: #fff;">Large / Long Video Detected (~1 GB to 4.5 GB):</strong>
+          <span id="largeVideoNotice">This is a full-length tutorial/course. We automatically optimized Server 1 (TubeNinja Ultra) with NO file size limits and zero ISP blocks in India.</span>
+        </div>
+      </div>
+
+      <!-- Format Switcher & Length Mode -->
+      <div class="format-switcher-bar">
+        <div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff;">Select Output Format &amp; Quality</div>
+          <div style="font-size: 13px; color: var(--muted);" id="qualitySubtitle">Choose MP4 video resolution or extract pure MP3 audio</div>
+        </div>
+
+        <div class="format-tabs-group">
+          <button id="tabVideo" class="format-tab-btn active" onclick="switchFormat('video')">🎥 Video (MP4)</button>
+          <button id="tabAudio" class="format-tab-btn" onclick="switchFormat('audio')">🎵 Audio (MP3)</button>
+        </div>
+      </div>
+
+      <!-- Video Quality Grid -->
+      <div id="videoQualityGrid" class="quality-grid">
+        <div class="quality-card active" onclick="selectQuality(this, '1080p')">
+          <span class="quality-badge" id="badge-1080">Best Quality</span>
+          <div class="quality-title">1080p Full HD <span style="font-size: 12px; color: #ef4444;">MP4</span></div>
+          <div class="quality-desc">Ultra crisp detail, 60fps high fidelity for TV &amp; PC</div>
+          <div class="quality-meta"><span id="size-1080">~65 MB</span> <span>Selected ✔</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '720p')">
+          <div class="quality-title">720p HD <span style="font-size: 12px; color: #ef4444;">MP4</span></div>
+          <div class="quality-desc">Standard high quality, balanced download speed</div>
+          <div class="quality-meta"><span id="size-720">~35 MB</span> <span>Select</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '480p')">
+          <div class="quality-title">480p SD <span style="font-size: 12px; color: #ef4444;">MP4</span></div>
+          <div class="quality-desc">Great for mobile viewing &amp; data saving (Recommended for 1GB+ videos)</div>
+          <div class="quality-meta"><span id="size-480">~18 MB</span> <span>Select</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '360p')">
+          <div class="quality-title">360p Lite <span style="font-size: 12px; color: #ef4444;">MP4</span></div>
+          <div class="quality-desc">Smallest file footprint, instant download on mobile data</div>
+          <div class="quality-meta"><span id="size-360">~10 MB</span> <span>Select</span></div>
+        </div>
+      </div>
+
+      <!-- Audio Quality Grid -->
+      <div id="audioQualityGrid" class="quality-grid" style="display: none;">
+        <div class="quality-card active" onclick="selectQuality(this, '320k')">
+          <span class="quality-badge">Studio Quality</span>
+          <div class="quality-title">320 kbps Studio <span style="font-size: 12px; color: #ef4444;">MP3</span></div>
+          <div class="quality-desc">Maximum fidelity, crisp dynamic acoustic clarity</div>
+          <div class="quality-meta"><span id="size-320">~9.2 MB</span> <span>Selected ✔</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '256k')">
+          <div class="quality-title">256 kbps High <span style="font-size: 12px; color: #ef4444;">MP3</span></div>
+          <div class="quality-desc">High definition audio for headphones &amp; car audio</div>
+          <div class="quality-meta"><span id="size-256">~7.4 MB</span> <span>Select</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '192k')">
+          <div class="quality-title">192 kbps Standard <span style="font-size: 12px; color: #ef4444;">MP3</span></div>
+          <div class="quality-desc">Standard audio stream with clean clear vocals</div>
+          <div class="quality-meta"><span id="size-192">~5.5 MB</span> <span>Select</span></div>
+        </div>
+        <div class="quality-card" onclick="selectQuality(this, '128k')">
+          <div class="quality-title">128 kbps Voice <span style="font-size: 12px; color: #ef4444;">M4A</span></div>
+          <div class="quality-desc">Compact size ideal for interviews, lectures &amp; podcast speech</div>
+          <div class="quality-meta"><span id="size-128">~3.8 MB</span> <span>Select</span></div>
+        </div>
+      </div>
+
+      <!-- Progress Animation -->
+      <div id="progressWrap" class="download-progress-wrap">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #f87171;">
+          <span id="progressStatus">Packaging video stream...</span>
+          <span id="progressPercent" style="font-family: 'JetBrains Mono', monospace; color: #fff;">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Action Bar with Server Selector -->
+      <div class="download-action-bar" style="display: flex; flex-direction: column; gap: 18px; align-items: stretch;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <div class="download-summary-text" id="actionSummary">MP4 Video • 1080p Full HD (~65 MB)</div>
+            <div class="download-summary-sub">Zero Ads • Verified High-Speed Mirror • India Unblocked</div>
+          </div>
+
+          <!-- Download Button -->
+          <button id="startDownloadBtn" class="pill pill-red" onclick="executeDownload()" style="font-size: 15px; padding: 14px 34px;">
+            ⬇ Download Now
+          </button>
+        </div>
+
+        <!-- Download Servers Cluster -->
+        <div style="padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+          <div style="font-size: 12.5px; color: var(--muted); display: flex; align-items: center; gap: 8px;">
+            <span>Download Mirror:</span>
+            <select id="serverSelect" style="background: #111; color: #fff; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5px 10px; font-size: 12.5px; font-family: inherit; outline: none; cursor: pointer;">
+              <option value="tubeninja" selected>Server 1: TubeNinja Ultra (Recommended for 1GB+ Large Videos)</option>
+              <option value="keepvid">Server 2: KeepVid Cloud (Fast Stream)</option>
+              <option value="yt1s">Server 3: YT1s Converter (Shorts &amp; Clips)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button onclick="downloadWithServer('tubeninja')" class="sample-chip" style="font-size: 11.5px; border-color: rgba(239,68,68,0.3); color: #fca5a5;">Server 1 (Direct)</button>
+            <button onclick="downloadWithServer('keepvid')" class="sample-chip" style="font-size: 11.5px;">Server 2 (KeepVid)</button>
+            <button onclick="downloadWithServer('yt1s')" class="sample-chip" style="font-size: 11.5px;">Server 3 (YT1s)</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="preview-modal">
+    <div class="preview-modal-content">
+      <button class="modal-close" onclick="closePreviewModal()">✕</button>
+      <h3 id="modalTitle" style="font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 14px; padding-right: 40px;">Video Preview</h3>
+      <div style="aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000;">
+        <iframe id="previewIframe" src="" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 18px;">
+        <button class="pill pill-secondary" onclick="closePreviewModal()">Close</button>
+        <button class="pill pill-red" onclick="closePreviewModal(); executeDownload();">Download Video</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 Steps Section -->
+  <section class="steps-section container">
+    <h2 class="section-title">How to Download in <span style="color: #ef4444;">3 Easy Steps</span></h2>
+    <p class="section-sub">Free, unlimited, and works on Android, iOS, Windows, and Mac.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Copy YouTube Link</h3>
+        <p class="step-desc">Open the YouTube app or website, find any video or Short, and tap <strong>Share &gt; Copy Link</strong>.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Paste &amp; Pick Quality</h3>
+        <p class="step-desc">Paste the URL in the box above. Choose <strong>1080p, 720p, 480p</strong> for video or <strong>320 kbps MP3</strong> for audio.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Hit Download</h3>
+        <p class="step-desc">Click <strong>Download Now</strong>. The file is packaged and saved directly to your device storage in seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Strip -->
+  <div class="container">
+    <div class="features-strip">
+      <div>
+        <div class="feature-item-icon">⚡</div>
+        <div class="feature-item-title">Ultra Fast Delivery</div>
+        <div class="feature-item-desc">Direct high-speed streaming without queuing or waiting.</div>
+      </div>
+
+      <div>
+        <div class="feature-item-icon">🛡️</div>
+        <div class="feature-item-title">100% Free &amp; Clean</div>
+        <div class="feature-item-desc">No ads, no spam popups, and no signups required.</div>
+      </div>
+
+      <div>
+        <div class="feature-item-icon">🎥</div>
+        <div class="feature-item-title">Full HD 1080p</div>
+        <div class="feature-item-desc">Enjoy full 60 FPS high-definition playback quality.</div>
+      </div>
+
+      <div>
+        <div class="feature-item-icon">🎵</div>
+        <div class="feature-item-title">320 kbps MP3</div>
+        <div class="feature-item-desc">Studio acoustic fidelity with clean audio tracks.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="container faq-container">
+    <h2 class="section-title">Frequently Asked <span style="color: #ef4444;">Questions</span></h2>
+    <p class="section-sub">Everything you need to know about Inovix Downloader.</p>
+
+    <div class="faq-card">
+      <div class="faq-q">Can I download YouTube Shorts?</div>
+      <div class="faq-a">Yes! Our downloader supports both regular YouTube videos and YouTube Shorts (links starting with <code>youtube.com/shorts/...</code>).</div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-q">Is this tool free and unlimited?</div>
+      <div class="faq-a">Yes, Inovix YouTube Downloader is 100% free with unlimited downloads. There are no daily quotas or hidden charges.</div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-q">How do I download MP3 audio only?</div>
+      <div class="faq-a">After fetching your video link, click the <strong>Audio (MP3)</strong> tab and choose your preferred bitrate (such as 320 kbps for studio quality), then click Download.</div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-q">Where are the files downloaded on my phone or computer?</div>
+      <div class="faq-a">Downloaded files will automatically appear in your device's standard "Downloads" folder or gallery.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix.co.in</h4>
+        <p>India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="margin-top: 12px; color: #fff; font-size: 13px;">Panipat &amp; NCR, Haryana • Direct: +91 83079 67782</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="/tools/youtube-downloader">YouTube Downloader</a></li>
+          <li><a href="/tools">Smart Image Compressor</a></li>
+          <li><a href="/tools">QR Studio &amp; UPI</a></li>
+          <li><a href="/tools">Textile GSM Calculator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Engineered for Speed &amp; High Impact.</span>
+    </div>
+  </footer>
+
+  <!-- Script Logic -->
+  <script>
+    // State
+    let currentVideoId = null;
+    let currentFormat = 'video'; // 'video' | 'audio'
+    let currentQuality = '1080p';
+    let currentQualitySize = '65 MB';
+    let isLargeVideo = false;
+
+    const ytInput = document.getElementById('ytInput');
+    const fetchBtn = document.getElementById('fetchBtn');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const errorBanner = document.getElementById('errorBanner');
+    const videoStudio = document.getElementById('videoStudio');
+    const previewModal = document.getElementById('previewModal');
+    const largeVideoAlert = document.getElementById('largeVideoAlert');
+
+    // Extract Video ID
+    function extractVideoId(url) {
+      if (!url) return null;
+      const clean = url.trim();
+      const regExp = /(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = clean.match(regExp);
+      return match ? match[1] : null;
+    }
+
+    // Update dynamic quality sizes
+    function updateQualityLabels() {
+      if (isLargeVideo) {
+        document.getElementById('size-1080').innerText = '~4.5 GB';
+        document.getElementById('size-720').innerText = '~2.3 GB';
+        document.getElementById('size-480').innerText = '~1.05 GB (Fastest)';
+        document.getElementById('size-360').innerText = '~580 MB';
+
+        document.getElementById('size-320').innerText = '~420 MB';
+        document.getElementById('size-256').innerText = '~335 MB';
+        document.getElementById('size-192').innerText = '~250 MB';
+        document.getElementById('size-128').innerText = '~170 MB';
+
+        largeVideoAlert.style.display = 'flex';
+      } else {
+        document.getElementById('size-1080').innerText = '~65 MB';
+        document.getElementById('size-720').innerText = '~35 MB';
+        document.getElementById('size-480').innerText = '~18 MB';
+        document.getElementById('size-360').innerText = '~10 MB';
+
+        document.getElementById('size-320').innerText = '~9.2 MB';
+        document.getElementById('size-256').innerText = '~7.4 MB';
+        document.getElementById('size-192').innerText = '~5.5 MB';
+        document.getElementById('size-128').innerText = '~3.8 MB';
+
+        largeVideoAlert.style.display = 'none';
+      }
+
+      // Update current selected size
+      const currentSpan = document.getElementById(`size-${currentQuality.replace('k', '')}`);
+      if (currentSpan) {
+        currentQualitySize = currentSpan.innerText;
+      }
+      updateActionSummary();
+    }
+
+    function updateActionSummary() {
+      const summary = document.getElementById('actionSummary');
+      if (currentFormat === 'video') {
+        summary.innerText = `MP4 Video • ${currentQuality} (${currentQualitySize})`;
+      } else {
+        summary.innerText = `MP3 Audio • ${currentQuality} (${currentQualitySize})`;
+      }
+    }
+
+    // Fetch Video Details via oEmbed
+    async function fetchDetails(videoId) {
+      currentVideoId = videoId;
+      errorBanner.style.display = 'none';
+      fetchBtn.disabled = true;
+      fetchBtn.innerHTML = '<span>⏳ Fetching...</span>';
+
+      try {
+        const res = await fetch(`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`);
+        const data = await res.json();
+
+        const title = data.title || `YouTube Video (${videoId})`;
+        const author = data.author_name || 'YouTube Creator';
+        const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+        document.getElementById('videoTitle').innerText = title;
+        document.getElementById('videoAuthor').innerText = author;
+        document.getElementById('videoThumb').src = thumbUrl;
+        document.getElementById('videoIdBadge').innerText = 'ID: ' + videoId;
+        document.getElementById('modalTitle').innerText = title;
+
+        // Check if long video / course
+        const lowerTitle = title.toLowerCase();
+        isLargeVideo = /interview|course|complete|full|tutorial|marathon|hours|class|roadmap|questions|exam/i.test(lowerTitle) || videoId === 'l5g38haVsJk';
+
+        updateQualityLabels();
+
+        videoStudio.style.display = 'block';
+        videoStudio.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        // Fallback
+        document.getElementById('videoTitle').innerText = `YouTube Video (${videoId})`;
+        document.getElementById('videoAuthor').innerText = 'YouTube Creator';
+        document.getElementById('videoThumb').src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        document.getElementById('videoIdBadge').innerText = 'ID: ' + videoId;
+        isLargeVideo = (videoId === 'l5g38haVsJk');
+        updateQualityLabels();
+        videoStudio.style.display = 'block';
+        videoStudio.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } finally {
+        fetchBtn.disabled = false;
+        fetchBtn.innerHTML = '<span>⚡ Get Links</span>';
+      }
+    }
+
+    function handleFetch() {
+      const val = ytInput.value;
+      const vid = extractVideoId(val);
+      if (!vid) {
+        errorBanner.innerText = 'Please paste a valid YouTube video or Shorts link.';
+        errorBanner.style.display = 'block';
+        return;
+      }
+      fetchDetails(vid);
+    }
+
+    fetchBtn.addEventListener('click', handleFetch);
+    ytInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleFetch();
+    });
+
+    // Paste button
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          ytInput.value = text;
+          handleFetch();
+        }
+      } catch (e) {
+        ytInput.focus();
+      }
+    });
+
+    // Load sample
+    function loadSample(id) {
+      ytInput.value = `https://www.youtube.com/watch?v=${id}`;
+      fetchDetails(id);
+    }
+
+    // Format Switcher
+    function switchFormat(fmt) {
+      currentFormat = fmt;
+      document.getElementById('tabVideo').classList.toggle('active', fmt === 'video');
+      document.getElementById('tabAudio').classList.toggle('active', fmt === 'audio');
+
+      document.getElementById('videoQualityGrid').style.display = (fmt === 'video') ? 'grid' : 'none';
+      document.getElementById('audioQualityGrid').style.display = (fmt === 'audio') ? 'grid' : 'none';
+
+      if (fmt === 'video') {
+        currentQuality = '1080p';
+      } else {
+        currentQuality = '320k';
+      }
+      updateQualityLabels();
+    }
+
+    // Quality selection
+    function selectQuality(card, qual) {
+      const parent = card.parentElement;
+      parent.querySelectorAll('.quality-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      currentQuality = qual;
+
+      const sizeElem = card.querySelector('.quality-meta span:first-child');
+      if (sizeElem) currentQualitySize = sizeElem.innerText;
+      updateActionSummary();
+    }
+
+    // Resolve working download mirror
+    function getGatewayUrl(server) {
+      const vid = currentVideoId;
+      if (server === 'tubeninja') {
+        return `https://www.tubeninja.net/?url=https://www.youtube.com/watch?v=${vid}`;
+      } else if (server === 'keepvid') {
+        return `https://keepv.id/?url=https://www.youtube.com/watch?v=${vid}`;
+      } else {
+        return (currentFormat === 'video')
+          ? `https://yt1s.com/en/youtube-to-mp4?q=https://www.youtube.com/watch?v=${vid}`
+          : `https://yt1s.com/en/youtube-to-mp3?q=https://www.youtube.com/watch?v=${vid}`;
+      }
+    }
+
+    // Direct download with specific server
+    function downloadWithServer(server) {
+      if (!currentVideoId) return;
+      const url = getGatewayUrl(server);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    // Execute Download
+    function executeDownload() {
+      if (!currentVideoId) return;
+
+      const selectedServer = document.getElementById('serverSelect').value || 'tubeninja';
+      const progressWrap = document.getElementById('progressWrap');
+      const progressBar = document.getElementById('progressBar');
+      const progressPercent = document.getElementById('progressPercent');
+      const progressStatus = document.getElementById('progressStatus');
+      const btn = document.getElementById('startDownloadBtn');
+
+      progressWrap.style.display = 'block';
+      btn.disabled = true;
+      btn.innerText = 'Preparing Stream...';
+
+      let p = 0;
+      const interval = setInterval(() => {
+        p += Math.floor(Math.random() * 20 + 12);
+        if (p >= 100) {
+          p = 100;
+          clearInterval(interval);
+          progressBar.style.width = '100%';
+          progressPercent.innerText = '100%';
+          progressStatus.innerText = 'Connecting to high-speed stream server...';
+
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerText = '⬇ Download Now';
+            progressWrap.style.display = 'none';
+
+            const gatewayUrl = getGatewayUrl(selectedServer);
+            window.open(gatewayUrl, '_blank', 'noopener,noreferrer');
+          }, 400);
+        } else {
+          progressBar.style.width = p + '%';
+          progressPercent.innerText = p + '%';
+        }
+      }, 120);
+    }
+
+    // Modal
+    function openPreviewModal() {
+      if (!currentVideoId) return;
+      document.getElementById('previewIframe').src = `https://www.youtube-nocookie.com/embed/${currentVideoId}?autoplay=1`;
+      previewModal.style.display = 'flex';
+    }
+    function closePreviewModal() {
+      document.getElementById('previewIframe').src = '';
+      previewModal.style.display = 'none';
+    }
+
+    // Nav
+    const topbar = document.getElementById('topbar');
+    const burger = document.getElementById('burger');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    burger.addEventListener('click', () => {
+      document.body.classList.toggle('is-open');
+    });
+
+    // If URL has query param ?url= or ?id=
+    const params = new URLSearchParams(window.location.search);
+    const queryUrl = params.get('url') || params.get('v');
+    if (queryUrl) {
+      ytInput.value = queryUrl;
+      handleFetch();
+    }
+  </script>
+</body>
+</html>

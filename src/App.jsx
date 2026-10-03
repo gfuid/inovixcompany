@@ -32,6 +32,7 @@ import ImageToPDF from "./tools/ImageToPDF.jsx";
 import VideoCompressor from "./tools/VideoCompressor.jsx";
 import VideoToAudio from "./tools/VideoToAudio.jsx";
 import AudioNoiseRemover from "./tools/AudioNoiseRemover.jsx";
+import YouTubeDownloader from "./tools/YouTubeDownloader.jsx";
 
 // --- SEO WRAPPER COMPONENT ---
 const PageSEO = ({ title, description, canonical, element }) => (
@@ -152,6 +153,7 @@ const App = () => {
             <Route path="/tools/video-compressor" element={<PageSEO title="Video Compressor" description="Compress MP4 files." element={<VideoCompressor />} />} />
             <Route path="/tools/video-to-audio" element={<PageSEO title="Video to MP3" description="Extract audio from video." element={<VideoToAudio />} />} />
             <Route path="/tools/audio-noise-remover" element={<PageSEO title="Noise Remover" description="Clean audio recording." element={<AudioNoiseRemover />} />} />
+            <Route path="/tools/youtube-downloader" element={<PageSEO title="Free YouTube Video & Audio Downloader" description="Download YouTube videos and MP3 audio in HD 1080p, 720p, 320kbps. Free, fast and unlimited." element={<YouTubeDownloader />} />} />
 
           </Routes>
         </Router>

@@ -5,6 +5,7 @@
     { "source": "/work", "destination": "/work/index.html" },
     { "source": "/pricing", "destination": "/pricing/index.html" },
     { "source": "/process", "destination": "/process/index.html" },
+    { "source": "/tools/youtube-downloader", "destination": "/tools/youtube-downloader/index.html" },
     { "source": "/tools", "destination": "/tools/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },
