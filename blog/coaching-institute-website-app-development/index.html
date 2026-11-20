@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Coaching Institute Website Design &amp; App | Inovix</title>
+  <meta name="description" content="Coaching institute website design and app guide: get admission leads, manage batches, run online test series and send fee reminders. 2026 costs explained." />
+  <meta name="keywords" content="coaching institute website design, app for coaching classes, coaching management software, test series website, coaching institute app development, coaching website India" />
+  <link rel="icon" type="image/png" href="/ino.png" />
+  <link rel="canonical" href="https://www.inovix.co.in/blog/coaching-institute-website-app-development" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Coaching Institute Website Design &amp; App | Inovix" />
+  <meta property="og:description" content="Coaching institute website design and app guide: get admission leads, manage batches, run online test series and send fee reminders. 2026 costs explained." />
+  <meta property="og:url" content="https://www.inovix.co.in/blog/coaching-institute-website-app-development" />
+  <meta property="og:site_name" content="Inovix Technologies" />
+  <meta property="og:image" content="https://www.inovix.co.in/blog/covers/coaching-institute-website-app-development.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.inovix.co.in/blog/covers/coaching-institute-website-app-development.jpg" />
+  <meta property="article:published_time" content="2026-11-20" />
+  <meta property="article:author" content="Sagar Punia" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root { --bg: #050505; --surface: #0d0f14; --surface-border: rgba(255, 255, 255, 0.08); --text: #f8fafc; --muted: #94a3b8; --cyan: #38bdf8; --green: #34d399; --purple: #a855f7; --amber: #fbbf24; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .topbar-wrap { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .brand-group { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+    .brand-mark { width: 32px; height: 32px; border-radius: 8px; background: #1e2433; border: 1px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #fff; }
+    .brand-text { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-text .dot { color: var(--cyan); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .badge-nav { font-size: 10px; background: rgba(56, 189, 248, 0.15); color: var(--cyan); padding: 2px 6px; border-radius: 4px; font-weight: 700; margin-left: 4px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #050505; font-weight: 700; font-size: 13.5px; padding: 10px 22px; border-radius: 999px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2); }
+
+    .article-container { max-width: 880px; margin: 0 auto; padding: 40px 24px 100px; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumbs a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .breadcrumbs a:hover { color: var(--cyan); }
+    .breadcrumbs .sep { color: rgba(255, 255, 255, 0.2); }
+    .breadcrumbs .current { color: #cbd5e1; font-weight: 600; }
+    .back-btn-row { margin-bottom: 32px; }
+    .back-nav-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--muted); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.15s ease; }
+    .back-nav-btn:hover { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.25); }
+
+    .article-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .blog-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 6px; padding: 4px 10px; }
+    .badge-green { background: rgba(52, 211, 153, 0.12); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-cyan, .badge-blue { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-amber { background: rgba(251, 191, 36, 0.12); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-rose { background: rgba(251, 113, 133, 0.12); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.3); }
+    .read-time-pill { font-size: 13px; color: var(--muted); }
+
+    .article-title { font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: #fff; line-height: 1.22; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .article-subtitle { font-size: clamp(16px, 1.8vw, 19px); color: #94a3b8; line-height: 1.65; margin-bottom: 32px; padding-left: 18px; border-left: 3px solid var(--green); }
+
+    .article-hero-media { margin: 0 0 32px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); background: #0c0c0e; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
+    .article-hero-media img { width: 100%; height: auto; display: block; }
+
+    .author-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; margin-bottom: 40px; }
+    .author-thumb { width: 48px; height: 48px; border-radius: 50%; background: #1a1e29; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2); }
+    .author-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .author-role { font-size: 12.5px; color: var(--muted); }
+
+    .article-content { font-size: 16.5px; color: #cbd5e1; line-height: 1.85; margin-bottom: 48px; }
+    .article-content h2 { font-size: clamp(22px, 2.5vw, 28px); font-weight: 800; color: #fff; margin: 44px 0 16px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    .article-content h3 { font-size: clamp(18px, 2vw, 21px); font-weight: 700; color: var(--cyan); margin: 28px 0 12px; }
+    .article-content p { margin-bottom: 20px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { margin-bottom: 10px; }
+    .article-content strong { color: #fff; font-weight: 700; }
+    .article-content a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content a:hover { color: #fff; }
+
+    .article-table-wrap { overflow-x: auto; margin: 32px 0; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; }
+    .article-table { width: 100%; border-collapse: collapse; font-size: 14.5px; text-align: left; }
+    .article-table th, .article-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .article-table th { background: rgba(255, 255, 255, 0.04); color: #fff; font-weight: 700; }
+    .article-table td { color: #cbd5e1; }
+
+    .reader-faq-box { margin-top: 48px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 36px; }
+    .reader-faq-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; margin-bottom: 14px; padding: 20px 24px; }
+    .reader-faq-q { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .reader-faq-a { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+
+    .article-cta { margin-top: 54px; background: linear-gradient(135deg, rgba(20, 24, 34, 0.95) 0%, rgba(10, 12, 18, 0.98) 100%); border: 1px solid rgba(52, 211, 153, 0.35); border-radius: 24px; padding: 40px 32px; text-align: center; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+    .article-cta h3 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .article-cta p { font-size: 15px; color: var(--muted); max-width: 620px; margin: 0 auto 24px; }
+
+    .related-section { margin-top: 70px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+    .related-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .related-card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 16px; padding: 24px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; }
+    .related-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-3px); }
+    .related-badge-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; }
+    .related-card h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+    .related-card p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 16px; }
+    .related-arrow { font-size: 12.5px; font-weight: 700; color: var(--cyan); }
+
+    .footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 60px 24px 40px; background: #050505; margin-top: 80px; }
+    .footer-inner { max-width: 1240px; margin: 0 auto 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: var(--muted); text-decoration: none; font-size: 13.5px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { max-width: 1240px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.04); display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: #64748b; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 768px) {
+      .topbar-wrap { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 30px; }
+      .article-container { padding: 24px 16px 60px; }
+      .article-cta { padding: 30px 20px; }
+      .article-table th, .article-table td { padding: 12px 14px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Coaching Institute Website Design and App for Coaching Classes: 2026 Guide",
+  "description": "Coaching institute website design and app guide: get admission leads, manage batches, run online test series and send fee reminders. 2026 costs explained.",
+  "image": "https://www.inovix.co.in/blog/covers/coaching-institute-website-app-development.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Sagar Punia",
+    "jobTitle": "Founder & Senior Web Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Inovix Technologies",
+      "url": "https://www.inovix.co.in"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inovix Technologies",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.inovix.co.in/ino.png"
+    }
+  },
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "mainEntityOfPage": "https://www.inovix.co.in/blog/coaching-institute-website-app-development"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a coaching institute website cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With Inovix, a coaching website starts at ₹4,999 one-time (Launchpad, 3–5 business days). A multi-page site with course-wise SEO and lead alerts is ₹19,999 (Growth Engine). Hosting and care is ₹500 per month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I build a mobile app or a web app for my coaching?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most institutes should start with a web app. It opens from a link on any phone, costs less and needs no app store approval. A mobile app makes sense later if you need offline downloads or push notifications for a large student base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can students give online tests on their phones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A test series module can run timed tests with negative marking in the phone browser, show instant results and rank, and give topic-wise analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my own software better than a ready-made coaching app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ready-made apps are quick to start but usually charge a recurring subscription. Your own software, starting at ₹49,999+ with Inovix, costs more upfront but has no per-student fee and you own the source code."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.inovix.co.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.inovix.co.in/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Coaching Website & App Guide",
+      "item": "https://www.inovix.co.in/blog/coaching-institute-website-app-development"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar-wrap">
+    <a href="/" class="brand-group" aria-label="Inovix Home">
+      <div class="brand-mark"><span>IX</span></div>
+      <span class="brand-text">Inovix<span class="dot">.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/why-inovix">Why Inovix</a>
+      <a href="/work">Work</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/process">Process</a>
+      <a href="/tools">Tools <span class="badge-nav">Free</span></a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="/contact" class="pill"><span>Start a Project</span></a>
+  </header>
+
+  <main class="article-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/blog">Blog</a>
+      <span class="sep">/</span>
+      <span class="current">Coaching Website &amp; App Guide</span>
+    </nav>
+
+    <div class="back-btn-row">
+      <a href="/blog" class="back-nav-btn">← Back to All Articles</a>
+    </div>
+
+    <div class="article-meta-row">
+      <span class="blog-badge badge-purple">Coaching Institutes</span>
+      <span class="blog-badge badge-cyan">Website + App</span>
+      <span class="read-time-pill">7 min read • Updated Nov 2026</span>
+    </div>
+
+    <h1 class="article-title">Coaching Institute Website Design and App for Coaching Classes: 2026 Guide</h1>
+    <div class="article-subtitle">Whether you run SSC, banking, NEET/JEE, IELTS or school tuition batches, here is what to build first and what can wait.</div>
+
+    <div class="article-hero-media">
+      <img src="/blog/covers/coaching-institute-website-app-development.jpg" alt="Coaching Website &amp; App Guide - Inovix Technologies" width="1200" height="630" loading="eager" fetchpriority="high" />
+    </div>
+
+    <div class="author-card">
+      <img src="/brand/dev_avatar.png" alt="Sagar Punia" class="author-thumb" onerror="this.src='/ino.png';" />
+      <div>
+        <div class="author-name">Sagar Punia</div>
+        <div class="author-role">Founder &amp; Senior Web Engineer at Inovix Technologies • Panipat &amp; NCR</div>
+      </div>
+    </div>
+
+    <div class="article-content">
+<p>Students and parents compare coaching centres on their phones before they ever walk in for a demo class. Good <strong>coaching institute website design</strong> decides whether they call you or the institute next door. Once students join, a second question comes up: do you need an app for coaching classes to handle batches, tests and fees? This guide answers both in practical terms, with typical 2026 costs.</p>
+
+<h2>1. Why coaching institute website design matters for admissions</h2>
+<p>Pamphlets and hoardings create awareness, but the decision is made online. A parent searches "best SSC coaching in Panipat" or "IELTS classes near me", opens two or three results and checks faculty, batch timings and fees. If your institute has only a Facebook page, you look smaller than you are.</p>
+<p>Your website should answer the five questions every student has:</p>
+<ul>
+<li>Which courses and exams do you cover?</li>
+<li>Who teaches?</li>
+<li>When does the next batch start, and at what time?</li>
+<li>What is the fee (or at least the range)?</li>
+<li>Can I take a demo class?</li>
+</ul>
+
+<h2>2. Features that bring admission leads</h2>
+<ul>
+<li><strong>"Book a free demo class" form</strong> with name, phone and course. Keep it short.</li>
+<li><strong>1-click WhatsApp button</strong> on every page. Most students prefer a chat over a call.</li>
+<li><strong>Separate page for each course</strong> (SSC CGL, NEET, Class 10 Maths) so each can appear in Google for its own search.</li>
+<li><strong>Batch schedule</strong> that you can update yourself.</li>
+<li><strong>Real results</strong> with student permission. Never show selections you cannot prove; students check, and false claims damage trust quickly.</li>
+<li><strong>Google Business Profile</strong> with correct location, photos and reviews from actual students.</li>
+<li><strong>Instant lead alert</strong> to the counsellor's phone so the enquiry is called back within minutes.</li>
+</ul>
+<p>For a single-centre institute, our Launchpad Website at ₹4,999 covers the basics with WhatsApp lead button and Google Maps &amp; local SEO setup. Institutes with many courses usually choose Growth Engine at ₹19,999 for a multi-page site with targeted SEO and lead capture alerts. Details are on the <a href="/pricing">pricing page</a>.</p>
+
+<h2>3. Do you need an app for coaching classes?</h2>
+<p>Not always. An app is costly to build and maintain, and students already have too many apps. The honest way to decide:</p>
+<div class="article-table-wrap"><table class="article-table"><thead><tr><th>Your situation</th><th>Best fit</th></tr></thead><tbody>
+<tr><td>Offline classes only, need enquiries</td><td>Website</td></tr>
+<tr><td>Offline classes, want fee, attendance and test records</td><td>Website + web-based management panel</td></tr>
+<tr><td>Online test series for your own students</td><td>Web app that works on phone browser</td></tr>
+<tr><td>Recorded video courses sold all over India</td><td>Web app first, mobile app later</td></tr>
+<tr><td>Large student base needing offline downloads and push notifications</td><td>Mobile app</td></tr>
+</tbody></table></div>
+<p>A well-built web app opens from a link, works on any phone and needs no Play Store approval. Many institutes never need more than that. Our guide on <a href="/blog/website-vs-web-app-vs-mobile-app-guide">website vs web app vs mobile app</a> explains the difference in detail, and if you do need a store app, see <a href="/blog/mobile-app-development-company-panipat">mobile app development</a>.</p>
+
+<h2>4. Batch and student management</h2>
+<p>Most coaching offices run on registers and Excel. It works until you cross a few hundred students or open a second branch. A simple management panel keeps:</p>
+<ul>
+<li><strong>Student records:</strong> course, batch, joining date, parent contact.</li>
+<li><strong>Batches:</strong> timing, teacher, room, strength. Shifting a student between batches takes one click.</li>
+<li><strong>Attendance:</strong> marked on a phone; parents of absent students can be informed.</li>
+<li><strong>Staff logins with role-based access:</strong> the counsellor sees enquiries, the accountant sees fees, teachers see their own batches.</li>
+</ul>
+
+<h2>5. Online test series</h2>
+<p>For competitive exam coaching, tests are the product. A test module should offer:</p>
+<ul>
+<li>A question bank by subject and topic, in Hindi and English if needed.</li>
+<li>Timed tests with negative marking in the real exam pattern.</li>
+<li>Instant result with rank within the batch and solutions.</li>
+<li>Topic-wise analysis so the student knows where marks are being lost.</li>
+<li>Works smoothly on a low-cost Android phone and slow internet.</li>
+</ul>
+<p>You can keep tests free for classroom students and sell the same series to outside students for extra income. Be careful with typing and reviewing questions; wrong answer keys are the fastest way to lose student trust.</p>
+
+<h2>6. Fee collection and reminders</h2>
+<p>Pending fee is an uncomfortable topic in every institute. Software makes it routine instead of personal:</p>
+<ul>
+<li>Instalment plan saved for each student at admission.</li>
+<li>Automatic reminder a few days before the due date, by WhatsApp or SMS.</li>
+<li>Receipt generated instantly on payment.</li>
+<li>One screen showing total pending amount, batch-wise.</li>
+</ul>
+<p>Automated WhatsApp reminders in volume go through the official WhatsApp Business API, where Meta charges a small per-message fee. The rate changes, so check the current official price. Take consent for WhatsApp messages on the admission form.</p>
+
+<h2>7. Typical cost in 2026: platform vs your own software</h2>
+<p>Ready-made coaching apps usually charge a yearly subscription, often linked to student count or features, and some keep a share of online course sales. They are quick to start and reasonable for a new institute.</p>
+<p>Your own system costs more upfront but has no per-student fee and carries your own brand. At Inovix:</p>
+<ul>
+<li><strong>Website:</strong> ₹4,999 (Launchpad) or ₹19,999 (Growth Engine).</li>
+<li><strong>Custom management panel or test series web app:</strong> ₹49,999+ depending on modules, built in 14–28 day sprints, with full source-code handoff.</li>
+<li><strong>Hosting and care:</strong> ₹500/month for websites; larger apps are quoted based on usage.</li>
+</ul>
+<p>Payments are milestone-based (30% / 40% / 30%). For how custom pricing is worked out, see <a href="/blog/custom-software-development-cost-india-2026">custom software development cost in India</a>.</p>
+
+<h2>8. A sensible order to build things</h2>
+<ol>
+<li>Website with demo-class form, WhatsApp button and Google Business Profile.</li>
+<li>Enquiry follow-up list, so no lead is forgotten.</li>
+<li>Fee and batch management.</li>
+<li>Test series.</li>
+<li>Mobile app, only if student numbers and online sales justify it.</li>
+</ol>
+<p>Start small, see results, then add. If you tell us your courses, student count and what is hurting most right now, we will suggest the first step and give a clear quote. You can also see how we work on our <a href="/process">process page</a>.</p>
+    </div>
+
+    <div class="reader-faq-box">
+      <h2 style="font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 20px;">Frequently Asked Questions</h2>
+      <div class="reader-faq-item">
+        <div class="reader-faq-q">Q: How much does a coaching institute website cost?</div>
+        <div class="reader-faq-a">With Inovix, a coaching website starts at ₹4,999 one-time (Launchpad, 3–5 business days). A multi-page site with course-wise SEO and lead alerts is ₹19,999 (Growth Engine). Hosting and care is ₹500 per month.</div>
+      </div>
+      <div class="reader-faq-item">
+        <div class="reader-faq-q">Q: Should I build a mobile app or a web app for my coaching?</div>
+        <div class="reader-faq-a">Most institutes should start with a web app. It opens from a link on any phone, costs less and needs no app store approval. A mobile app makes sense later if you need offline downloads or push notifications for a large student base.</div>
+      </div>
+      <div class="reader-faq-item">
+        <div class="reader-faq-q">Q: Can students give online tests on their phones?</div>
+        <div class="reader-faq-a">Yes. A test series module can run timed tests with negative marking in the phone browser, show instant results and rank, and give topic-wise analysis.</div>
+      </div>
+      <div class="reader-faq-item">
+        <div class="reader-faq-q">Q: Is my own software better than a ready-made coaching app?</div>
+        <div class="reader-faq-a">Ready-made apps are quick to start but usually charge a recurring subscription. Your own software, starting at ₹49,999+ with Inovix, costs more upfront but has no per-student fee and you own the source code.</div>
+      </div>
+    </div>
+
+    <div class="article-cta">
+      <h3>Fill your next batch faster</h3>
+      <p>Tell us your courses and student count. Sagar will suggest the right website or app setup and a clear price on WhatsApp.</p>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <a href="https://wa.me/918307967782?text=Hi%20Sagar%2C%20I%20run%20a%20coaching%20institute%20and%20want%20a%20website%20%2F%20app%20for%20admissions%2C%20tests%20and%20fees.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" class="pill" style="padding: 14px 32px; font-size: 15px;">
+          <span>Chat on WhatsApp ↗</span>
+        </a>
+        <a href="/pricing" class="back-nav-btn" style="padding: 12px 24px; font-size: 14px;">See Pricing Plans</a>
+      </div>
+    </div>
+
+    <div class="related-section">
+      <h3 class="related-title">Related Inovix Guides</h3>
+      <div class="related-grid">
+        <a href="/blog/website-vs-web-app-vs-mobile-app-guide" class="related-card">
+          <div class="related-badge-row">
+            <span class="blog-badge badge-blue">Tech Architecture</span>
+            <span style="font-size: 11.5px; color: #94a3b8;">8 min read</span>
+          </div>
+          <h4>Website vs. Web App vs. Mobile App: What Does Your Business Actually Need in 2026?</h4>
+          <p>Don't waste ₹5 Lakhs on a mobile app when a ₹20,000 web app does the job better. An engineer's honest…</p>
+          <div class="related-arrow">Read Guide →</div>
+        </a>
+        <a href="/blog/mobile-app-development-company-panipat" class="related-card">
+          <div class="related-badge-row">
+            <span class="blog-badge badge-blue">App Development</span>
+            <span style="font-size: 11.5px; color: #94a3b8;">6 min read</span>
+          </div>
+          <h4>Mobile App Development Company in Panipat: Custom Android &amp; iOS Apps for Local Businesses</h4>
+          <p>Stop spending ₹3 to 5 Lakhs on Delhi agencies. How local Panipat businesses, delivery startups, and retail…</p>
+          <div class="related-arrow">Read Guide →</div>
+        </a>
+        <a href="/blog/custom-software-development-cost-india-2026" class="related-card">
+          <div class="related-badge-row">
+            <span class="blog-badge badge-green">2026 National Guide</span>
+            <span style="font-size: 11.5px; color: #94a3b8;">9 min read</span>
+          </div>
+          <h4>Custom Software Development Cost in India (2026 Price Guide): Real Rates &amp; Timelines</h4>
+          <p>How much should you really pay to build custom business software, a SaaS web app, or an internal ERP in…</p>
+          <div class="related-arrow">Read Guide →</div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Inovix Technologies</h4>
+        <p>India's Most Affordable Digital Agency &amp; Software House. High-speed web apps, custom CRMs, and lead machines starting at just ₹4,999.</p>
+        <p style="margin-top: 12px; color: #fff; font-size: 13px;">Panipat &amp; NCR, Haryana • Direct: +91 83079 67782</p>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="/work">Web Engineering</a></li>
+          <li><a href="/work">Mobile App Development</a></li>
+          <li><a href="/pricing">Custom CRM &amp; Software</a></li>
+          <li><a href="/process">Page-1 Google SEO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/why-inovix">Why Inovix</a></li>
+          <li><a href="/work">Live Builds</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
+          <li><a href="/process">4-Step Process</a></li>
+          <li><a href="/tools">16 Free Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Knowledge</h5>
+        <ul>
+          <li><a href="/blog">Engineering Blog</a></li>
+          <li><a href="/faq">Frequently Asked Questions</a></li>
+          <li><a href="/contact">Contact Founder</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Inovix Technologies. All rights reserved. Panipat, Haryana.</span>
+      <span>Built for Speed, Engineered for Growth.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
